@@ -756,7 +756,7 @@
 </tbody>
 </table>
 <h2 id="06-fusioncompute">06-FusionCompute逻辑架构</h2>
-<p><img alt="image-20200829201042351" src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200829201042351.png" /></p>
+<p><img alt="img" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/image-2020.png" /></p>
 <table>
 <thead>
 <tr>
@@ -1083,10 +1083,28 @@
 <h4 id="_9">虚拟网卡</h4>
 <p>虚拟网卡均有自己的IP地址、MAC地址，从网络角度来看，虚拟网卡与物理网卡一致。FusionCompute支持智能网卡，实现多队列、虚拟交换、QoS、上行链路聚合功能，提升虚拟网卡的I/O性能。</p>
 <h4 id="_10">分布式虚拟交换机</h4>
+<p>计算虚拟化驱动网络虚拟化的发展。传统数据中心，一台服务器运行一个操作系统，通过物理网线与交换机相连，由交换机实现不同的主机的交换、流量控制、安全控制等功能。在计算虚拟化后，一台服务器虚拟化成多台的虚拟的主机，每个虚拟主机有自己的CPU、内存和网卡。同一服务器上的不同主机之间既需要维持原有的通信，同时由于共享物理设备，引出了新的安全隔离、以及对流控的更高的需求，对虚拟交换技术的诉求由此产生。</p>
+<p>为统一和简化对各台主机的虚拟交换机的配置管理，业界引入分布式虚拟交换机。分布式虚拟交换机一方面可以对多台服务器的虚拟交换机统一配置、管理和监控，另一方面也可以保证虚拟机在服务器之间迁移时网络配置的一致性。</p>
 <p>简化和增强FusionSphere环境中的虚拟机网络连接，并提供统一管理入口、安全组等网络功能。</p>
 <p><strong>定义</strong></p>
 <p>分布式虚拟交换管理，即实现系统管理员对一至多台CNA服务器上的虚拟交换机的物理端口和虚拟端口进行配置/维护。</p>
 <p><img alt="image-20200829230900940" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/image-20200829230900940.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Firewall：防火墙</th>
+<th>Uplink Port：级联端口</th>
+<th>vNIC：虚拟机网络接口卡</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VSP：虚拟交换端口</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
 <p><strong>分布式虚拟交换机模型的基本特征：</strong></p>
 <ol>
 <li>用户可以配置多个分布式交换机，每个分布式交换机可以覆盖集群中的多个CNA节点。</li>
@@ -1096,6 +1114,10 @@
 </ol>
 <p><strong>创建分布式虚拟交换机</strong></p>
 <p><img alt="image-20200829231401299" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/image-20200829231401299.png" /></p>
+<p><strong>Linux Bridge介绍</strong></p>
+<p>Linux Bridge（网桥）是工作于二层的虚拟网络设备，功能类似于物理的交换机。</p>
+<p>Bridge可以绑定其他Linux网络设备作为从设备，并将这些设备虚拟化为端口，当一个从设备被绑定到Bridge上时，就相当于真实网络中的交换机端口插入了一个连接有终端的网线。</p>
+<p><img alt="image-20200829235610175" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/image-20200829235610175.png" /></p>
                 
               
               
