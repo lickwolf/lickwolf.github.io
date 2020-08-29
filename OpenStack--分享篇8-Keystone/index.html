@@ -1,0 +1,451 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.9">
+    
+    
+      
+        <title>OpenStack  分享篇8 Keystone - Cloudcomputing</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.36ee6aaa.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#keystone" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Cloudcomputing" class="md-header-nav__button md-logo" aria-label="Cloudcomputing">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Cloudcomputing
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              OpenStack  分享篇8 Keystone
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/lickwolf/lickwolf.github.io/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cloudcomputing" class="md-nav__button md-logo" aria-label="Cloudcomputing">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Cloudcomputing
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/lickwolf/lickwolf.github.io/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      HCIE
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="HCIE" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        HCIE
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../00-FusionSphere%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%99%9A%E6%8B%9F%E5%8C%96%EF%BC%89%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="第1章 FusionSphere" class="md-nav__link">
+      第1章 FusionSphere
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#keystone" class="md-nav__link">
+    KeyStone
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keystone_1" class="md-nav__link">
+    什么是keyStone
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keystone-architecture" class="md-nav__link">
+    KeyStone Architecture
+  </a>
+  
+    <nav class="md-nav" aria-label="KeyStone Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#domainprojectusergrouprole" class="md-nav__link">
+    Domain;Project;user;Group;Role示意图
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keystone_2" class="md-nav__link">
+    KeyStone的功能
+  </a>
+  
+    <nav class="md-nav" aria-label="KeyStone的功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keystone_3" class="md-nav__link">
+    KeyStone的访问流程：
+  </a>
+  
+    <nav class="md-nav" aria-label="KeyStone的访问流程：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    下面以创建虚拟机为例向大家重新描述这个流程：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keystone_4" class="md-nav__link">
+    keystone架构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/lickwolf/lickwolf.github.io/edit/master/docs/OpenStack--分享篇8-Keystone.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                  <h1>OpenStack  分享篇8 Keystone</h1>
+                
+                <h2 id="keystone">KeyStone</h2>
+<p>https://www.openstack.org/software/project-navigator/openstack-components#openstack-services</p>
+<h2 id="keystone_1">什么是keyStone</h2>
+<p>keyStone是OpenStack中负责管理身份服务（Identity Service），即KeyStone，是OpenStack早期版本就独立出来的一个核心项目，在OpenStack的整体框架中，KeyStone的作用类似于一个服务总线，将Nova，Cinder，Horzion，Swift，Glance以及Neutron等其他服务逐渐都通过KeyStone来注册其服务的Endpoint（访问服务的url），这些服务由KeyStone体精身份认证之后，才能获得该服务的Endpoint来进行访问。</p>
+<h2 id="keystone-architecture">KeyStone Architecture</h2>
+<p>KeyStone的中的一些基本概念</p>
+<p>https://docs.openstack.org/keystone/latest/getting-started/architecture.html</p>
+<p>Service：服务；比如Nova；Cinder，Glance；Swift等，根据User，Tenant和Role一个服务可以确认当前用户名是否具有访问其资源的权限。服务对外暴露一个Endpoint，用户只有通过这些Endpoint才能对这些服务进行访问。使用身份服务验证user/project.创建一个token在成功后返回这个token。</p>
+<p>Identity：身份服务；提供身份验证凭证以及相关的user/group的数据信息。一般情况下；此数据由Identity Service进行管理，在复杂场景下数据由Endpoint Service进行管理。例如在keyStone作为LDAP（<strong>轻型目录访问协议</strong>（<a href="https://baike.baidu.com/item/英文">英文</a>：<strong>Lightweight Directory Access Protocol</strong>，<a href="https://baike.baidu.com/item/缩写">缩写</a>：<strong>LDAP</strong>，/ˈɛldæp/）是一个开放的，中立的，工业标准的<a href="https://baike.baidu.com/item/应用协议">应用协议</a>，通过<a href="https://baike.baidu.com/item/IP协议">IP协议</a>提供访问控制和维护分布式信息的目录信息。）的前端时，KeyStone仅仅负责传递消息给LDAP，此时LDAP才是事实上的源头。</p>
+<p>Users：用户；代表单个API的使用者，用户本身必须由特定的域所持有，因此所有用户名不是全局唯一的，而仅仅是其所属的域的唯一。通过KeyStone访问OpenStack服务的个人，系统或者是某个服务，KeyStone会通过认证信息（Credential，比如密码等）验证用户请求的合法性，通过验证的用户会被分配到一个特定的令牌，该令牌可以用作对后续资源访问的一个通行证。</p>
+<p>Group：组；代表的是用户集合的容器。组本身必须由特定的域所持有，组不是全局唯一的，仅仅是其所属的域的唯一。可以向Group中添加用户，并直接向Group分配角色，那么在Group中的用户自动继承对Group添加的角色，通过引入Group的概念，能够实现对用户组的管理，能够使得KeyStone同时管理一组用户的权限。</p>
+<p>Resource：资源；负责提供有关project和Domain的数据信息。</p>
+<p>Projects：项目；项目是各个服务中的一些可以访问的资源的集合，例如在Nova中，我们可以将project理解为一组虚拟机的拥有者，在Swift中则是一组容器的拥有者。因此在创建虚拟机或者容器是需要指定他们所属的project，否则会将创建的虚拟机或者容器添加到默认的项目下。user总是绑定在某些project上的，用户在访问project所属的资源前，必须具有对该project的访问权限，或者说在特定的project下赋予了特定的角色。project不是全局唯一，仅在它所属的Domain中唯一即可。</p>
+<p>Domain：域。KeyStone是一个虚拟的概念，由特定的项目（Project）来承担。一个Domain是一组user,project或者Group的容器，一个Domain对应一个大的机构，一个数据中心，所以Domain是全局唯一的。云服务的客户是Domain的拥有者，他们可以在自己的Domain上任意的创建Project，User，Group和Roles。通过引入Domain云服务的客户可以对其所拥有的多个Project进行管理，而不必针对单一的Project进行分别管理。</p>
+<p>​   域名：在所有域中国都是全球唯一的</p>
+<p>​   Roles：在所属域中唯一</p>
+<p>​   user:在所属域中唯一。</p>
+<p>​   project：在所属域中唯一</p>
+<p>​   group：在所属域中唯一</p>
+<p>Assigment</p>
+<p>Roles：角色；一个用户所具有的角色，角色不同意味着权限不同。用户所拥有的角色决定了他所能访问资源的权限；能够访问哪些资源，能对哪些资源进行管理。一个用能可以被赋予一个domain或者project的角色。一个被赋予Domain的Role则被认定对这个Domain中的所有Project都具有相同的角色。同样的一个被赋予Project的橘色那么它将对这个Project具有权限。Roles能够进行继承，也就是说在一个项目树内假设Role对树根有权限，那么他便对所以的project有权限。</p>
+<p>Role Assignment</p>
+<p>Token：令牌。令牌是允许访问特定资源的凭证。无论通过何种方式，KeyStone最终的目的是对外提供一个访问特定资源的凭证。用户通过Credential获取在某个项目下的令牌。</p>
+<p>Catalog：提供用于端点发现的注册表</p>
+<p>Credentials:凭证。用户的用户名和密码。</p>
+<h3 id="domainprojectusergrouprole">Domain;Project;user;Group;Role示意图</h3>
+<p><img alt="2020-5-13-1-27" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/2020-5-13-1-27.png" /></p>
+<h2 id="keystone_2">KeyStone的功能</h2>
+<p>基于上文对KeyStone的介绍；KeyStoen主要有Authentication（认证）；Token(令牌)；Catalog（目录）和policy（安全策略；或称为访问控制）4个核心功能。</p>
+<p>Authentication：对用户身份进行验证，用户的身份凭证通常是以用户名和密码的方式呈现。认证服务同时提供了与该用户相关的元数据，例如用户的项目角色。</p>
+<p>Token：确认用户的身份之后，会提供给用户一个核实该身份并用于后续资源访问请求的令牌。Token服务则验证并管理用于验证身份的令牌。KeyStone会颁发给通过认证服务的用户两种类型的令牌。</p>
+<p>​   一类是无明确访问范围的令牌（unscoped token），此种类型的令牌存在的主要目的是用来保存用户的Credential，可以基于此令牌获取有确定访问范围的的令牌（scoped token）。</p>
+<p>Catalog：catalog对外提供一个服务的查询目录，或者说是每个服务的可访问Endpoint列表。服务目录存在所有服务的Endpoint信息，服务之间的资源访问首先需要获取到该资源的Endpoint信息，通常是一些URl列表。服务目录存有所有服务的Endpoint信息，服务之间的资源访问首先要从服务目录上获取到该资源的Endpoint信息。keyStone提供的是具有访问范围的令牌同时返回给用户，</p>
+<p>Policy：一个基于规则的身份认证引擎，通过配置文件来定义各种动作与用户角色的匹配关系。</p>
+<h3 id="keystone_3">KeyStone的访问流程：</h3>
+<p>KeyStone在用户和服务之间架起了一道桥梁：用户从KeyStone获取令牌以及服务列表；用户访问服务时，发送自己的令牌；相关的服务向KeyStone求证令牌的合法性。</p>
+<h4 id="_1">下面以创建虚拟机为例向大家重新描述这个流程：</h4>
+<p><img alt="Keystone-workflow" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/Keystone-workflow.png" /></p>
+<p>1.用户发送自己的凭证到keystone，keystone认证成功之后返回给用户一个unscoped token以及服务目录。</p>
+<p>2.用户通过unscoped token向keystone查询当前环境下的项目列表，keystone进行验证token成功后返回一个项目列表给用户。</p>
+<p>3.用户选择一个项目，发送自己的凭证给keyston申请一个scoped token，Keystone验证完成后返回一个scoped token.</p>
+<p>4.用户凭借scoped token发送请求到计算服务的Endpoint创建虚拟机，keystone验证scoped token成功后，再把请求发送给Nova，最终创建虚拟机。</p>
+<h3 id="keystone_4">keystone架构</h3>
+<p><img alt="openstack-architecture-13-638" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/openstack-architecture-13-638.jpg" /></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.df0def68.min.js"></script>
+      <script src="../assets/javascripts/bundle.ba57d267.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
