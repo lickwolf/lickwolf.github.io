@@ -12,7 +12,7 @@
         <meta name="description" content="学习 沉淀 成长 分享">
       
       
-        <link rel="canonical" href="https://github.com/lickwolf/lickwolf.github.io/OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8711-Neutron-%E4%B8%8B/">
+        <link rel="canonical" href="https://github.com/lickwolf/lickwolf.github.io/01-linux/">
       
       
         <meta name="author" content="Han Lu">
@@ -22,7 +22,7 @@
     
     
       
-        <title>OpenStack  分享篇11 Neutron 下 - Cloudcomputing</title>
+        <title>01-Linxu基本操作 - Cloudcomputing</title>
       
     
     
@@ -66,6 +66,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#01-linxu" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -90,7 +95,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              OpenStack  分享篇11 Neutron 下
+              01-Linxu基本操作
             
           </span>
         </div>
@@ -152,16 +157,14 @@
         
           
 
-  
-
-<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href=".." class="md-tabs__link">
+      <a href=".." class="md-tabs__link md-tabs__link--active">
         Home
       </a>
     
@@ -173,7 +176,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../00-FusionSphere%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%99%9A%E6%8B%9F%E5%8C%96%EF%BC%89%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="md-tabs__link md-tabs__link--active">
+        <a href="../00-FusionSphere%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%99%9A%E6%8B%9F%E5%8C%96%EF%BC%89%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="md-tabs__link">
           HCIE-Cloudcomputing
         </a>
       
@@ -261,12 +264,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       HCIE-Cloudcomputing
@@ -320,12 +321,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
     
     <label class="md-nav__link" for="nav-2-4">
       第4章 OpenSatck
@@ -439,18 +438,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="4.7-OpenStack-Neutron-下" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8711-Neutron-%E4%B8%8B/" title="4.7-OpenStack-Neutron-下" class="md-nav__link">
       4.7-OpenStack-Neutron-下
     </a>
-    
   </li>
 
         
@@ -643,6 +635,97 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    用户登录
+  </a>
+  
+    <nav class="md-nav" aria-label="用户登录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#root" class="md-nav__link">
+    root用户
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#centos6centos7uid" class="md-nav__link">
+    分别在centos6和centos7上查看用户的uid
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    普通用户（非特权）用户
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminal" class="md-nav__link">
+    终端terminal
+  </a>
+  
+    <nav class="md-nav" aria-label="终端terminal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    交换式接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guigraphic-user-interface" class="md-nav__link">
+    GUI：Graphic User interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clicommand-line" class="md-nav__link">
+    CLI：Command line
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -652,36 +735,115 @@
                   
                 
                 
-                  <h1>4.7-OpenStack-Neutron-下</h1>
-                
-                <p><img alt="image-20200806143240044" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/neutron的三大模型.png" /></p>
-<p>计算节点的实现模型小结</p>
-<p><img alt="image-20200806140100679" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/计算节点实现模型.png" /></p>
-<p>1.用户网络层：</p>
-<p>用户网络层（user network），指的是OpenStack的用户创建的网络，也成为外部网络。外部网络是相对于Host内部网络而言的。用户网络层对用的Bridge是br-ethx或者是br-tun。br-ethx对应的是Flat，Vlab等非隧道型二层网络。br-tun队形的是VxLan，GRE等隧道型的二层网络。实现载体一般是OVS，用户网络层的功能是将用户网络（外部网络）和本地网络进行相互转换。如VID的转换，VXLAN的封装和解封装。</p>
-<p>2.本地网络层</p>
-<p>本地网络层指的是Host主机内部的本地网络。由于用户网络层（Local network）对这一层的屏蔽，本地网络层只需要感知一种技术：VLAN。本地网络层分为两层。qbr的实现载体是Linux-Bridge，它仅仅负责安全，称之为安全层。br-int的实现载体一般是ovs，它负责内部交换，成为Bridge层。</p>
-<p>​   bridge层是对VM层的一个屏蔽，从VM发出的Untag报文，被Bridge层转换为Tag报文转发到br-ethx/br-tun；从br-ethx/br-tun转发到br-int的Tag报文被br-int剥去tag，编程un-tag报文再转发给VM。</p>
-<p>在同一个host的本地网络中的不同VM进行通信，他们经过本地网络层（br-int）即可完成。不需要再经过用户网络层。</p>
-<p><img alt="image-20200806142208478" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/VM之间的通信.png" /></p>
-<p>Neutron-网络节点实现模型</p>
-<p><img alt="image-20200806151424790" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/VM访问Internet.png" /></p>
-<p>一个VM想要访问外部网络，必须要到达数据中心的网关（GW）。接下来我们讨论的问题实际上是VM如何到达数据中心的网关。</p>
-<p>在Neutron中的一个假设模型：</p>
-<p>1.所有计算节点中的VM，要访问Internet，必须经过网络节点，网络节点作为第一层网关。</p>
-<p>2.网络节点会连接到DC物理网络中的一个设备（或者是交换机或者是路由器）通过这个设备上联到DC的GW。此设备我们成为第二层网关。</p>
-<p>3.DC网关再连接到Internet上。</p>
-<p>Neutron并不关心上述的2,3点。对于Neutron来说第二层网关，DC External network和第三层网关（DW3）都不属于neutron管理范围，是DC运营商提前规划好的网络。这些网络对于Neutron统称为External Network或者Public Network。</p>
-<div class="highlight"><pre><span></span><code>Neutron在网络节点中部署了路由器。这个路由器也是是虚拟路由器，利用的是Linux内核功能。
+                <h1 id="01-linxu">01-Linxu基本操作<a class="headerlink" href="#01-linxu" title="Permanent link">&para;</a></h1>
+<p>使用free -h显示使用内存</p>
+<p><img alt="image-20200917163950661" src="https://gitee.com/hanstack/hanstack_image/raw/master/img/20200917163950.png" /></p>
+<p>使用 init 3 进入字符操作界面</p>
+<p>再使用free -h 查看内存使用情况</p>
+<p><img alt="image-20200917164218954" src="https://gitee.com/hanstack/hanstack_image/raw/master/img/20200917164219.png" /></p>
+<p>使用init 5恢复图形界面</p>
+<p><img alt="image-20200917164350754" src="https://gitee.com/hanstack/hanstack_image/raw/master/img/20200917164350.png" /></p>
+<p><img alt="image-20200917164413882" src="https://gitee.com/hanstack/hanstack_image/raw/master/img/20200917164414.png" /></p>
+<p>halt 关机不断电</p>
+<p>poweroff 关机并断电</p>
+<p>init 3 字符界面</p>
+<p>init 5 图形</p>
+<p>init 0 关机</p>
+<p>reboot 重启</p>
+<p>poweroff 关机</p>
+<p>ctrl+alt+F2 在不关闭图形的情况下临时切换到字符界面</p>
+<p><img alt="image-20200917165906367" src="https://gitee.com/hanstack/hanstack_image/raw/master/img/20200917165906.png" /></p>
+<p>ctrl+alt+F1切换回图形界面</p>
+<p><img alt="image-20200917170029979" src="https://gitee.com/hanstack/hanstack_image/raw/master/img/20200917170030.png" /></p>
+<p>who am i 查看自己是谁</p>
+<div class="highlight"><pre><span></span><code>[root@centos6 ~]# who am i
+root     pts/0        2020-09-17 16:16 (192.168.34.1)
 </code></pre></div>
 
-<p><img alt="image-20200806150817611" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/网络节点.png" /></p>
-<p>从OpenStack的J版本开始引入了DVR特性，DVR部署在计算节点上。计算节点访问internet,不必经过网络节点，直接从计算节点的DVR就可以访问。</p>
-<p><img alt="image-20200806143240044" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/neutron的三大模型.png" /></p>
-<p>控制节点并没有具体的网络功能，它只是对各种虚拟网元做管理配合工作。控制节点部署OpenSatck的各种进程，对于Neutron来说，他的进程名是neutron-server。</p>
-<p>控制节点的Neutron集成通过RESTful或者CLI接口接收外部请求，通过RPC与Agent进行交互。Neutron进程与各个Agent共同完成控制任务。</p>
-                
-                  
+<p>centos7 启动网卡</p>
+<div class="highlight"><pre><span></span><code>nmcli connection modify ens33 connection.autoconnect yes
+</code></pre></div>
+
+<h2 id="_1">用户登录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="root">root用户<a class="headerlink" href="#root" title="Permanent link">&para;</a></h3>
+<p>​   一个特殊的管理账户</p>
+<p>​   也被称为超级用户</p>
+<p>​   root已接近完整的系统控制</p>
+<p>​   对系统损害几乎有无限的能力</p>
+<p>​   除非必要，不要登录为root</p>
+<p>​   <strong>是否为超级用户并不是看用户名而是uid</strong></p>
+<h3 id="centos6centos7uid">分别在centos6和centos7上查看用户的uid<a class="headerlink" href="#centos6centos7uid" title="Permanent link">&para;</a></h3>
+<p>centos6</p>
+<div class="highlight"><pre><span></span><code>[han@centos6 ~]$ id -u
+500
+[root@centos6 ~]# id -u
+0
+</code></pre></div>
+
+<p>centos7</p>
+<div class="highlight"><pre><span></span><code>[root@localhost ~]# id -u
+0
+[han@localhost ~]$ id -u
+1000
+</code></pre></div>
+
+<h3 id="_2">普通用户（非特权）用户<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>​   权限有限</p>
+<p>​   造成损坏的能力比较有限</p>
+<h2 id="terminal">终端terminal<a class="headerlink" href="#terminal" title="Permanent link">&para;</a></h2>
+<p>设备终端</p>
+<p>​   键盘鼠标显示器</p>
+<p>物理终端（/dev/console）</p>
+<p>​   控制台console</p>
+<p>虚拟终端（tty:teleypewriters, /dev/tty# #为（1-6））</p>
+<p>​   tty可有n个，Ctrl+ALt+F（1）</p>
+<p>图形终端（/dev/tty7）startx,windows</p>
+<p>​   centos6:ctrl+alt+F7</p>
+<p>​   centos7:在那个终端启动，即位于那个虚拟终端</p>
+<p>串行终端（/dev/ttyS#）</p>
+<p>​   ttys</p>
+<p>伪终端（pty：pseudo-tty /devpts/#）</p>
+<p>​   pty,SSH远程连接</p>
+<p>查看当前终端设备：</p>
+<p>​   tty</p>
+<h3 id="_3">交换式接口<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="guigraphic-user-interface">GUI：Graphic User interface<a class="headerlink" href="#guigraphic-user-interface" title="Permanent link">&para;</a></h3>
+<p>​   Desktop：</p>
+<p>​       kde</p>
+<p>​       gnome</p>
+<h3 id="clicommand-line">CLI：Command line<a class="headerlink" href="#clicommand-line" title="Permanent link">&para;</a></h3>
+<p>查看linux的版本信息 cat /etc/centos-release</p>
+<div class="highlight"><pre><span></span><code>[han@localhost ~]$ cat /etc/centos-release
+CentOS Linux release 7.8.2003 (Core)
+</code></pre></div>
+
+<p>查看内核版本 uname -r</p>
+<div class="highlight"><pre><span></span><code>[han@localhost ~]$ uname -r
+3.10.0-1127.el7.x86_64
+</code></pre></div>
+
+<p>查看当前使用的shell类型</p>
+<div class="highlight"><pre><span></span><code>[root@centos6 ~]# echo $SHELL
+/bin/bash
+</code></pre></div>
+
+<p>查看系统中所有的shell</p>
+<div class="highlight"><pre><span></span><code>[root@centos6 ~]# cat /etc/shells
+/bin/sh
+/bin/bash
+/sbin/nologin
+/bin/dash
+/bin/tcsh
+/bin/csh
+</code></pre></div>
+
+<p>nologin类型的shell：不需要登录</p>
+<p>快捷键</p>
+<p>清屏 ctrl + L</p>
+<p>退出 ctrl + D</p>
+<p>内部命令是集成在shell中的，系统启动时就加载在内存中</p>
+<p>使用type查看是否为内部命令</p>
+<p>大小写敏感只是跟文件系统有关</p>
                 
               
               
@@ -696,41 +858,6 @@
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8710-Neutron-%E4%B8%8A/" title="4.7-OpenStack-Neutron-上" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  上一页
-                </span>
-                4.7-OpenStack-Neutron-上
-              </div>
-            </div>
-          </a>
-        
-        
-          <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8712-Ceilometer/" title="4.8-OpenSatck-Ceilometer" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  下一页
-                </span>
-                4.8-OpenSatck-Ceilometer
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

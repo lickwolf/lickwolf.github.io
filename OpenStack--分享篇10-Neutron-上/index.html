@@ -1,4 +1,972 @@
-<!doctype html><html lang=zh class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="学习 沉淀 成长 分享"><link href=https://github.com/lickwolf/lickwolf.github.io/OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8710-Neutron-%E4%B8%8A/ rel=canonical><meta name=author content="Han Lu"><link rel="shortcut icon" href=../assets/favicon.png><meta name=generator content="mkdocs-1.1.2, mkdocs-material-5.5.12"><title>OpenStack 分享篇10 Neutron 上 - Cloudcomputing</title><link rel=stylesheet href=../assets/stylesheets/main.4dd2dd8d.min.css><link rel=stylesheet href=../assets/stylesheets/palette.6a5ad368.min.css><meta name=theme-color content=#2094f3><link href=https://fonts.gstatic.com rel=preconnect crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback"><style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style></head> <body dir=ltr data-md-color-scheme=preference data-md-color-primary=blue data-md-color-accent=cyan> <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#_1 class=md-skip> 跳转至 </a> </div> <div data-md-component=announce> </div> <header class=md-header data-md-component=header> <nav class="md-header-nav md-grid" aria-label=Header> <a href=https://github.com/lickwolf/lickwolf.github.io title=Cloudcomputing class="md-header-nav__button md-logo" aria-label=Cloudcomputing> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 89 89"><path d="M3.136 17.387v42.932l42.932 21.467L3.136 17.387z"/><path fill-opacity=.5 d="M21.91 8l42.933 64.398-18.775 9.388L3.136 17.387 21.91 8z"/><path d="M67.535 17.387L40.273 35.543l21.878 32.818 5.384 2.691V17.387z"/><path fill-opacity=.25 d="M67.535 17.387v53.666l18.774-9.388V8l-18.774 9.387z"/></svg> </a> <label class="md-header-nav__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg> </label> <div class=md-header-nav__title data-md-component=header-title> <div class=md-header-nav__ellipsis> <span class="md-header-nav__topic md-ellipsis"> Cloudcomputing </span> <span class="md-header-nav__topic md-ellipsis"> OpenStack 分享篇10 Neutron 上 </span> </div> </div> <label class="md-header-nav__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=搜索 placeholder=搜索 autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query data-md-state=active> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </label> <button type=reset class="md-search__icon md-icon" aria-label=Clear data-md-component=search-reset tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg> </button> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> <div class=md-header-nav__source> <a href=https://github.com/lickwolf/lickwolf.github.io title="前往 GitHub 仓库" class=md-source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg> </div> <div class=md-source__repository> HanLu/Cloudcomputing </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <nav class="md-tabs md-tabs--active" aria-label=Tabs data-md-component=tabs> <div class="md-tabs__inner md-grid"> <ul class=md-tabs__list> <li class=md-tabs__item> <a href=.. class=md-tabs__link> Home </a> </li> <li class=md-tabs__item> <a href=../00-FusionSphere%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%99%9A%E6%8B%9F%E5%8C%96%EF%BC%89%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/ class="md-tabs__link md-tabs__link--active"> HCIE-Cloudcomputing </a> </li> <li class=md-tabs__item> <a href=../00-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/ class=md-tabs__link> Linux </a> </li> <li class=md-tabs__item> <a href=../00-Python%E6%A6%82%E8%BF%B0/ class=md-tabs__link> Python </a> </li> </ul> </div> </nav> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=https://github.com/lickwolf/lickwolf.github.io title=Cloudcomputing class="md-nav__button md-logo" aria-label=Cloudcomputing> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 89 89"><path d="M3.136 17.387v42.932l42.932 21.467L3.136 17.387z"/><path fill-opacity=.5 d="M21.91 8l42.933 64.398-18.775 9.388L3.136 17.387 21.91 8z"/><path d="M67.535 17.387L40.273 35.543l21.878 32.818 5.384 2.691V17.387z"/><path fill-opacity=.25 d="M67.535 17.387v53.666l18.774-9.388V8l-18.774 9.387z"/></svg> </a> Cloudcomputing </label> <div class=md-nav__source> <a href=https://github.com/lickwolf/lickwolf.github.io title="前往 GitHub 仓库" class=md-source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg> </div> <div class=md-source__repository> HanLu/Cloudcomputing </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=.. title=Home class=md-nav__link> Home </a> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=nav-2 type=checkbox id=nav-2 checked> <label class=md-nav__link for=nav-2> HCIE-Cloudcomputing <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=HCIE-Cloudcomputing data-md-level=1> <label class=md-nav__title for=nav-2> <span class="md-nav__icon md-icon"></span> HCIE-Cloudcomputing </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../00-FusionSphere%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%99%9A%E6%8B%9F%E5%8C%96%EF%BC%89%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/ title="第1章 FusionSphere" class=md-nav__link> 第1章 FusionSphere </a> </li> <li class=md-nav__item> <a href=../01-FusionAccess%E6%A1%8C%E9%9D%A2%E4%BA%91/ title="第2章 FusionAccess" class=md-nav__link> 第2章 FusionAccess </a> </li> <li class=md-nav__item> <a href=../02-FusionStorage/ title="第3章 FusionStoarge" class=md-nav__link> 第3章 FusionStoarge </a> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=nav-2-4 type=checkbox id=nav-2-4 checked> <label class=md-nav__link for=nav-2-4> 第4章 OpenSatck <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="第4章 OpenSatck" data-md-level=2> <label class=md-nav__title for=nav-2-4> <span class="md-nav__icon md-icon"></span> 第4章 OpenSatck </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../OpenSatck%E7%BB%84%E4%BB%B6/ title=4.0-OpenStack-OverView class=md-nav__link> 4.0-OpenStack-OverView </a> </li> <li class=md-nav__item> <a href=../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%874-Nova/ title=4.1-OpenStck-Nova class=md-nav__link> 4.1-OpenStck-Nova </a> </li> <li class=md-nav__item> <a href=../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%875-Cinder/ title=4.2-OpenStack-Cinder class=md-nav__link> 4.2-OpenStack-Cinder </a> </li> <li class=md-nav__item> <a href=../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%876-Glance/ title=4.3-OpenStack-Glance class=md-nav__link> 4.3-OpenStack-Glance </a> </li> <li class=md-nav__item> <a href=../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%877-Swift/ title=4.4-OpenStack-Swift class=md-nav__link> 4.4-OpenStack-Swift </a> </li> <li class=md-nav__item> <a href=../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%878-Keystone/ title=4.5-OpenSatck-Keystone class=md-nav__link> 4.5-OpenSatck-Keystone </a> </li> <li class=md-nav__item> <a href=../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%879-Ironic/ title=4.6-OpenStack-Ironic class=md-nav__link> 4.6-OpenStack-Ironic </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" data-md-toggle=toc type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> 4.7-OpenStack-Neutron-上 <span class="md-nav__icon md-icon"></span> </label> <a href=./ title=4.7-OpenStack-Neutron-上 class="md-nav__link md-nav__link--active"> 4.7-OpenStack-Neutron-上 </a> <nav class="md-nav md-nav--secondary" aria-label=目录> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> 目录 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=#_1 class=md-nav__link> 前言： </a> <nav class=md-nav aria-label=前言：> <ul class=md-nav__list> <li class=md-nav__item> <a href=#neutron class=md-nav__link> Neutron的体系机构： </a> </li> <li class=md-nav__item> <a href=#linux class=md-nav__link> Linux虚拟网络 </a> <nav class=md-nav aria-label=Linux虚拟网络> <ul class=md-nav__list> <li class=md-nav__item> <a href=#neutron_1 class=md-nav__link> Neutron的三类节点 </a> <nav class=md-nav aria-label=Neutron的三类节点> <ul class=md-nav__list> <li class=md-nav__item> <a href=#_2 class=md-nav__link> 计算节点 </a> </li> <li class=md-nav__item> <a href=#_3 class=md-nav__link> 网络节点 </a> </li> <li class=md-nav__item> <a href=#_4 class=md-nav__link> 控制节点 </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#neutron_2 class=md-nav__link> Neutron的网络 </a> </li> <li class=md-nav__item> <a href=#_5 class=md-nav__link> 计算节点的实现模型 </a> </li> <li class=md-nav__item> <a href=#vlan class=md-nav__link> VLAN实现模型 </a> <nav class=md-nav aria-label=VLAN实现模型> <ul class=md-nav__list> <li class=md-nav__item> <a href=#qbrbr-int class=md-nav__link> qbr与br-int </a> </li> <li class=md-nav__item> <a href=#br-ethx class=md-nav__link> br-ethx </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#vmvlan-id class=md-nav__link> VM与VLAN ID </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8711-Neutron-%E4%B8%8B/ title=4.7-OpenStack-Neutron-下 class=md-nav__link> 4.7-OpenStack-Neutron-下 </a> </li> <li class=md-nav__item> <a href=../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8712-Ceilometer/ title=4.8-OpenSatck-Ceilometer class=md-nav__link> 4.8-OpenSatck-Ceilometer </a> </li> <li class=md-nav__item> <a href=../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%873-KVM/ title=4.9-OpenStack-KVM class=md-nav__link> 4.9-OpenStack-KVM </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../03-%E5%A4%87%E4%BB%BD/ title="第5章 备份" class=md-nav__link> 第5章 备份 </a> </li> <li class=md-nav__item> <a href=../04-%E5%AE%B9%E7%81%BE/ title="第6章 容灾" class=md-nav__link> 第6章 容灾 </a> </li> <li class=md-nav__item> <a href=../05-%E8%BF%81%E7%A7%BB/ title="第7章 迁移" class=md-nav__link> 第7章 迁移 </a> </li> <li class=md-nav__item> <a href=../06-%E5%8D%8E%E4%B8%BA%E4%BA%91Stack/ title="第8章 私有云" class=md-nav__link> 第8章 私有云 </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=nav-3 type=checkbox id=nav-3> <label class=md-nav__link for=nav-3> Linux <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Linux data-md-level=1> <label class=md-nav__title for=nav-3> <span class="md-nav__icon md-icon"></span> Linux </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../00-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/ title=00-计算机基础 class=md-nav__link> 00-计算机基础 </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=nav-4 type=checkbox id=nav-4> <label class=md-nav__link for=nav-4> Python <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Python data-md-level=1> <label class=md-nav__title for=nav-4> <span class="md-nav__icon md-icon"></span> Python </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../00-Python%E6%A6%82%E8%BF%B0/ title=Python概述 class=md-nav__link> Python概述 </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label=目录> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> 目录 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=#_1 class=md-nav__link> 前言： </a> <nav class=md-nav aria-label=前言：> <ul class=md-nav__list> <li class=md-nav__item> <a href=#neutron class=md-nav__link> Neutron的体系机构： </a> </li> <li class=md-nav__item> <a href=#linux class=md-nav__link> Linux虚拟网络 </a> <nav class=md-nav aria-label=Linux虚拟网络> <ul class=md-nav__list> <li class=md-nav__item> <a href=#neutron_1 class=md-nav__link> Neutron的三类节点 </a> <nav class=md-nav aria-label=Neutron的三类节点> <ul class=md-nav__list> <li class=md-nav__item> <a href=#_2 class=md-nav__link> 计算节点 </a> </li> <li class=md-nav__item> <a href=#_3 class=md-nav__link> 网络节点 </a> </li> <li class=md-nav__item> <a href=#_4 class=md-nav__link> 控制节点 </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#neutron_2 class=md-nav__link> Neutron的网络 </a> </li> <li class=md-nav__item> <a href=#_5 class=md-nav__link> 计算节点的实现模型 </a> </li> <li class=md-nav__item> <a href=#vlan class=md-nav__link> VLAN实现模型 </a> <nav class=md-nav aria-label=VLAN实现模型> <ul class=md-nav__list> <li class=md-nav__item> <a href=#qbrbr-int class=md-nav__link> qbr与br-int </a> </li> <li class=md-nav__item> <a href=#br-ethx class=md-nav__link> br-ethx </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#vmvlan-id class=md-nav__link> VM与VLAN ID </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class=md-content> <article class="md-content__inner md-typeset"> <h1>4.7-OpenStack-Neutron-上</h1> <h2 id=_1>前言：<a class=headerlink href=#_1 title="Permanent link">&para;</a></h2> <p>与存储资源，计算资源一样。网络也是Openstack所管理的最重要的资源之一。Nova实现了OpenStack虚拟机世界的抽象，Swift与Cinder为虚拟机提供了安身之本，但是没有网络，任何虚拟机都将只是这个世界中的孤岛，不知道自己生存的价值。</p> <p>最初，OpenStack中的网络服务由Nova中的一个单独模块nova-network来提供，但是为了提供更为丰富的拓扑结构，支持更多的网络类型，具有更高扩展性，Nova-network从Nova中独立出来这就是现在的Neutron。</p> <p>当前Neutron已经成为OpenStack三大核心(存储，计算，网络)之一，对外提供NaaS（Network as a Service）服务。Neutron由Nova-network发展而来。Neutron的发展简史可以概括为三个阶段：Nova-network；Quantum，Neutron。</p> <p>Nova-network阶段，其支持的主要功能有：</p> <p>1）IP地址分配：包含为虚拟机分配私有（固定）和浮动IP地址</p> <p>2）网络管理：仅支持三种网络，扁平网络，带DHCP功能的扁平网络，VLAN网络</p> <p>3）安全控制：主要通过ebtables和iptables来实现</p> <p>此阶段，Nova-network支持的功能比较简单，到了Quantum阶段，其支持的主要功能有：</p> <p>1）支持多租户隔离，并提供面向租户的API</p> <p>2）插件式结构支持多种网络后端技术，包括Open vSwitch，Cisco，Linux Bridge，Nicira NVP，Ryu，NEC等</p> <p>3）支持位于不同二层网络的IP地址重叠</p> <p>4）支持基本的三层转发和多路由器</p> <p>5）支持隧道技术（Tuneling）</p> <p>6）支持三层代理和DHCP代理的多借点部署，增强可扩展性和可靠性</p> <p>7）支持负载均衡API</p> <p>Quantum阶段所支持的功能已经初具规模。有了Quantum打下的良好基础，进入第三阶段之后，Neutron所支持的功能和应用场景，得到了更大规模的发展</p> <p><img alt=image-20200716101248194 src=https://gitee.com/hanstack/hanstack_image/raw/master/image/image-20200716101248194.png></p> <h3 id=neutron>Neutron的体系机构：<a class=headerlink href=#neutron title="Permanent link">&para;</a></h3> <p>类似于各个计算节点在Nova中被抽象成计算资源池，OpenStack所在整个屋里网络在Neutron中也被抽象成网络资源池，通过对屋里网络资源的灵活划分与管理，Neutron能够为同一屋里网路上的每个项目提供独立的虚拟网络环境。</p> <p>我们在OpenStack云环境中基于Neutron构建自己私有网络的过程，就是创建各种Neutron资源对象并进行对接的过程，完全类似于使用真实物理网络设备来规划自己的网络环境。</p> <p><img alt=image-20200716104735465 src="https://gitee.com/hanstack/hanstack_image/raw/master/image/图7-1 典型Neutron网络结构.png"></p> <p>1）首先至少要有一个由管理员创建的外部网络对象来负责OpenStack与Internet的连接，然后项目可以创建自己的私有内部网络并在其中创建虚拟机，为了使内部网络中的虚拟机能够访问互联网必须创建一个路由器将内部网络连接到外部网络。</p> <p>​ 在这个过程中Neutron提供了一个L3（三层）的抽象router和一个L2（二层）的抽象network，router对应物理网络环境中的路由器，为用户提供路由，NAT等服务，network则对应于一个真实物理网络中的二层局域网（LAN），从项目的角度看，它为项目私有。</p> <p>这里的subnet从Neutron的实现上来看并不能完全理解为物理网络中子网的概念，subnet属于网络中3层概念，指定一段IPv4或IPv6地址并描述其相关的配置信息，它附加在一个二层network上指定属于这个network的虚拟机可使用的IP地址范围。一个network可以同时拥有一个IPv4 subnet和一个IPv6 subnet，除此之外，即使我们配置多个subnet，也并能够工作。</p> <h3 id=linux>Linux虚拟网络<a class=headerlink href=#linux title="Permanent link">&para;</a></h3> <p>Neutron最为核心的工作室对二层物理网络network的抽象与管理。在一个传统的物理网络里，可能有一组物理的Server，上面分别运行有各种各样的应用，比如web服务，数据库服务等。为了彼此之间能够相互通信，每个物理Server都用于一个或多个物理网卡（NIC），这些NIC被连接在物理交换设备上，比如交换机（Switch）</p> <p><img alt=image-20200716111904931 src=https://gitee.com/hanstack/hanstack_image/raw/master/image/传统二层物理网络.png></p> <p>虚拟化技术被引入之后，上述的多个操作系统和应用可以以虚拟机的形式分享同一物理Server，虚拟机的生成与管理由Hypervisor（或VMM）来完成。</p> <p><img alt=image-20200716112649481 src=https://gitee.com/hanstack/hanstack_image/raw/master/image/虚拟网络结构.png></p> <p>虚拟机的网络功能由虚拟网卡（vNIC）提供，Hypervisor可以为每个虚拟机创建一个或者多个vNIC，站在虚拟机的角度，这些vNIC等同于物理的网卡。为了实现与传统物理网络等同的网络结构，与NIC一样Switch也被虚拟化为虚拟交换机（vSwitch），各个vNIC连接在vSwitch的端口上，最后这些vSwitch通过物理Server上的物理网卡（NIC）访问外部的物理网络。</p> <p>对于一个虚拟的二层网络结构来说，主要是完成两种网络设备的虚拟化：NIC硬件与交换设备。Linux环境下网络设备设备的虚拟化主要由以下几种形式。Neutron也是基于这些技术来完场项目私有网络network的构建。</p> <p>Neutron在构建网络服务时，利用了很多Linux虚拟网络的功能。</p> <p>1）TAP/TUN/VETH</p> <p>TAP/TUN是linux的内核实现的一对虚拟网络设备，TAP是工作在二层，TUN工作在三层，Linux内核通过TAP/TUN设备向绑定该设备的用户空间程序发送数据，反之，用户空间程序也可以像操作硬件网络设备那样通过TAP/TUN设备发送数据。</p> <p>（注：在Linux中的设备即Device并不是生活中的设备，在这的里的设备通常指的是一个类似于数据结构，内核模块或者设备驱动这样的概念）</p> <div class=highlight><pre><span></span><code>struct tun_struct{
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="学习 沉淀 成长 分享">
+      
+      
+        <link rel="canonical" href="https://github.com/lickwolf/lickwolf.github.io/OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8710-Neutron-%E4%B8%8A/">
+      
+      
+        <meta name="author" content="Han Lu">
+      
+      <link rel="shortcut icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>OpenStack  分享篇10 Neutron 上 - Cloudcomputing</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.6a5ad368.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2094f3">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+      <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://github.com/lickwolf/lickwolf.github.io" title="Cloudcomputing" class="md-header-nav__button md-logo" aria-label="Cloudcomputing">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89"><path d="M3.136 17.387v42.932l42.932 21.467L3.136 17.387z"/><path d="M21.91 8l42.933 64.398-18.775 9.388L3.136 17.387 21.91 8z" fill-opacity=".5"/><path d="M67.535 17.387L40.273 35.543l21.878 32.818 5.384 2.691V17.387z"/><path d="M67.535 17.387v53.666l18.774-9.388V8l-18.774 9.387z" fill-opacity=".25"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Cloudcomputing
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              OpenStack  分享篇10 Neutron 上
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/lickwolf/lickwolf.github.io" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HanLu/Cloudcomputing
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../00-FusionSphere%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%99%9A%E6%8B%9F%E5%8C%96%EF%BC%89%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="md-tabs__link md-tabs__link--active">
+          HCIE-Cloudcomputing
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../00-%E4%BF%9D%E6%8C%81%E6%B8%A9%E9%A5%B1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" class="md-tabs__link">
+          Linux
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../00-Python%E6%A6%82%E8%BF%B0/" class="md-tabs__link">
+          Python
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://github.com/lickwolf/lickwolf.github.io" title="Cloudcomputing" class="md-nav__button md-logo" aria-label="Cloudcomputing">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89"><path d="M3.136 17.387v42.932l42.932 21.467L3.136 17.387z"/><path d="M21.91 8l42.933 64.398-18.775 9.388L3.136 17.387 21.91 8z" fill-opacity=".5"/><path d="M67.535 17.387L40.273 35.543l21.878 32.818 5.384 2.691V17.387z"/><path d="M67.535 17.387v53.666l18.774-9.388V8l-18.774 9.387z" fill-opacity=".25"/></svg>
+
+    </a>
+    Cloudcomputing
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/lickwolf/lickwolf.github.io" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HanLu/Cloudcomputing
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      HCIE-Cloudcomputing
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="HCIE-Cloudcomputing" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        HCIE-Cloudcomputing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../00-FusionSphere%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%99%9A%E6%8B%9F%E5%8C%96%EF%BC%89%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="第1章 FusionSphere" class="md-nav__link">
+      第1章 FusionSphere
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../01-FusionAccess%E6%A1%8C%E9%9D%A2%E4%BA%91/" title="第2章 FusionAccess" class="md-nav__link">
+      第2章 FusionAccess
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../02-FusionStorage/" title="第3章 FusionStoarge" class="md-nav__link">
+      第3章 FusionStoarge
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" checked>
+    
+    <label class="md-nav__link" for="nav-2-4">
+      第4章 OpenSatck
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="第4章 OpenSatck" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        <span class="md-nav__icon md-icon"></span>
+        第4章 OpenSatck
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenSatck%E7%BB%84%E4%BB%B6/" title="4.0-OpenStack-OverView" class="md-nav__link">
+      4.0-OpenStack-OverView
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%874-Nova/" title="4.1-OpenStck-Nova" class="md-nav__link">
+      4.1-OpenStck-Nova
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%875-Cinder/" title="4.2-OpenStack-Cinder" class="md-nav__link">
+      4.2-OpenStack-Cinder
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%876-Glance/" title="4.3-OpenStack-Glance" class="md-nav__link">
+      4.3-OpenStack-Glance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%877-Swift/" title="4.4-OpenStack-Swift" class="md-nav__link">
+      4.4-OpenStack-Swift
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%878-Keystone/" title="4.5-OpenSatck-Keystone" class="md-nav__link">
+      4.5-OpenSatck-Keystone
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%879-Ironic/" title="4.6-OpenStack-Ironic" class="md-nav__link">
+      4.6-OpenStack-Ironic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        4.7-OpenStack-Neutron-上
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="4.7-OpenStack-Neutron-上" class="md-nav__link md-nav__link--active">
+      4.7-OpenStack-Neutron-上
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言：
+  </a>
+  
+    <nav class="md-nav" aria-label="前言：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#neutron" class="md-nav__link">
+    Neutron的体系机构：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux虚拟网络
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux虚拟网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#neutron_1" class="md-nav__link">
+    Neutron的三类节点
+  </a>
+  
+    <nav class="md-nav" aria-label="Neutron的三类节点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    计算节点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    网络节点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    控制节点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neutron_2" class="md-nav__link">
+    Neutron的网络
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    计算节点的实现模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlan" class="md-nav__link">
+    VLAN实现模型
+  </a>
+  
+    <nav class="md-nav" aria-label="VLAN实现模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qbrbr-int" class="md-nav__link">
+    qbr与br-int
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#br-ethx" class="md-nav__link">
+    br-ethx
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vmvlan-id" class="md-nav__link">
+    VM与VLAN ID
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8711-Neutron-%E4%B8%8B/" title="4.7-OpenStack-Neutron-下" class="md-nav__link">
+      4.7-OpenStack-Neutron-下
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8712-Ceilometer/" title="4.8-OpenSatck-Ceilometer" class="md-nav__link">
+      4.8-OpenSatck-Ceilometer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%873-KVM/" title="4.9-OpenStack-KVM" class="md-nav__link">
+      4.9-OpenStack-KVM
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../03-%E5%A4%87%E4%BB%BD/" title="第5章 备份" class="md-nav__link">
+      第5章 备份
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../04-%E5%AE%B9%E7%81%BE/" title="第6章 容灾" class="md-nav__link">
+      第6章 容灾
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../05-%E8%BF%81%E7%A7%BB/" title="第7章 迁移" class="md-nav__link">
+      第7章 迁移
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../06-%E5%8D%8E%E4%B8%BA%E4%BA%91Stack/" title="第8章 私有云" class="md-nav__link">
+      第8章 私有云
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Linux
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../00-%E4%BF%9D%E6%8C%81%E6%B8%A9%E9%A5%B1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" title="00-保持温饱的基本命令" class="md-nav__link">
+      00-保持温饱的基本命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../01-%E8%BF%87%E5%B9%B4%E6%89%8D%E8%83%BD%E5%90%83%E7%9A%84%E9%AB%98%E6%B0%B4%E5%B9%B3%E5%91%BD%E4%BB%A4/" title="01-过年才能吃的高水平命令" class="md-nav__link">
+      01-过年才能吃的高水平命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../02-%E5%90%83%E9%A5%B1%E5%96%9D%E8%B6%B3%E7%9A%84%E5%B0%8F%E5%BA%B7%E5%91%BD%E4%BB%A4/" title="02-吃饱喝足的小康命令" class="md-nav__link">
+      02-吃饱喝足的小康命令
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Python
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Python" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../00-Python%E6%A6%82%E8%BF%B0/" title="Python概述" class="md-nav__link">
+      Python概述
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言：
+  </a>
+  
+    <nav class="md-nav" aria-label="前言：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#neutron" class="md-nav__link">
+    Neutron的体系机构：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux虚拟网络
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux虚拟网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#neutron_1" class="md-nav__link">
+    Neutron的三类节点
+  </a>
+  
+    <nav class="md-nav" aria-label="Neutron的三类节点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    计算节点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    网络节点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    控制节点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neutron_2" class="md-nav__link">
+    Neutron的网络
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    计算节点的实现模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlan" class="md-nav__link">
+    VLAN实现模型
+  </a>
+  
+    <nav class="md-nav" aria-label="VLAN实现模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qbrbr-int" class="md-nav__link">
+    qbr与br-int
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#br-ethx" class="md-nav__link">
+    br-ethx
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vmvlan-id" class="md-nav__link">
+    VM与VLAN ID
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                  <h1>4.7-OpenStack-Neutron-上</h1>
+                
+                <h2 id="_1">前言：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>与存储资源，计算资源一样。网络也是Openstack所管理的最重要的资源之一。Nova实现了OpenStack虚拟机世界的抽象，Swift与Cinder为虚拟机提供了安身之本，但是没有网络，任何虚拟机都将只是这个世界中的孤岛，不知道自己生存的价值。</p>
+<p>最初，OpenStack中的网络服务由Nova中的一个单独模块nova-network来提供，但是为了提供更为丰富的拓扑结构，支持更多的网络类型，具有更高扩展性，Nova-network从Nova中独立出来这就是现在的Neutron。</p>
+<p>当前Neutron已经成为OpenStack三大核心(存储，计算，网络)之一，对外提供NaaS（Network as a Service）服务。Neutron由Nova-network发展而来。Neutron的发展简史可以概括为三个阶段：Nova-network；Quantum，Neutron。</p>
+<p>Nova-network阶段，其支持的主要功能有：</p>
+<p>1）IP地址分配：包含为虚拟机分配私有（固定）和浮动IP地址</p>
+<p>2）网络管理：仅支持三种网络，扁平网络，带DHCP功能的扁平网络，VLAN网络</p>
+<p>3）安全控制：主要通过ebtables和iptables来实现</p>
+<p>此阶段，Nova-network支持的功能比较简单，到了Quantum阶段，其支持的主要功能有：</p>
+<p>1）支持多租户隔离，并提供面向租户的API</p>
+<p>2）插件式结构支持多种网络后端技术，包括Open vSwitch，Cisco，Linux Bridge，Nicira NVP，Ryu，NEC等</p>
+<p>3）支持位于不同二层网络的IP地址重叠</p>
+<p>4）支持基本的三层转发和多路由器</p>
+<p>5）支持隧道技术（Tuneling）</p>
+<p>6）支持三层代理和DHCP代理的多借点部署，增强可扩展性和可靠性</p>
+<p>7）支持负载均衡API</p>
+<p>Quantum阶段所支持的功能已经初具规模。有了Quantum打下的良好基础，进入第三阶段之后，Neutron所支持的功能和应用场景，得到了更大规模的发展</p>
+<p><img alt="image-20200716101248194" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/image-20200716101248194.png" /></p>
+<h3 id="neutron">Neutron的体系机构：<a class="headerlink" href="#neutron" title="Permanent link">&para;</a></h3>
+<p>类似于各个计算节点在Nova中被抽象成计算资源池，OpenStack所在整个屋里网络在Neutron中也被抽象成网络资源池，通过对屋里网络资源的灵活划分与管理，Neutron能够为同一屋里网路上的每个项目提供独立的虚拟网络环境。</p>
+<p>我们在OpenStack云环境中基于Neutron构建自己私有网络的过程，就是创建各种Neutron资源对象并进行对接的过程，完全类似于使用真实物理网络设备来规划自己的网络环境。</p>
+<p><img alt="image-20200716104735465" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/图7-1 典型Neutron网络结构.png" /></p>
+<p>1）首先至少要有一个由管理员创建的外部网络对象来负责OpenStack与Internet的连接，然后项目可以创建自己的私有内部网络并在其中创建虚拟机，为了使内部网络中的虚拟机能够访问互联网必须创建一个路由器将内部网络连接到外部网络。</p>
+<p>​   在这个过程中Neutron提供了一个L3（三层）的抽象router和一个L2（二层）的抽象network，router对应物理网络环境中的路由器，为用户提供路由，NAT等服务，network则对应于一个真实物理网络中的二层局域网（LAN），从项目的角度看，它为项目私有。</p>
+<p>这里的subnet从Neutron的实现上来看并不能完全理解为物理网络中子网的概念，subnet属于网络中3层概念，指定一段IPv4或IPv6地址并描述其相关的配置信息，它附加在一个二层network上指定属于这个network的虚拟机可使用的IP地址范围。一个network可以同时拥有一个IPv4 subnet和一个IPv6 subnet，除此之外，即使我们配置多个subnet，也并能够工作。</p>
+<h3 id="linux">Linux虚拟网络<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
+<p>Neutron最为核心的工作室对二层物理网络network的抽象与管理。在一个传统的物理网络里，可能有一组物理的Server，上面分别运行有各种各样的应用，比如web服务，数据库服务等。为了彼此之间能够相互通信，每个物理Server都用于一个或多个物理网卡（NIC），这些NIC被连接在物理交换设备上，比如交换机（Switch）</p>
+<p><img alt="image-20200716111904931" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/传统二层物理网络.png" /></p>
+<p>虚拟化技术被引入之后，上述的多个操作系统和应用可以以虚拟机的形式分享同一物理Server，虚拟机的生成与管理由Hypervisor（或VMM）来完成。</p>
+<p><img alt="image-20200716112649481" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/虚拟网络结构.png" /></p>
+<p>虚拟机的网络功能由虚拟网卡（vNIC）提供，Hypervisor可以为每个虚拟机创建一个或者多个vNIC，站在虚拟机的角度，这些vNIC等同于物理的网卡。为了实现与传统物理网络等同的网络结构，与NIC一样Switch也被虚拟化为虚拟交换机（vSwitch），各个vNIC连接在vSwitch的端口上，最后这些vSwitch通过物理Server上的物理网卡（NIC）访问外部的物理网络。</p>
+<p>对于一个虚拟的二层网络结构来说，主要是完成两种网络设备的虚拟化：NIC硬件与交换设备。Linux环境下网络设备设备的虚拟化主要由以下几种形式。Neutron也是基于这些技术来完场项目私有网络network的构建。</p>
+<p>Neutron在构建网络服务时，利用了很多Linux虚拟网络的功能。</p>
+<p>1）TAP/TUN/VETH</p>
+<p>TAP/TUN是linux的内核实现的一对虚拟网络设备，TAP是工作在二层，TUN工作在三层，Linux内核通过TAP/TUN设备向绑定该设备的用户空间程序发送数据，反之，用户空间程序也可以像操作硬件网络设备那样通过TAP/TUN设备发送数据。</p>
+<p>（注：在Linux中的设备即Device并不是生活中的设备，在这的里的设备通常指的是一个类似于数据结构，内核模块或者设备驱动这样的概念）</p>
+<div class="highlight"><pre><span></span><code>struct tun_struct{
     char name(8)
     unsigned long flags;
     struct fasync_struct *fasync;
@@ -7,7 +975,194 @@
     struct sk_buff_head txq;
         struct net_device_stats;
 }
-</code></pre></div> <p>基于TAP驱动，能够实现虚拟网卡的功能，虚拟机的每个vNIC都会与Hypervisor中的一个TAP设备相连。当一个TAP设备被创建时，在Linux涉笔文件目录下会生成一个对应的字符设备文件，用户程序可以向打开普通文件一样打开这个文件进行读写。</p> <p>当这个TAP设备文件执行wirte()操作时，对于Linux网络子系统来说，就相当于TAP设备收到了数据，并请求内核接受它，Linux内核收到此数据后将根据网络配置进行后续处理，处理过程类似于普通的物理网卡从警外界接受数据。当用户程序执行read()请求时，相当于向内核查询TAP设备上是否有数据需要被发送，有的话取出到用户程序里，从而完成TAP设备发送数据的功能。在这个过程里，TAP设备可以被当作是本机的一个网卡，而操作TAP设备的应用程序相当于另一台计算机，他通过read/write系统调用，和本机进行网络通信，Subnet数据网络中的3曾概念，指定一段IPv4或者Ipv6地址并描述相关的配置信息。他们附加在一个二层network上，并指明数据这个network的虚拟机可使用的IP地址范围。</p> <p>TAP从功能定位上来讲，位于数据链路层，数据链路层的主要协议有：</p> <p>​ 1）点对点协议（point-to-point protocol）</p> <p>​ 2）以太网（Ethernet）</p> <p>​ 3）高级数据链路协议（Hight-Level Data Link Protocol）</p> <p>​ 4）帧中继（Frame Relay）</p> <p>​ 5）异步传输模式（Asynchronous Transfer Mode）</p> <p><img alt src=https://gitee.com/hanstack/hanstack_image/raw/master/image/tun1tun2.png></p> <p>但是TAP只是与其中一种协议以太网（Ethernet）协议对应。所以，TAP有时也称为“虚拟以太设备”</p> <p>2）namespace</p> <p>namespace是Linux虚拟网络的一个重要概念。传统的Linux的许多资源时全局的，比如进程ID资源。而那么space的目的首先就是将这些资源做隔离。Linux可以在一个Host内创建许多namespace,于是那些原本是全局的资源，就变成了namespace范围内的全局资源。而不同的namespace的资源互相不可见，彼此透明</p> <p>单纯从网络视角看，一个namespace提供了一份独立的网络协议栈（网络设备接口，IPv4，IPv6，IP路由，防火墙规则，sockets等）一个设备（linuxDevice）只能位于一个那么space中，不同那么space中的设备可以通过veth pair进行桥接。</p> <p>3）veth pair</p> <p>veth pair不是一个设备而是一对设备，用来连接两个虚拟以太网端口。操作veth pair，需要跟namespace一起配合。</p> <p>4）bridge：网桥，Linux中用于标识一个能连接不同网络设备的虚拟设备，Linux中传统实现的网桥类似于一个hub设备，而ovs管理的网桥一般类似于交换机。</p> <p>linux bridge是工作在L2（二层）的虚拟网络设备，功能类似于物理交换机。Bridge可以绑定其他Linux设备作为从设备，并将这些设备从设备虚拟化为端口，当一个设备被绑定到Bridge上时，就相当于在真实网络中的交换机端口插入了一个连接有终端的网线。</p> <p><img alt=image-20200717003112388 src=https://gitee.com/hanstack/hanstack_image/raw/master/image/LinuxBridge.png></p> <p>Bridge设备br0绑定了实际设备eth0与虚拟机设备tap0/tap1,此时，对于hypervisor的网络协议栈的上层来说，只看到br0，并不会关心桥接细节。当从这些设备收到数据包时，会将其提交给br0决定数据包的去向。br0会根据MAC地址与端口的映射关系进行转发（MAC地址表）</p> <p>因为Bridge工作在第二层，所以绑定在br0上的设备eth0,tap0,tap1均不需要再设置IP地址，对上层的路由器来说他们都位于同一个子网，因此只需为br0设置IP。</p> <p>5）br-int：bridge-intergration，综合/集成网桥。常用语表示实现主要内部网络功能的网桥。在逻辑概念上，他是跨越整个OpenStack的内部大网桥：所有的Port（虚拟机，虚拟路由器，DHCP等等）都直接连接在br-int上，通过不同的VLAN tag来区分不同的Subnet，做到了网络之间的隔离。</p> <p>注：将分布在各个物理机上的br-int网桥联通，实现逻辑上统一的集成网桥，Neutron可以采用三种方案来完成这一任务：VLAN，GRE和VXLAN，分别对用三种Tenant Network类型。每一个用户创建的Tenant Network根据其类型决定内部网络采用什么样的方式来括约物理机的界限。</p> <p>6）br-ex：bridge-external，外部网桥，通常表示负责跟外部网络通信的网桥。</p> <p>7）GRE：General Routing Encapsulation，一种通过封装来实现的隧道的方式。在opensatck中一般是基于L3的gre。即originna pkt/GRE/IP/ethernet</p> <p>8）iptables：Linux上常见的实现安全策略的防火墙软件</p> <p>9）VxLAN：利用UDP协议作为底层传输协议的OverLay实现。一般认为作为VLAN技术的延伸或者替代技术</p> <h4 id=neutron_1>Neutron的三类节点<a class=headerlink href=#neutron_1 title="Permanent link">&para;</a></h4> <p><img alt src=https://gitee.com/hanstack/hanstack_image/raw/master/image/neutorn的三类节点9.png></p> <h5 id=_2>计算节点<a class=headerlink href=#_2 title="Permanent link">&para;</a></h5> <p>计算节点（Compute Node）最直观，计算是OpenStack的三大组件之一（计算，存储，网络）。计算主要指将服务器虚拟化，在服务器上创建VM。一般来说一个计算节点即一个Host上有多个VM存在。</p> <p>在计算节点里面还有Bridge。这里的Bridge指的是虚拟的Bridge。不同Host的VM之间的二层通信，通过计算节点的Bridge就可以完成</p> <h5 id=_3>网络节点<a class=headerlink href=#_3 title="Permanent link">&para;</a></h5> <p>在Host内部的VM想要访问Internet就必须通过Router到达数据中心的网关，再从网关与Internet完成通信。Router也是Linux虚拟出来的，Router所在的节点就是网络节点。网络节点上还部署着DHCP等网络服务。一个计算节点通常指的是一个Host。一个网络几点通常意味着一个Host或者多个Host因为不是所有的网络服务都必须部署在一个节点上，通常来说网络服务会分别部署在多个Host上。</p> <h5 id=_4>控制节点<a class=headerlink href=#_4 title="Permanent link">&para;</a></h5> <p>Neutron一方面在各个计算节点和网络节点上运行各种Agent，另一方面Neutron的各种服务运行在一个或者多个控制节点上。</p> <h4 id=neutron_2>Neutron的网络<a class=headerlink href=#neutron_2 title="Permanent link">&para;</a></h4> <p>外部网络（Provider network）：提供上网服务，外界登录openstack。</p> <p>管理网络(Management network) : 提供openstack组件之间的内部通信。 该网络内的IP地址只有数据中心内部可达。 数据网络(Data Network) : 提供云内部VM之间的数据通信。 该网络内的IP地址取决千使用的网络插件程序。 API网络(API Network) : 为租户提供包括Network API在内的所有openstack API。 该网络内的IP地址允许Internet上的任何人可达。 Provider Network网络：由管理员创建。是已经存储在的物理网络在Neutron中的映射。典型的例子就是将公网作为ProviderNetwork (通常是br-ex的映射）来创建ExternalNetwork。ExternalNetwork 是一种ProvdierNetwork, 典型地它是用于向虚拟机提供因特网访间。它的type智能是flat和vlan类型。常用的网络是Flat和vlan,vxlan基本使用不上。 Tenant网络：用户自己创建。 可以设置的选项就是：Flat, vlan和vxlan local主要是测试使用。</p> <h4 id=_5>计算节点的实现模型<a class=headerlink href=#_5 title="Permanent link">&para;</a></h4> <p>一个基于openstack的云系统会有很多计算节点，一个计算节点就是一个Host。计算节点里存在多个VM，这些计算节点也是OpenStack存在的基础。但是VM不能像一个个孤岛一样存在，VM之间需要通信，且需要能够实现跨越Host实现Vm之间的通信。简单来说，通信分为二层通信和三层通信，二层通信使用Bridge（交换机）三层需要Router。Router在网络节点上。</p> <p><img alt src=https://gitee.com/hanstack/hanstack_image/raw/master/image/计算节点抽象模型.png></p> <p>在上图中两个主机位于一个机架内，两个主机分别虚拟出多个VM。每个Host内调出若干个虚拟机组成一个二层网络（在这里可以理解成为一个VLAN）。这样的一个场景需要的物理设备有：机架，主机，ToR交换机。</p> <p>图中Security Layer一般由各种虚拟网元组成。Neutron不能管理物理网络。在计算节点的模型中Neutron管理的是虚拟网元，即Security Layer，Integration Layer这两层网元。这两层实现多种二层网络。</p> <p>Neutron当前支持的二层网络类型有Loca，Flat，VLAN，GRE，VXLAN，Geneve</p> <h4 id=vlan>VLAN实现模型<a class=headerlink href=#vlan title="Permanent link">&para;</a></h4> <p><img alt=image-20200717012136227 src=https://gitee.com/hanstack/hanstack_image/raw/master/image/计算节点的VLAN模型.png></p> <h5 id=qbrbr-int>qbr与br-int<a class=headerlink href=#qbrbr-int title="Permanent link">&para;</a></h5> <p>在上图中的qbr-xxx/qbr-yyy一般简称为qbr。qbr是Quantum Bridge的缩写，而OpenStack网络组建的前一个名称就是Quantum。</p> <p>br-int：表达的是Intergration Bridge</p> <p>qbr与br-int都是Bridge（此前说过Linux中的Bridge指的是交换机）。qbr实现的载体是Linux Bridge。Br-int实现的载体是OVS（Open vSwitch）。</p> <p>qbr与br-int之间通过veth pair相连。VM与qbr之间，通过tap相连接。</p> <p>qbr与br-int都是bridge的一种表现形式，呢么为什么需要两层bridge呢？</p> <p>​ 1）如果只有一个qbr，qbr仅仅是一个Linux Bridge，他的功能不能满足实际场景的需求</p> <p>​ 2）如果只有一个br-int。由于br-int实际上一个OVS，而OVS并不支持基于iptables的安全组的功能。OpenStack是基于iptables规则来实现安全组功能。</p> <p>所以OpenStack中引入qbr最主要的目的是使用qbr提供的iptables实现security group功能（qbr 有时候也会被称为安全网桥）</p> <h5 id=br-ethx>br-ethx<a class=headerlink href=#br-ethx title="Permanent link">&para;</a></h5> <p>br-ethx也是一个Bridge。也是一个OVS。他的全称为Bridge-Ethernet-External。负责与外部网络进行通信。也就是Host与外部进行通信。br-ethx属于一个Network，这个Network由Neutron负责管理。br-ethx与br-int之间的接口是veth pair。在上图中br-ethx与br-ethx之间通信使用的实际的物理网卡进项通信的。这也是上图中唯一一对使用物理NIC进行通信的链路。</p> <h4 id=vmvlan-id>VM与VLAN ID<a class=headerlink href=#vmvlan-id title="Permanent link">&para;</a></h4> <p>上图中4个VM分别属于两个vlan。VM1和VM3属于vlan 100；VM 2和VM 4属于vlan 20。从外部的用户视角来看vm1和vm3同属一个vlan；vm2和vm4同属一个vlan。但是vm实际所处的host对外部的用户来说是透明的。也并不需要用户去关心。</p> <p>接下来以VM1和VM3为例讲解流量走向。</p> <p>1）VM1的vNIC从A口发出的是untag的报文</p> <p>2）报文从B口进入qbr-xxx从C口发出此时依旧是untag的报文</p> <p>3）报文从D口进入br-int打上vlan100 的tag，从E口发出；到F口将vlan ID转为vlan10</p> <p>4）G口 携带vlan 10的tag到达对端的br-ethx</p> <p>5）对端的br-ethx的H口接收到tag 10 的报文后通过I口发出将vlan ID转为10</p> <p>6）报文携带tag为10的报文通过J口进入br-int。</p> <p>7）br-int将报文从k发出，同时剥离tag 10的标签，还原成untag 报文发送给qbr-xxx</p> <p>8）qbr-xxx将untag的报文发送给VM3</p> <p><img alt=image-20200717122236013 src=https://gitee.com/hanstack/hanstack_image/raw/master/image/流量走向.png></p> </article> </div> </div> </main> <footer class=md-footer> <div class=md-footer-nav> <nav class="md-footer-nav__inner md-grid" aria-label=Footer> <a href=../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%879-Ironic/ title=4.6-OpenStack-Ironic class="md-footer-nav__link md-footer-nav__link--prev" rel=prev> <div class="md-footer-nav__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </div> <div class=md-footer-nav__title> <div class=md-ellipsis> <span class=md-footer-nav__direction> 上一页 </span> 4.6-OpenStack-Ironic </div> </div> </a> <a href=../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8711-Neutron-%E4%B8%8B/ title=4.7-OpenStack-Neutron-下 class="md-footer-nav__link md-footer-nav__link--next" rel=next> <div class=md-footer-nav__title> <div class=md-ellipsis> <span class=md-footer-nav__direction> 下一页 </span> 4.7-OpenStack-Neutron-下 </div> </div> <div class="md-footer-nav__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg> </div> </a> </nav> </div> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-footer-copyright> <div class=md-footer-copyright__highlight> Copyright &copy; 2016 - 2020 Han Lu </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> <div class=md-footer-social> <a href=https://www.hcieonline.com/weixinme/ target=_blank rel=noopener title=www.hcieonline.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 576 512"><path d="M385.2 167.6c6.4 0 12.6.3 18.8 1.1C387.4 90.3 303.3 32 207.7 32 100.5 32 13 104.8 13 197.4c0 53.4 29.3 97.5 77.9 131.6l-19.3 58.6 68-34.1c24.4 4.8 43.8 9.7 68.2 9.7 6.2 0 12.1-.3 18.3-.8-4-12.9-6.2-26.6-6.2-40.8-.1-84.9 72.9-154 165.3-154zm-104.5-52.9c14.5 0 24.2 9.7 24.2 24.4 0 14.5-9.7 24.2-24.2 24.2-14.8 0-29.3-9.7-29.3-24.2.1-14.7 14.6-24.4 29.3-24.4zm-136.4 48.6c-14.5 0-29.3-9.7-29.3-24.2 0-14.8 14.8-24.4 29.3-24.4 14.8 0 24.4 9.7 24.4 24.4 0 14.6-9.6 24.2-24.4 24.2zM563 319.4c0-77.9-77.9-141.3-165.4-141.3-92.7 0-165.4 63.4-165.4 141.3S305 460.7 397.6 460.7c19.3 0 38.9-5.1 58.6-9.9l53.4 29.3-14.8-48.6C534 402.1 563 363.2 563 319.4zm-219.1-24.5c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.8 0 24.4 9.7 24.4 19.3 0 10-9.7 19.6-24.4 19.6zm107.1 0c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.5 0 24.4 9.7 24.4 19.3.1 10-9.9 19.6-24.4 19.6z"/></svg> </a> <a href=https://www.hcieonline.com/QQme/ target=_blank rel=noopener title=www.hcieonline.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg> </a> <a href=https://instagram.com/stefaniehanlulu target=_blank rel=noopener title=instagram.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> </a> <a href="mailto:<lickwolf@163.com>" target=_blank rel=noopener title="lickwolf on email" class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 512 512"><path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg> </a> </div> </div> </div> </footer> </div> <script src=../assets/javascripts/vendor.11f47dfd.min.js></script> <script src=../assets/javascripts/bundle.7e09dd84.min.js></script><script id=__lang type=application/json>{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script> <script>
+</code></pre></div>
+
+<p>基于TAP驱动，能够实现虚拟网卡的功能，虚拟机的每个vNIC都会与Hypervisor中的一个TAP设备相连。当一个TAP设备被创建时，在Linux涉笔文件目录下会生成一个对应的字符设备文件，用户程序可以向打开普通文件一样打开这个文件进行读写。</p>
+<p>当这个TAP设备文件执行wirte()操作时，对于Linux网络子系统来说，就相当于TAP设备收到了数据，并请求内核接受它，Linux内核收到此数据后将根据网络配置进行后续处理，处理过程类似于普通的物理网卡从警外界接受数据。当用户程序执行read()请求时，相当于向内核查询TAP设备上是否有数据需要被发送，有的话取出到用户程序里，从而完成TAP设备发送数据的功能。在这个过程里，TAP设备可以被当作是本机的一个网卡，而操作TAP设备的应用程序相当于另一台计算机，他通过read/write系统调用，和本机进行网络通信，Subnet数据网络中的3曾概念，指定一段IPv4或者Ipv6地址并描述相关的配置信息。他们附加在一个二层network上，并指明数据这个network的虚拟机可使用的IP地址范围。</p>
+<p>TAP从功能定位上来讲，位于数据链路层，数据链路层的主要协议有：</p>
+<p>​   1）点对点协议（point-to-point protocol）</p>
+<p>​   2）以太网（Ethernet）</p>
+<p>​   3）高级数据链路协议（Hight-Level Data Link Protocol）</p>
+<p>​   4）帧中继（Frame Relay）</p>
+<p>​   5）异步传输模式（Asynchronous Transfer Mode）</p>
+<p><img alt="" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/tun1tun2.png" /></p>
+<p>但是TAP只是与其中一种协议以太网（Ethernet）协议对应。所以，TAP有时也称为“虚拟以太设备”</p>
+<p>2）namespace</p>
+<p>namespace是Linux虚拟网络的一个重要概念。传统的Linux的许多资源时全局的，比如进程ID资源。而那么space的目的首先就是将这些资源做隔离。Linux可以在一个Host内创建许多namespace,于是那些原本是全局的资源，就变成了namespace范围内的全局资源。而不同的namespace的资源互相不可见，彼此透明</p>
+<p>单纯从网络视角看，一个namespace提供了一份独立的网络协议栈（网络设备接口，IPv4，IPv6，IP路由，防火墙规则，sockets等）一个设备（linuxDevice）只能位于一个那么space中，不同那么space中的设备可以通过veth pair进行桥接。</p>
+<p>3）veth pair</p>
+<p>veth pair不是一个设备而是一对设备，用来连接两个虚拟以太网端口。操作veth pair，需要跟namespace一起配合。</p>
+<p>4）bridge：网桥，Linux中用于标识一个能连接不同网络设备的虚拟设备，Linux中传统实现的网桥类似于一个hub设备，而ovs管理的网桥一般类似于交换机。</p>
+<p>linux bridge是工作在L2（二层）的虚拟网络设备，功能类似于物理交换机。Bridge可以绑定其他Linux设备作为从设备，并将这些设备从设备虚拟化为端口，当一个设备被绑定到Bridge上时，就相当于在真实网络中的交换机端口插入了一个连接有终端的网线。</p>
+<p><img alt="image-20200717003112388" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/LinuxBridge.png" /></p>
+<p>Bridge设备br0绑定了实际设备eth0与虚拟机设备tap0/tap1,此时，对于hypervisor的网络协议栈的上层来说，只看到br0，并不会关心桥接细节。当从这些设备收到数据包时，会将其提交给br0决定数据包的去向。br0会根据MAC地址与端口的映射关系进行转发（MAC地址表）</p>
+<p>因为Bridge工作在第二层，所以绑定在br0上的设备eth0,tap0,tap1均不需要再设置IP地址，对上层的路由器来说他们都位于同一个子网，因此只需为br0设置IP。</p>
+<p>5）br-int：bridge-intergration，综合/集成网桥。常用语表示实现主要内部网络功能的网桥。在逻辑概念上，他是跨越整个OpenStack的内部大网桥：所有的Port（虚拟机，虚拟路由器，DHCP等等）都直接连接在br-int上，通过不同的VLAN tag来区分不同的Subnet，做到了网络之间的隔离。</p>
+<p>注：将分布在各个物理机上的br-int网桥联通，实现逻辑上统一的集成网桥，Neutron可以采用三种方案来完成这一任务：VLAN，GRE和VXLAN，分别对用三种Tenant Network类型。每一个用户创建的Tenant Network根据其类型决定内部网络采用什么样的方式来括约物理机的界限。</p>
+<p>6）br-ex：bridge-external，外部网桥，通常表示负责跟外部网络通信的网桥。</p>
+<p>7）GRE：General Routing Encapsulation，一种通过封装来实现的隧道的方式。在opensatck中一般是基于L3的gre。即originna pkt/GRE/IP/ethernet</p>
+<p>8）iptables：Linux上常见的实现安全策略的防火墙软件</p>
+<p>9）VxLAN：利用UDP协议作为底层传输协议的OverLay实现。一般认为作为VLAN技术的延伸或者替代技术</p>
+<h4 id="neutron_1">Neutron的三类节点<a class="headerlink" href="#neutron_1" title="Permanent link">&para;</a></h4>
+<p><img alt="" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/neutorn的三类节点9.png" /></p>
+<h5 id="_2">计算节点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h5>
+<p>计算节点（Compute Node）最直观，计算是OpenStack的三大组件之一（计算，存储，网络）。计算主要指将服务器虚拟化，在服务器上创建VM。一般来说一个计算节点即一个Host上有多个VM存在。</p>
+<p>在计算节点里面还有Bridge。这里的Bridge指的是虚拟的Bridge。不同Host的VM之间的二层通信，通过计算节点的Bridge就可以完成</p>
+<h5 id="_3">网络节点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
+<p>在Host内部的VM想要访问Internet就必须通过Router到达数据中心的网关，再从网关与Internet完成通信。Router也是Linux虚拟出来的，Router所在的节点就是网络节点。网络节点上还部署着DHCP等网络服务。一个计算节点通常指的是一个Host。一个网络几点通常意味着一个Host或者多个Host因为不是所有的网络服务都必须部署在一个节点上，通常来说网络服务会分别部署在多个Host上。</p>
+<h5 id="_4">控制节点<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
+<p>Neutron一方面在各个计算节点和网络节点上运行各种Agent，另一方面Neutron的各种服务运行在一个或者多个控制节点上。</p>
+<h4 id="neutron_2">Neutron的网络<a class="headerlink" href="#neutron_2" title="Permanent link">&para;</a></h4>
+<p>外部网络（Provider network）：提供上网服务，外界登录openstack。</p>
+<p>管理网络(Management network) : 提供openstack组件之间的内部通信。 该网络内的IP地址只有数据中心内部可达。
+数据网络(Data Network) : 提供云内部VM之间的数据通信。 该网络内的IP地址取决千使用的网络插件程序。
+API网络(API Network) : 为租户提供包括Network API在内的所有openstack API。 该网络内的IP地址允许Internet上的任何人可达。
+Provider Network网络：由管理员创建。是已经存储在的物理网络在Neutron中的映射。典型的例子就是将公网作为ProviderNetwork (通常是br-ex的映射）来创建ExternalNetwork。ExternalNetwork 是一种ProvdierNetwork, 典型地它是用于向虚拟机提供因特网访间。它的type智能是flat和vlan类型。常用的网络是Flat和vlan,vxlan基本使用不上。
+Tenant网络：用户自己创建。 可以设置的选项就是：Flat, vlan和vxlan local主要是测试使用。</p>
+<h4 id="_5">计算节点的实现模型<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>一个基于openstack的云系统会有很多计算节点，一个计算节点就是一个Host。计算节点里存在多个VM，这些计算节点也是OpenStack存在的基础。但是VM不能像一个个孤岛一样存在，VM之间需要通信，且需要能够实现跨越Host实现Vm之间的通信。简单来说，通信分为二层通信和三层通信，二层通信使用Bridge（交换机）三层需要Router。Router在网络节点上。</p>
+<p><img alt="" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/计算节点抽象模型.png" /></p>
+<p>在上图中两个主机位于一个机架内，两个主机分别虚拟出多个VM。每个Host内调出若干个虚拟机组成一个二层网络（在这里可以理解成为一个VLAN）。这样的一个场景需要的物理设备有：机架，主机，ToR交换机。</p>
+<p>图中Security Layer一般由各种虚拟网元组成。Neutron不能管理物理网络。在计算节点的模型中Neutron管理的是虚拟网元，即Security Layer，Integration Layer这两层网元。这两层实现多种二层网络。</p>
+<p>Neutron当前支持的二层网络类型有Loca，Flat，VLAN，GRE，VXLAN，Geneve</p>
+<h4 id="vlan">VLAN实现模型<a class="headerlink" href="#vlan" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20200717012136227" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/计算节点的VLAN模型.png" /></p>
+<h5 id="qbrbr-int">qbr与br-int<a class="headerlink" href="#qbrbr-int" title="Permanent link">&para;</a></h5>
+<p>在上图中的qbr-xxx/qbr-yyy一般简称为qbr。qbr是Quantum Bridge的缩写，而OpenStack网络组建的前一个名称就是Quantum。</p>
+<p>br-int：表达的是Intergration Bridge</p>
+<p>qbr与br-int都是Bridge（此前说过Linux中的Bridge指的是交换机）。qbr实现的载体是Linux Bridge。Br-int实现的载体是OVS（Open vSwitch）。</p>
+<p>qbr与br-int之间通过veth pair相连。VM与qbr之间，通过tap相连接。</p>
+<p>qbr与br-int都是bridge的一种表现形式，呢么为什么需要两层bridge呢？</p>
+<p>​   1）如果只有一个qbr，qbr仅仅是一个Linux Bridge，他的功能不能满足实际场景的需求</p>
+<p>​   2）如果只有一个br-int。由于br-int实际上一个OVS，而OVS并不支持基于iptables的安全组的功能。OpenStack是基于iptables规则来实现安全组功能。</p>
+<p>所以OpenStack中引入qbr最主要的目的是使用qbr提供的iptables实现security group功能（qbr 有时候也会被称为安全网桥）</p>
+<h5 id="br-ethx">br-ethx<a class="headerlink" href="#br-ethx" title="Permanent link">&para;</a></h5>
+<p>br-ethx也是一个Bridge。也是一个OVS。他的全称为Bridge-Ethernet-External。负责与外部网络进行通信。也就是Host与外部进行通信。br-ethx属于一个Network，这个Network由Neutron负责管理。br-ethx与br-int之间的接口是veth pair。在上图中br-ethx与br-ethx之间通信使用的实际的物理网卡进项通信的。这也是上图中唯一一对使用物理NIC进行通信的链路。</p>
+<h4 id="vmvlan-id">VM与VLAN ID<a class="headerlink" href="#vmvlan-id" title="Permanent link">&para;</a></h4>
+<p>上图中4个VM分别属于两个vlan。VM1和VM3属于vlan 100；VM 2和VM 4属于vlan 20。从外部的用户视角来看vm1和vm3同属一个vlan；vm2和vm4同属一个vlan。但是vm实际所处的host对外部的用户来说是透明的。也并不需要用户去关心。</p>
+<p>接下来以VM1和VM3为例讲解流量走向。</p>
+<p>1）VM1的vNIC从A口发出的是untag的报文</p>
+<p>2）报文从B口进入qbr-xxx从C口发出此时依旧是untag的报文</p>
+<p>3）报文从D口进入br-int打上vlan100 的tag，从E口发出；到F口将vlan ID转为vlan10</p>
+<p>4）G口 携带vlan 10的tag到达对端的br-ethx</p>
+<p>5）对端的br-ethx的H口接收到tag 10 的报文后通过I口发出将vlan ID转为10</p>
+<p>6）报文携带tag为10的报文通过J口进入br-int。</p>
+<p>7）br-int将报文从k发出，同时剥离tag 10的标签，还原成untag 报文发送给qbr-xxx</p>
+<p>8）qbr-xxx将untag的报文发送给VM3</p>
+<p><img alt="image-20200717122236013" src="https://gitee.com/hanstack/hanstack_image/raw/master/image/流量走向.png" /></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%879-Ironic/" title="4.6-OpenStack-Ironic" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                4.6-OpenStack-Ironic
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8711-Neutron-%E4%B8%8B/" title="4.7-OpenStack-Neutron-下" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                4.7-OpenStack-Neutron-下
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2016 - 2020 Han Lu
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.hcieonline.com/weixinme/" target="_blank" rel="noopener" title="www.hcieonline.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M385.2 167.6c6.4 0 12.6.3 18.8 1.1C387.4 90.3 303.3 32 207.7 32 100.5 32 13 104.8 13 197.4c0 53.4 29.3 97.5 77.9 131.6l-19.3 58.6 68-34.1c24.4 4.8 43.8 9.7 68.2 9.7 6.2 0 12.1-.3 18.3-.8-4-12.9-6.2-26.6-6.2-40.8-.1-84.9 72.9-154 165.3-154zm-104.5-52.9c14.5 0 24.2 9.7 24.2 24.4 0 14.5-9.7 24.2-24.2 24.2-14.8 0-29.3-9.7-29.3-24.2.1-14.7 14.6-24.4 29.3-24.4zm-136.4 48.6c-14.5 0-29.3-9.7-29.3-24.2 0-14.8 14.8-24.4 29.3-24.4 14.8 0 24.4 9.7 24.4 24.4 0 14.6-9.6 24.2-24.4 24.2zM563 319.4c0-77.9-77.9-141.3-165.4-141.3-92.7 0-165.4 63.4-165.4 141.3S305 460.7 397.6 460.7c19.3 0 38.9-5.1 58.6-9.9l53.4 29.3-14.8-48.6C534 402.1 563 363.2 563 319.4zm-219.1-24.5c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.8 0 24.4 9.7 24.4 19.3 0 10-9.7 19.6-24.4 19.6zm107.1 0c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.5 0 24.4 9.7 24.4 19.3.1 10-9.9 19.6-24.4 19.6z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.hcieonline.com/QQme/" target="_blank" rel="noopener" title="www.hcieonline.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://instagram.com/stefaniehanlulu" target="_blank" rel="noopener" title="instagram.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+      </a>
+    
+      
+      
+      <a href="mailto:<lickwolf@163.com>" target="_blank" rel="noopener" title="lickwolf on email" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.11f47dfd.min.js"></script>
+      <script src="../assets/javascripts/bundle.7e09dd84.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script>
+      
+      <script>
         app = initialize({
           base: "..",
           features: ['tabs'],
@@ -15,4 +1170,8 @@
             worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
           }, typeof search !== "undefined" && search)
         })
-      </script> </body> </html>
+      </script>
+      
+    
+  </body>
+</html>
