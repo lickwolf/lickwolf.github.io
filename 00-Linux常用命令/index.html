@@ -1,0 +1,1641 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="学习 沉淀 成长 分享">
+      
+      
+        <link rel="canonical" href="https://github.com/lickwolf/lickwolf.github.io/00-Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+      
+      
+        <meta name="author" content="Han Lu">
+      
+      <link rel="shortcut icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>00-linux常用命令 - Cloudcomputing</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.6a5ad368.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2094f3">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+      <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://github.com/lickwolf/lickwolf.github.io" title="Cloudcomputing" class="md-header-nav__button md-logo" aria-label="Cloudcomputing">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89"><path d="M3.136 17.387v42.932l42.932 21.467L3.136 17.387z"/><path d="M21.91 8l42.933 64.398-18.775 9.388L3.136 17.387 21.91 8z" fill-opacity=".5"/><path d="M67.535 17.387L40.273 35.543l21.878 32.818 5.384 2.691V17.387z"/><path d="M67.535 17.387v53.666l18.774-9.388V8l-18.774 9.387z" fill-opacity=".25"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Cloudcomputing
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              00-linux常用命令
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/lickwolf/lickwolf.github.io" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HanLu/Cloudcomputing
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../00-FusionSphere%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%99%9A%E6%8B%9F%E5%8C%96%EF%BC%89%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="md-tabs__link">
+          HCIE-Cloudcomputing
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" class="md-tabs__link md-tabs__link--active">
+          Linux
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../00-Python%E6%A6%82%E8%BF%B0/" class="md-tabs__link">
+          Python
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../00-%E9%9A%8F%E4%BE%BF%E8%81%8A%E7%82%B9%E4%BB%80%E4%B9%88/" class="md-tabs__link">
+          电台
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://github.com/lickwolf/lickwolf.github.io" title="Cloudcomputing" class="md-nav__button md-logo" aria-label="Cloudcomputing">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89"><path d="M3.136 17.387v42.932l42.932 21.467L3.136 17.387z"/><path d="M21.91 8l42.933 64.398-18.775 9.388L3.136 17.387 21.91 8z" fill-opacity=".5"/><path d="M67.535 17.387L40.273 35.543l21.878 32.818 5.384 2.691V17.387z"/><path d="M67.535 17.387v53.666l18.774-9.388V8l-18.774 9.387z" fill-opacity=".25"/></svg>
+
+    </a>
+    Cloudcomputing
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/lickwolf/lickwolf.github.io" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HanLu/Cloudcomputing
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      HCIE-Cloudcomputing
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="HCIE-Cloudcomputing" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        HCIE-Cloudcomputing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../00-FusionSphere%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%99%9A%E6%8B%9F%E5%8C%96%EF%BC%89%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="第1章 FusionSphere" class="md-nav__link">
+      第1章 FusionSphere
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../01-FusionAccess%E6%A1%8C%E9%9D%A2%E4%BA%91/" title="第2章 FusionAccess" class="md-nav__link">
+      第2章 FusionAccess
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../02-FusionStorage/" title="第3章 FusionStoarge" class="md-nav__link">
+      第3章 FusionStoarge
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+    
+    <label class="md-nav__link" for="nav-2-4">
+      第4章 OpenSatck
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="第4章 OpenSatck" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        <span class="md-nav__icon md-icon"></span>
+        第4章 OpenSatck
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenSatck%E7%BB%84%E4%BB%B6/" title="4.0-OpenStack-OverView" class="md-nav__link">
+      4.0-OpenStack-OverView
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%874-Nova/" title="4.1-OpenStck-Nova" class="md-nav__link">
+      4.1-OpenStck-Nova
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%875-Cinder/" title="4.2-OpenStack-Cinder" class="md-nav__link">
+      4.2-OpenStack-Cinder
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%876-Glance/" title="4.3-OpenStack-Glance" class="md-nav__link">
+      4.3-OpenStack-Glance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%877-Swift/" title="4.4-OpenStack-Swift" class="md-nav__link">
+      4.4-OpenStack-Swift
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%878-Keystone/" title="4.5-OpenSatck-Keystone" class="md-nav__link">
+      4.5-OpenSatck-Keystone
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%879-Ironic/" title="4.6-OpenStack-Ironic" class="md-nav__link">
+      4.6-OpenStack-Ironic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8710-Neutron-%E4%B8%8A/" title="4.7-OpenStack-Neutron-上" class="md-nav__link">
+      4.7-OpenStack-Neutron-上
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8711-Neutron-%E4%B8%8B/" title="4.7-OpenStack-Neutron-下" class="md-nav__link">
+      4.7-OpenStack-Neutron-下
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8712-Ceilometer/" title="4.8-OpenSatck-Ceilometer" class="md-nav__link">
+      4.8-OpenSatck-Ceilometer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%873-KVM/" title="4.9-OpenStack-KVM" class="md-nav__link">
+      4.9-OpenStack-KVM
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../03-%E5%A4%87%E4%BB%BD/" title="第5章 备份" class="md-nav__link">
+      第5章 备份
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../04-%E5%AE%B9%E7%81%BE/" title="第6章 容灾" class="md-nav__link">
+      第6章 容灾
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../05-%E8%BF%81%E7%A7%BB/" title="第7章 迁移" class="md-nav__link">
+      第7章 迁移
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../06-%E5%8D%8E%E4%B8%BA%E4%BA%91Stack/" title="第8章 私有云" class="md-nav__link">
+      第8章 私有云
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Linux
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" checked>
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Linux基础
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux基础" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        <span class="md-nav__icon md-icon"></span>
+        Linux基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        00-linux常用命令
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="00-linux常用命令" class="md-nav__link md-nav__link--active">
+      00-linux常用命令
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    文件处理命令
+  </a>
+  
+    <nav class="md-nav" aria-label="文件处理命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ls" class="md-nav__link">
+    命令格式与目录处理命令ls
+  </a>
+  
+    <nav class="md-nav" aria-label="命令格式与目录处理命令ls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux_1" class="md-nav__link">
+    linux中的最常见的文件类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux_2" class="md-nav__link">
+    linux中的文件属性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    目录处理命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    文件处理命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    链接命令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../01-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" title="01-权限管理" class="md-nav__link">
+      01-权限管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../02-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4find/" title="02-文件搜索命令find" class="md-nav__link">
+      02-文件搜索命令find
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../03-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/" title="03-用户管理命令（基础）" class="md-nav__link">
+      03-用户管理命令（基础）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../04-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4-%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E5%91%BD%E4%BB%A4/" title="04-文件搜索命令-压缩解压命令" class="md-nav__link">
+      04-文件搜索命令-压缩解压命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../05-%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4/" title="05-网络命令" class="md-nav__link">
+      05-网络命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../06-%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4/" title="06-帮助命令" class="md-nav__link">
+      06-帮助命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../07-%E5%85%B3%E6%9C%BA%E9%87%8D%E5%90%AF%E5%91%BD%E4%BB%A4/" title="07-关机重启命令" class="md-nav__link">
+      07-关机重启命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../08-VIM%E7%BC%96%E8%BE%91%E5%99%A8/" title="08-VIM编辑器" class="md-nav__link">
+      08-VIM编辑器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../09-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/" title="09-软件包管理" class="md-nav__link">
+      09-软件包管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../10-%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/" title="10-用户和用户组管理" class="md-nav__link">
+      10-用户和用户组管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../11-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86ACL/" title="11-权限管理ACL" class="md-nav__link">
+      11-权限管理ACL
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Python
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Python" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../00-Python%E6%A6%82%E8%BF%B0/" title="Python概述" class="md-nav__link">
+      Python概述
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      电台
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="电台" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        电台
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../00-%E9%9A%8F%E4%BE%BF%E8%81%8A%E7%82%B9%E4%BB%80%E4%B9%88/" title="00-随便聊点什么" class="md-nav__link">
+      00-随便聊点什么
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../02-%E8%B0%88%E8%B0%88%E6%88%91%E7%9A%84%E6%81%8B%E7%88%B1%E8%A7%82/" title="02-谈谈我的恋爱观" class="md-nav__link">
+      02-谈谈我的恋爱观
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../03-John%20Gage%E5%92%8C%E2%80%9CThe%20network%20is%20computer%E2%80%9D/" title="03-John Gage和“The network is computer”" class="md-nav__link">
+      03-John Gage和“The network is computer”
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    文件处理命令
+  </a>
+  
+    <nav class="md-nav" aria-label="文件处理命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ls" class="md-nav__link">
+    命令格式与目录处理命令ls
+  </a>
+  
+    <nav class="md-nav" aria-label="命令格式与目录处理命令ls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux_1" class="md-nav__link">
+    linux中的最常见的文件类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux_2" class="md-nav__link">
+    linux中的文件属性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    目录处理命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    文件处理命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    链接命令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="linux">Linux常用命令<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h1>
+<p>文件处理命令</p>
+<p>权限管理命令</p>
+<p>文件搜索命令</p>
+<p>帮助命令</p>
+<p>用户管理命令</p>
+<p>压缩解压命令</p>
+<p>网络命令</p>
+<p>关机重启命令</p>
+<h2 id="_1">文件处理命令<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="ls">命令格式与目录处理命令ls<a class="headerlink" href="#ls" title="Permanent link">&para;</a></h3>
+<p>命令格式：命令  [-选项] [参数]</p>
+<p>选项：用来调整命令功能的</p>
+<p>参数：指定命令操作的对象</p>
+<p>例如： ls -la /etc</p>
+<p>说明：</p>
+<p>​   1.个别命令不遵循此格式</p>
+<p>​   2.当有多个选项时，可以写在一起</p>
+<p>​   3.简化选项与‘’完整选项</p>
+<p>​       -a 等于 --all：能够显示出所有文件，包括隐藏文件</p>
+<p><strong>ls命令</strong></p>
+<p>命令名称：ls</p>
+<p>命令英文原意：list</p>
+<p>命令所在的路径： /bin/ls</p>
+<p>执行权限：所有用户</p>
+<p>功能描述：显示目录文件</p>
+<p>语法：ls [-选项] [文件或者目录]</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># ls</span>
+anaconda-ks.cfg  Documents  index.html            Music     Public      Templates
+Desktop          Downloads  initial-setup-ks.cfg  Pictures  readme.txt  Videos
+</code></pre></div>
+
+<p>-a 显示所有文件，包括隐藏文件</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># ls -a</span>
+.                .bashx     Downloads             .mozilla           .tcshrc
+..               .cache     .elinks               Music              Templates
+anaconda-ks.cfg  .config    .esd_auth             Pictures           Videos
+.bash_history    .cshrc     .ICEauthority         Public             .Xauthority
+.bash_logout     .dbus      index.html            readme.txt
+.bash_profile    Desktop    initial-setup-ks.cfg  .serverauth.37052
+.bashrc          Documents  .local                .serverauth.38467
+</code></pre></div>
+
+<p>-l 详细信息显示</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># ls -l</span>
+total <span class="m">36</span>
+-rw-------. <span class="m">1</span> root root  <span class="m">1680</span> Sep <span class="m">18</span> <span class="m">00</span>:00 anaconda-ks.cfg
+drwxr-xr-x. <span class="m">3</span> root root    <span class="m">29</span> Sep <span class="m">23</span> <span class="m">11</span>:35 Desktop
+drwxr-xr-x. <span class="m">2</span> root root     <span class="m">6</span> Sep <span class="m">22</span> <span class="m">16</span>:32 Documents
+drwxr-xr-x. <span class="m">2</span> root root     <span class="m">6</span> Sep <span class="m">22</span> <span class="m">16</span>:32 Downloads
+-rw-r--r--. <span class="m">1</span> root root <span class="m">22374</span> Sep <span class="m">20</span> <span class="m">22</span>:54 index.html
+-rw-r--r--. <span class="m">1</span> root root  <span class="m">1711</span> Sep <span class="m">18</span> <span class="m">00</span>:03 initial-setup-ks.cfg
+drwxr-xr-x. <span class="m">2</span> root root     <span class="m">6</span> Sep <span class="m">22</span> <span class="m">16</span>:32 Music
+drwxr-xr-x. <span class="m">2</span> root root     <span class="m">6</span> Sep <span class="m">22</span> <span class="m">16</span>:32 Pictures
+drwxr-xr-x. <span class="m">2</span> root root     <span class="m">6</span> Sep <span class="m">22</span> <span class="m">16</span>:32 Public
+-rw-r--r--. <span class="m">1</span> root root    <span class="m">10</span> Sep <span class="m">26</span> <span class="m">08</span>:21 readme.txt
+drwxr-xr-x. <span class="m">2</span> root root     <span class="m">6</span> Sep <span class="m">22</span> <span class="m">16</span>:32 Templates
+drwxr-xr-x. <span class="m">2</span> root root     <span class="m">6</span> Sep <span class="m">22</span> <span class="m">16</span>:32 Videos
+</code></pre></div>
+
+<p>-d 查看目录属性</p>
+<p>-h humen 人性化视角显示</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># ls -lh</span>
+total 36K
+-rw-------. <span class="m">1</span> root root <span class="m">1</span>.7K Sep <span class="m">18</span> <span class="m">00</span>:00 anaconda-ks.cfg
+drwxr-xr-x. <span class="m">3</span> root root   <span class="m">29</span> Sep <span class="m">23</span> <span class="m">11</span>:35 Desktop
+drwxr-xr-x. <span class="m">2</span> root root    <span class="m">6</span> Sep <span class="m">22</span> <span class="m">16</span>:32 Documents
+drwxr-xr-x. <span class="m">2</span> root root    <span class="m">6</span> Sep <span class="m">22</span> <span class="m">16</span>:32 Downloads
+-rw-r--r--. <span class="m">1</span> root root  22K Sep <span class="m">20</span> <span class="m">22</span>:54 index.html
+-rw-r--r--. <span class="m">1</span> root root <span class="m">1</span>.7K Sep <span class="m">18</span> <span class="m">00</span>:03 initial-setup-ks.cfg
+drwxr-xr-x. <span class="m">2</span> root root    <span class="m">6</span> Sep <span class="m">22</span> <span class="m">16</span>:32 Music
+drwxr-xr-x. <span class="m">2</span> root root    <span class="m">6</span> Sep <span class="m">22</span> <span class="m">16</span>:32 Pictures
+drwxr-xr-x. <span class="m">2</span> root root    <span class="m">6</span> Sep <span class="m">22</span> <span class="m">16</span>:32 Public
+-rw-r--r--. <span class="m">1</span> root root   <span class="m">10</span> Sep <span class="m">26</span> <span class="m">08</span>:21 readme.txt
+drwxr-xr-x. <span class="m">2</span> root root    <span class="m">6</span> Sep <span class="m">22</span> <span class="m">16</span>:32 Templates
+drwxr-xr-x. <span class="m">2</span> root root    <span class="m">6</span> Sep <span class="m">22</span> <span class="m">16</span>:32 Videos
+</code></pre></div>
+
+<p>-i 查看i节点</p>
+<div class="highlight"><pre><span></span><code>[root@centos7 ~]# ls -li
+total 36
+100663362 -rw-------. 1 root root  1680 Sep 18 00:00 anaconda-ks.cfg
+ 33713444 drwxr-xr-x. 3 root root    29 Sep 23 11:35 Desktop
+ 33713445 drwxr-xr-x. 2 root root     6 Sep 22 16:32 Documents
+ 68532040 drwxr-xr-x. 2 root root     6 Sep 22 16:32 Downloads
+102055590 -rw-r--r--. 1 root root 22374 Sep 20 22:54 index.html
+100663375 -rw-r--r--. 1 root root  1711 Sep 18 00:03 initial-setup-ks.cfg
+ 68532041 drwxr-xr-x. 2 root root     6 Sep 22 16:32 Music
+102044738 drwxr-xr-x. 2 root root     6 Sep 22 16:32 Pictures
+     6266 drwxr-xr-x. 2 root root     6 Sep 22 16:32 Public
+100664942 -rw-r--r--. 1 root root    10 Sep 26 08:21 readme.txt
+102044737 drwxr-xr-x. 2 root root     6 Sep 22 16:32 Templates
+     6267 drwxr-xr-x. 2 root root     6 Sep 22 16:32 Videos
+</code></pre></div>
+
+<h4 id="linux_1">linux中的最常见的文件类型<a class="headerlink" href="#linux_1" title="Permanent link">&para;</a></h4>
+<p>-开头：文件</p>
+<p>l开头：软连接</p>
+<p>d开头：目录 </p>
+<div class="highlight"><pre><span></span><code>-rw-------. 1 root root 1.7K Sep 18 00:00 anaconda-ks.cfg 
+lrwxrwxrwx.   1 root root    7 Sep 17 23:49 bin -&gt; usr/bin
+dr-xr-xr-x.   5 root root 4096 Sep 18 00:01 boot
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># ls -ld  /etc/</span>
+drwxr-xr-x. <span class="m">139</span> root root <span class="m">8192</span> Oct <span class="m">23</span> <span class="m">16</span>:47 /etc/
+</code></pre></div>
+
+<h4 id="linux_2">linux中的文件属性<a class="headerlink" href="#linux_2" title="Permanent link">&para;</a></h4>
+<p>r：read读</p>
+<p>w：write写</p>
+<p>x： executable执行</p>
+<p><img alt="image-20201023172253746" src="https://i.loli.net/2020/10/23/a1BdOn5YLzR9sEi.png" /></p>
+<h3 id="_2">目录处理命令<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p><strong>mkdir</strong></p>
+<p>命令名称：mkdir</p>
+<p>NAME
+       mkdir - make directories</p>
+<p>创建目录</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># mkdir  /tmp/boduo</span>
+</code></pre></div>
+
+<p>创建多个目录</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># mkdir /tmp/cangjing /tmp/longze</span>
+</code></pre></div>
+
+<p>在多个位置同时创建目录</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># mkdir /tmp/cangjing/nvyou /tmp/taogu</span>
+</code></pre></div>
+
+<p><strong>目录切换命令：cd</strong></p>
+<p>英文原意：change directory</p>
+<p>显示当前所在目录：pwd</p>
+<p>pwd - print name of current/working directory//打印出所在的工作目录</p>
+<p>命令所在路径：shell内置命令</p>
+<p>执行权限：所有用户</p>
+<p>语法：cd [目录]</p>
+<p>功能描述：切换目录</p>
+<p>范例：</p>
+<p>1.切换到  /tmp 目录下；[root@centos7 tmp]# [] 内显示的自己所在目录</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># cd /tmp</span>
+<span class="o">[</span>root@centos7 tmp<span class="o">]</span><span class="c1">#</span>
+</code></pre></div>
+
+<p>2.切换多级目录</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># cd /tmp/cangjing/nvyou/</span>
+<span class="o">[</span>root@centos7 nvyou<span class="o">]</span><span class="c1">#</span>
+</code></pre></div>
+
+<p>3.返回上一级目录 cd ..  </p>
+<p>.. 表示上一级目录</p>
+<p>. 表示本目录</p>
+<div class="highlight"><pre><span></span><code>[root@centos7 nvyou]# cd ..
+[root@centos7 cangjing]#
+</code></pre></div>
+
+<p><strong>删除空目录：rmdir</strong></p>
+<p>NAME
+       rmdir - remove empty directories</p>
+<p>语法：</p>
+<p>rmdir [OPTION]... DIRECTORY...</p>
+<p>例子：</p>
+<p>1.删除空目录 taogu</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 tmp<span class="o">]</span><span class="c1"># rmdir taogu</span>
+<span class="o">[</span>root@centos7 tmp<span class="o">]</span><span class="c1">#</span>
+</code></pre></div>
+
+<p>2.尝试删除非空目录</p>
+<p>//删除失败，因为该目录非空</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 tmp<span class="o">]</span><span class="c1"># rmdir cangjing/</span>
+rmdir: failed to remove ‘cangjing/’: Directory not empty
+</code></pre></div>
+
+<p><strong>复制命令：cp</strong></p>
+<p>命令名称：cp</p>
+<p>命令英文原意：</p>
+<p>NAME
+       cp - copy files and directories//复制文件或者目录</p>
+<p>格式：</p>
+<p>​      cp [OPTION]... [-T] SOURCE DEST
+​       cp [OPTION]... SOURCE... DIRECTORY
+​       cp [OPTION]... -t DIRECTORY SOURCE...</p>
+<p>命令所在路径：/bin/cp</p>
+<p>执行权限：所有用户</p>
+<p>语法：</p>
+<p>cp -rp [源文件或目录] [目标文件]</p>
+<p>​    -r 复制目录</p>
+<p>​    -p 保留文件属性 </p>
+<p>eq:</p>
+<p>1.复制目录到目录</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 tmp<span class="o">]</span><span class="c1"># cp -r xiaodianying xiaodianying1</span>
+<span class="o">[</span>root@centos7 tmp<span class="o">]</span><span class="c1"># cd xiaodianying1</span>
+<span class="o">[</span>root@centos7 xiaodianying1<span class="o">]</span><span class="c1"># ls</span>
+xiaodianying
+</code></pre></div>
+
+<p>2.复制文件到目录</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># cp readme.txt /tmp/xiaodianying</span>
+<span class="o">[</span>root@centos7 tmp<span class="o">]</span><span class="c1"># cd xiaodianying</span>
+<span class="o">[</span>root@centos7 xiaodianying<span class="o">]</span><span class="c1"># ls</span>
+readme.txt  xiaodianying
+</code></pre></div>
+
+<p>3.保留源文件的属性并复制</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1">#  cp -p readme.txt  /tmp/xiaodianying</span>
+cp: overwrite ‘/tmp/xiaodianying/readme.txt’? y
+<span class="o">[</span>root@centos7 xiaodianying<span class="o">]</span><span class="c1"># ls -l</span>
+^<span class="o">[[</span><span class="m">6</span>~total <span class="m">4</span>
+-rw-r--r--. <span class="m">1</span> root root <span class="m">10</span> Sep <span class="m">26</span> <span class="m">08</span>:21 readme.txt
+drwxr-xr-x. <span class="m">2</span> root root  <span class="m">6</span> Oct <span class="m">24</span> <span class="m">22</span>:51 xiaodianying
+</code></pre></div>
+
+<p>与源文件进行比较时间一致</p>
+<div class="highlight"><pre><span></span><code>[root@centos7 ~]# ls -l
+total 36
+-rw-------. 1 root root  1680 Sep 18 00:00 anaconda-ks.cfg
+drwxr-xr-x. 3 root root    29 Sep 23 11:35 Desktop
+drwxr-xr-x. 2 root root     6 Sep 22 16:32 Documents
+drwxr-xr-x. 2 root root     6 Sep 22 16:32 Downloads
+-rw-r--r--. 1 root root 22374 Sep 20 22:54 index.html
+-rw-r--r--. 1 root root  1711 Sep 18 00:03 initial-setup-ks.cfg
+drwxr-xr-x. 2 root root     6 Sep 22 16:32 Music
+drwxr-xr-x. 2 root root     6 Sep 22 16:32 Pictures
+drwxr-xr-x. 2 root root     6 Sep 22 16:32 Public
+-rw-r--r--. 1 root root    10 Sep 26 08:21 readme.txt
+</code></pre></div>
+
+<p>4.复制的同时进行更名</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># cp -r /tmp/cangjing/ /root/xiaohan_18</span>
+</code></pre></div>
+
+<p><strong>剪切命令： mv</strong></p>
+<p>NAME
+       mv - move (rename) files</p>
+<p>语法：</p>
+<p>mv [源文件或者目录] [目的目录]</p>
+<p>eq：</p>
+<p>1.使用mv命令修改当前目录下的目录名或者文件名</p>
+<p>将xiaohan_18 修改为sesese</p>
+<div class="highlight"><pre><span></span><code>[root@centos7 ~]# mv xiaohan_18 sesese
+</code></pre></div>
+
+<p><strong>删除命令：rm</strong></p>
+<p>NAME
+       rm - remove files or directories</p>
+<p>命令所在路径;/bin/rm</p>
+<p>-r, -R, --recursive
+              remove directories and their contents recursively</p>
+<p>-f, --force
+              ignore nonexistent files and arguments, never prompt</p>
+<p>eq:</p>
+<p>1.删除目录//有询问</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># rm -r xiaodianying/</span>
+rm: descend into directory ‘xiaodianying/’? y
+rm: remove directory ‘xiaodianying/xiaodianying’?
+rm: remove regular file ‘xiaodianying/readme.txt’? y
+</code></pre></div>
+
+<p>2.强制删除目录//不执行询问</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># rm -rf xiaodianying/</span>
+</code></pre></div>
+
+<h3 id="_3">文件处理命令<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><strong>命令名称：touch</strong></p>
+<p>NAME
+       touch - change file timestamps</p>
+<p>命令所在路径：/bin/touch</p>
+<p>执行权限：所有用户</p>
+<p>语法：touch [文件名]</p>
+<p>功能描述： 创建空文件</p>
+<p>eq：</p>
+<p>1.创建包含空格的文件</p>
+<div class="highlight"><pre><span></span><code>[root@centos7 ~]# touch &quot;program files&quot;
+</code></pre></div>
+
+<p><strong>cat：</strong></p>
+<p>NAME</p>
+<p>concatenate files and print on the standard output</p>
+<p>功能：显示文件内容</p>
+<p>cat -n //显示行号</p>
+<p>eq：</p>
+<p>1.查看 /etc/issue</p>
+<div class="highlight"><pre><span></span><code>[root@centos7 ~]# cat /etc/issue
+\S
+Kernel \r on an \m
+</code></pre></div>
+
+<p>2.显示行号</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1">#  cat -n /etc/issue</span>
+     <span class="m">1</span>  <span class="se">\S</span>
+     <span class="m">2</span>  Kernel <span class="se">\r</span> on an <span class="se">\m</span>
+     <span class="m">3</span>
+</code></pre></div>
+
+<p><strong>tac：</strong></p>
+<p>命令所在路径：/usr/bin/tac</p>
+<p>执行权限：所有用户</p>
+<p>语法：tac [文件名]</p>
+<p>功能描述：倒序我显示文件内容</p>
+<p>eq：</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># tac /etc/issue</span>
+
+Kernel <span class="se">\r</span> on an <span class="se">\m</span>
+<span class="se">\S</span>
+</code></pre></div>
+
+<p><strong>more</strong></p>
+<p>命令所在路径：/bin/more</p>
+<p>执行权限：所有用户</p>
+<p>语法：more  [文件名]</p>
+<p>​           空格或f 翻页（向下）</p>
+<p>​           enter     换行</p>
+<p>​           q或Q      退出</p>
+<p>​           pageup  向上翻页</p>
+<p>​           pagedown 向下翻页 </p>
+<p>功能：分页显示文件内容</p>
+<p>eq：</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># more /etc/services</span>
+<span class="c1"># /etc/services:</span>
+<span class="c1"># $Id: services,v 1.55 2013/04/14 ovasik Exp $</span>
+<span class="c1">#</span>
+<span class="c1"># Network services, Internet style</span>
+<span class="c1"># IANA services version: last updated 2013-04-10</span>
+<span class="c1">#</span>
+<span class="c1"># Note that it is presently the policy of IANA to assign a single well-known</span>
+<span class="c1"># port number for both TCP and UDP; hence, most entries here have two entries</span>
+<span class="c1"># even if the protocol doesn&#39;t support UDP operations.</span>
+<span class="c1"># Updated from RFC 1700, ``Assigned Numbers&#39;&#39; (October 1994).  Not all ports</span>
+<span class="c1"># are included, only the more common ones.</span>
+<span class="c1">#</span>
+<span class="c1"># The latest IANA port assignments can be gotten from</span>
+<span class="c1">#       http://www.iana.org/assignments/port-numbers</span>
+<span class="c1"># The Well Known Ports are those from 0 through 1023.</span>
+<span class="c1"># The Registered Ports are those from 1024 through 49151</span>
+<span class="c1"># The Dynamic and/or Private Ports are those from 49152 through 65535</span>
+<span class="c1">#</span>
+<span class="c1"># Each line describes one service, and is of the form:</span>
+<span class="c1">#</span>
+<span class="c1"># service-name  port/protocol  [aliases ...]   [# comment]</span>
+
+tcpmux          <span class="m">1</span>/tcp                           <span class="c1"># TCP port service multiplexer</span>
+tcpmux          <span class="m">1</span>/udp                           <span class="c1"># TCP port service multiplexer</span>
+rje             <span class="m">5</span>/tcp                           <span class="c1"># Remote Job Entry</span>
+rje             <span class="m">5</span>/udp                           <span class="c1"># Remote Job Entry</span>
+--More--<span class="o">(</span><span class="m">0</span>%<span class="o">)</span>
+</code></pre></div>
+
+<p><strong>less</strong></p>
+<p>命令所在路径：/usr/bin/less</p>
+<p>执行权限：所有用户</p>
+<p>语法：less [文件名]</p>
+<p>功能描述：分页显示文件内容（可以向上翻页）</p>
+<p>up:向上翻一行</p>
+<p>down：向下翻一行</p>
+<p>pageup：向上翻页</p>
+<p>pagedown：向下翻页</p>
+<p>/关键词 ：搜索关键词</p>
+<p>eq：</p>
+<p>less  /etc/services</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># less /etc/services</span>
+</code></pre></div>
+
+<p>2.搜索services//接着按 n能够显示关键词所在的下一个位置</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#</span>
+<span class="c1"># UNIX specific services</span>
+<span class="c1">#</span>
+<span class="nb">exec</span>            <span class="m">512</span>/tcp
+biff            <span class="m">512</span>/udp         comsat
+login           <span class="m">513</span>/tcp
+who             <span class="m">513</span>/udp         whod
+shell           <span class="m">514</span>/tcp         cmd             <span class="c1"># no passwords used</span>
+syslog          <span class="m">514</span>/udp
+printer         <span class="m">515</span>/tcp         spooler         <span class="c1"># line printer spooler</span>
+printer         <span class="m">515</span>/udp         spooler         <span class="c1"># line printer spooler</span>
+talk            <span class="m">517</span>/udp
+ntalk           <span class="m">518</span>/udp
+utime           <span class="m">519</span>/tcp         unixtime
+utime           <span class="m">519</span>/udp         unixtime
+efs             <span class="m">520</span>/tcp
+router          <span class="m">520</span>/udp         route routed    <span class="c1"># RIP</span>
+ripng           <span class="m">521</span>/tcp
+ripng           <span class="m">521</span>/udp
+timed           <span class="m">525</span>/tcp         timeserver
+timed           <span class="m">525</span>/udp         timeserver
+tempo           <span class="m">526</span>/tcp         newdate
+courier         <span class="m">530</span>/tcp         rpc
+conference      <span class="m">531</span>/tcp         chat
+netnews         <span class="m">532</span>/tcp
+netwall         <span class="m">533</span>/udp                         <span class="c1"># -for emergency broadcasts</span>
+/services
+</code></pre></div>
+
+<p><strong>head</strong></p>
+<p>命令所在路径：/usr/bin/head</p>
+<p>执行权限:所有用户</p>
+<p>语法：head [文件名]</p>
+<p>功能描述：显示文件前面几行</p>
+<p>​               -n 制定行数</p>
+<p>eq：</p>
+<p>1.显示/etc/services的前七行</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># head -n 7 /etc/services</span>
+<span class="c1"># /etc/services:</span>
+<span class="c1"># $Id: services,v 1.55 2013/04/14 ovasik Exp $</span>
+<span class="c1">#</span>
+<span class="c1"># Network services, Internet style</span>
+<span class="c1"># IANA services version: last updated 2013-04-10</span>
+<span class="c1">#</span>
+<span class="c1"># Note that it is presently the policy of IANA to assign a single well-known</span>
+</code></pre></div>
+
+<p><strong>tail</strong></p>
+<p>命令所在路径：/usr/bin/tail</p>
+<p>执行权限：所有用户</p>
+<p>语法：tail [文件名]</p>
+<p>功能描述：显示文件最后面几行/默认是10行</p>
+<p>​               -n 指定行数</p>
+<p>​               -f 动态显示文件末尾行</p>
+<p>eq：</p>
+<p>1.显示/etc/services 最后12行</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># tail -n 12 /etc/services</span>
+nimbusdb        <span class="m">48004</span>/tcp               <span class="c1"># NimbusDB Connector</span>
+nimbusdbctrl    <span class="m">48005</span>/tcp               <span class="c1"># NimbusDB Control</span>
+3gpp-cbsp       <span class="m">48049</span>/tcp               <span class="c1"># 3GPP Cell Broadcast Service Protocol</span>
+isnetserv       <span class="m">48128</span>/tcp               <span class="c1"># Image Systems Network Services</span>
+isnetserv       <span class="m">48128</span>/udp               <span class="c1"># Image Systems Network Services</span>
+blp5            <span class="m">48129</span>/tcp               <span class="c1"># Bloomberg locator</span>
+blp5            <span class="m">48129</span>/udp               <span class="c1"># Bloomberg locator</span>
+com-bardac-dw   <span class="m">48556</span>/tcp               <span class="c1"># com-bardac-dw</span>
+com-bardac-dw   <span class="m">48556</span>/udp               <span class="c1"># com-bardac-dw</span>
+iqobject        <span class="m">48619</span>/tcp               <span class="c1"># iqobject</span>
+iqobject        <span class="m">48619</span>/udp               <span class="c1"># iqobject</span>
+matahari        <span class="m">49000</span>/tcp               <span class="c1"># Matahari Broker</span>
+</code></pre></div>
+
+<h3 id="_4">链接命令<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>命令英文原意：link</p>
+<p>命令所在路径:/bin/ln</p>
+<p>执行权限：所有用户</p>
+<p>语法：ln -[s] [源文件] [目标文件] //有s为软连接  无s为硬链接</p>
+<p>​               -s 创建软连接</p>
+<p>功能描述生成链接文件</p>
+<p>eq:</p>
+<p>1.创建软连接文件</p>
+<div class="highlight"><pre><span></span><code>ln -s /etc/issue /tmp/issue.soft
+</code></pre></div>
+
+<p>显示软连接文件</p>
+<div class="highlight"><pre><span></span><code>lrwxrwxrwx. <span class="m">1</span> root root    <span class="m">10</span> Oct <span class="m">25</span> <span class="m">23</span>:42 issue.soft -&gt; /etc/issue
+</code></pre></div>
+
+<p>软链接文件的特征：</p>
+<p>lrwxrwxrwx l：表示连接   rwxrwxrwx：所有用户都有读写操作的权限</p>
+<p>类似于windows的快捷方式</p>
+<p>软连接的权限并不决定源文件的权限</p>
+<p>软连接文件的大小非常小，因为仅仅是一个符号链接
+箭头指向源文件</p>
+<p>2.创建硬链接</p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<p>硬链接的特征：</p>
+<p>1.拷贝cp-p+同步更新</p>
+<p>echo“<a href="http://www.hcieonline.con">www.hcieonline.con</a>” &gt;&gt; /etc/issue</p>
+<div class="highlight"><pre><span></span><code>[root@centos7 tmp]# less issue.hard
+
+\S
+Kernel \r on an \m
+
+www.hcieonline.com
+issue.hard (END)
+</code></pre></div>
+
+<p>硬链接不能跨分区</p>
+<p>硬链接不能针对目录使用</p>
+<p>通过i节点识别</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../06-%E5%8D%8E%E4%B8%BA%E4%BA%91Stack/" title="第8章 私有云" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                第8章 私有云
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../01-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" title="01-权限管理" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                01-权限管理
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2016 - 2020 Han Lu
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.hcieonline.com/weixinme/" target="_blank" rel="noopener" title="www.hcieonline.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M385.2 167.6c6.4 0 12.6.3 18.8 1.1C387.4 90.3 303.3 32 207.7 32 100.5 32 13 104.8 13 197.4c0 53.4 29.3 97.5 77.9 131.6l-19.3 58.6 68-34.1c24.4 4.8 43.8 9.7 68.2 9.7 6.2 0 12.1-.3 18.3-.8-4-12.9-6.2-26.6-6.2-40.8-.1-84.9 72.9-154 165.3-154zm-104.5-52.9c14.5 0 24.2 9.7 24.2 24.4 0 14.5-9.7 24.2-24.2 24.2-14.8 0-29.3-9.7-29.3-24.2.1-14.7 14.6-24.4 29.3-24.4zm-136.4 48.6c-14.5 0-29.3-9.7-29.3-24.2 0-14.8 14.8-24.4 29.3-24.4 14.8 0 24.4 9.7 24.4 24.4 0 14.6-9.6 24.2-24.4 24.2zM563 319.4c0-77.9-77.9-141.3-165.4-141.3-92.7 0-165.4 63.4-165.4 141.3S305 460.7 397.6 460.7c19.3 0 38.9-5.1 58.6-9.9l53.4 29.3-14.8-48.6C534 402.1 563 363.2 563 319.4zm-219.1-24.5c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.8 0 24.4 9.7 24.4 19.3 0 10-9.7 19.6-24.4 19.6zm107.1 0c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.5 0 24.4 9.7 24.4 19.3.1 10-9.9 19.6-24.4 19.6z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.hcieonline.com/QQme/" target="_blank" rel="noopener" title="www.hcieonline.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://instagram.com/stefaniehanlulu" target="_blank" rel="noopener" title="instagram.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+      </a>
+    
+      
+      
+      <a href="mailto:<lickwolf@163.com>" target="_blank" rel="noopener" title="lickwolf on email" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.11f47dfd.min.js"></script>
+      <script src="../assets/javascripts/bundle.7e09dd84.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ['tabs'],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
