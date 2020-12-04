@@ -877,6 +877,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../06-cisco%E6%9E%B6%E8%B5%B7%E4%BA%92%E8%81%94%E7%BD%91%E9%80%9A%E4%BF%A1%E7%9A%84%E6%A1%A5%E6%A2%81/" title="06-cisco架起互联网通信的桥梁" class="md-nav__link">
+      06-cisco架起互联网通信的桥梁
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../07-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8B%82%E6%99%93/" title="07-计算机拂晓" class="md-nav__link">
+      07-计算机拂晓
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../08-%E7%BD%91%E4%BA%8B%E7%9F%A5%E5%A4%9A%E5%B0%91--%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/" title="08-网事知多少--浏览器的前世今生" class="md-nav__link">
+      08-网事知多少--浏览器的前世今生
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -967,45 +1003,38 @@
 total <span class="m">0</span>
 ----------. <span class="m">1</span> root root <span class="m">0</span> Oct <span class="m">26</span> <span class="m">14</span>:43 <span class="nb">test</span>
 </code></pre></div>
-
 <p>1.改变test文件的权限为用户只读</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># chmod  u+r test</span>
 <span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># ls -l</span>
 total <span class="m">0</span>
 -r--------. <span class="m">1</span> root root <span class="m">0</span> Oct <span class="m">26</span> <span class="m">14</span>:43 <span class="nb">test</span>
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># chmod 400 test</span>
 <span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># ls -l</span>
 total <span class="m">0</span>
 -r--------. <span class="m">1</span> root root <span class="m">0</span> Oct <span class="m">26</span> <span class="m">14</span>:43 <span class="nb">test</span>
 </code></pre></div>
-
 <p>2.改变test文件的权限为所属组只写·</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># chmod  u+w test</span>
 <span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># ls -l</span>
 total <span class="m">0</span>
 --w-------. <span class="m">1</span> root root <span class="m">0</span> Oct <span class="m">26</span> <span class="m">14</span>:43 <span class="nb">test</span>
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># ls -l</span>
 total <span class="m">0</span>
 --w-------. <span class="m">1</span> root root <span class="m">0</span> Oct <span class="m">26</span> <span class="m">14</span>:43 <span class="nb">test</span>
 </code></pre></div>
-
 <p>3.改变test文件的权限为其他人只执行</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># chmod  u+x test</span>
 <span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># ls -l</span>
 total <span class="m">0</span>
 ---x------. <span class="m">1</span> root root <span class="m">0</span> Oct <span class="m">26</span> <span class="m">14</span>:43 <span class="nb">test</span>
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># chmod  100 test</span>
 <span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># ls -l</span>
 total <span class="m">0</span>
 ---x------. <span class="m">1</span> root root <span class="m">0</span> Oct <span class="m">26</span> <span class="m">14</span>:43 <span class="nb">test</span>
 </code></pre></div>
-
 <p>4.改变test文件的权限为所有人能够读写执行</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># chmod  a+x test</span>
 
@@ -1013,44 +1042,37 @@ total <span class="m">0</span>
 total <span class="m">0</span>
 ---x--x--x. <span class="m">1</span> root root <span class="m">0</span> Oct <span class="m">26</span> <span class="m">14</span>:43 <span class="nb">test</span>
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># chmod  111 test</span>
 <span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># ls -l</span>
 total <span class="m">0</span>
 ---x--x--x. <span class="m">1</span> root root <span class="m">0</span> Oct <span class="m">26</span> <span class="m">14</span>:43 <span class="nb">test</span>
 </code></pre></div>
-
 <p>5.改变test文件的权限为所有人能读和执行</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># chmod  a+r,a+x test</span>
 <span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># ls -l</span>
 total <span class="m">0</span>
 -r-xr-xr-x. <span class="m">1</span> root root <span class="m">0</span> Oct <span class="m">26</span> <span class="m">14</span>:43 <span class="nb">test</span>
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># chmod 555 test</span>
 <span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># ls -l</span>
 total <span class="m">0</span>
 -r-xr-xr-x. <span class="m">1</span> root root <span class="m">0</span> Oct <span class="m">26</span> <span class="m">14</span>:43 <span class="nb">test</span>
 </code></pre></div>
-
 <p>6.改变test文件的权限为所有人不能进行任何操作</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># chmod a-r,a-w,a-x test</span>
 <span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># ls -l</span>
 total <span class="m">0</span>
 ----------. <span class="m">1</span> root root <span class="m">0</span> Oct <span class="m">26</span> <span class="m">14</span>:43 <span class="nb">test</span>
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># chmod 000 test</span>
 <span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># ls -l</span>
 total <span class="m">0</span>
 ----------. <span class="m">1</span> root root <span class="m">0</span> Oct <span class="m">26</span> <span class="m">14</span>:43 <span class="nb">test</span>
 </code></pre></div>
-
 <p>7.创建一个多级目录修改每一级目录的权限为只读</p>
 <p>​   修改最上层的目录对下一层级的目录没影响</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 cangjing<span class="o">]</span><span class="c1"># chmod  -R 444 1</span>
 </code></pre></div>
-
 <p><strong>chown</strong></p>
 <p>命令英文原意：change file ownership</p>
 <p>命令所在路径：/bin/chown</p>
@@ -1066,13 +1088,11 @@ BAD PASSWORD: The password is shorter than <span class="m">8</span> characters
 Retype new password:
 passwd: all authentication tokens updated successfully.
 </code></pre></div>
-
 <p>2.使用要户xiaohan在/tmp下创建一个heart 文件；并将heart文件的所有者设置为miaomiao</p>
 <div class="highlight"><pre><span></span><code>[xiaohan@centos7 tmp]$ touch heart
 [root@centos7 tmp]# chown miaomiao heart
 显示结果//-rw-rw-r--. 1 miaomiao xiaohan     0 Oct 26 19:49 heart
 </code></pre></div>
-
 <p><strong>chgrp</strong></p>
 <p>命令英文原意：change file group ownership</p>
 <p>命令所在路径：/bin/chgrp</p>
@@ -1096,7 +1116,6 @@ total <span class="m">0</span>
 drwxrwxr-x. <span class="m">2</span> xiaohan xiaohan   <span class="m">6</span> Oct <span class="m">26</span> <span class="m">20</span>:14 gcs
 -rw-rw-r--. <span class="m">1</span> xiaohan xiaohan   <span class="m">0</span> Oct <span class="m">26</span> <span class="m">20</span>:15 hah
 </code></pre></div>
-
 <p><strong>umask</strong></p>
 <p>命令英文原意:the user file-creation mask</p>
 <p>命令所在路径：Shell内置命令</p>

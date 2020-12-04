@@ -1089,6 +1089,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../06-cisco%E6%9E%B6%E8%B5%B7%E4%BA%92%E8%81%94%E7%BD%91%E9%80%9A%E4%BF%A1%E7%9A%84%E6%A1%A5%E6%A2%81/" title="06-cisco架起互联网通信的桥梁" class="md-nav__link">
+      06-cisco架起互联网通信的桥梁
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../07-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8B%82%E6%99%93/" title="07-计算机拂晓" class="md-nav__link">
+      07-计算机拂晓
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../08-%E7%BD%91%E4%BA%8B%E7%9F%A5%E5%A4%9A%E5%B0%91--%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/" title="08-网事知多少--浏览器的前世今生" class="md-nav__link">
+      08-网事知多少--浏览器的前世今生
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1413,7 +1449,6 @@ error: Failed dependencies:
         libodbcinst.so.2<span class="o">()(</span>64bit<span class="o">)</span> is needed by mysql-connector-odbc-5.1.5r1144-7.el6.x86_64
         unixODBC is needed by mysql-connector-odbc-5.1.5r1144-7.el6.x86_64
 </code></pre></div>
-
 <h4 id="3">3，包全名与包名<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
 <p>包全名：操作的包是没有安装的软件包时，使用包全名。而且要注意路径</p>
 <p>包名：操作已经安装的软件包时，使用包名。是搜索/var/lib/rpm/中的数据库</p>
@@ -1465,18 +1500,15 @@ libvirt-daemon-config-network-4.5.0-33.el7.x86_64
 perl-Getopt-Long-2.40-3.el7.noarch
 webkitgtk4-jsc-2.22.7-2.el7.x86_64
 </code></pre></div>
-
 <p>2.查看指定的包是否安装</p>
 <p>​           //显示未安装</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 Packages<span class="o">]</span><span class="c1"># rpm -q httpd</span>
 package httpd is not installed
 </code></pre></div>
-
 <p>3.查询软件包的信息</p>
 <div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">root</span><span class="nv">@centos7</span> <span class="n">Packages</span><span class="p">]</span><span class="c"># rpm -qi httpd</span>
 <span class="n">package</span> <span class="n">httpd</span> <span class="n">is</span> <span class="n">not</span> <span class="n">installed</span>
 </code></pre></div>
-
 <p>4.查询未安装软件包的信息</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 Packages<span class="o">]</span><span class="c1"># rpm -qip httpd-2.2.15-59.el6.centos.x86_64.rpm</span>
 warning: httpd-2.2.15-59.el6.centos.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID c105b9de: NOKEY
@@ -1501,7 +1533,6 @@ Description :
 The Apache HTTP Server is a powerful, efficient, and extensible
 web server.
 </code></pre></div>
-
 <p>5.查询包所在的位置</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 Packages<span class="o">]</span><span class="c1"># rpm -ql ipset</span>
 /usr/sbin/ipset
@@ -1510,13 +1541,11 @@ web server.
 /usr/share/doc/ipset-7.1/ChangeLog
 /usr/share/man/man8/ipset.8.gz
 </code></pre></div>
-
 <p>6，知道文件名查询包属于哪个RPM包</p>
 <p>rpm -qf 文件名</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 Packages<span class="o">]</span><span class="c1"># rpm -qf /usr/share/doc/ipset-7.1/COPYING</span>
 ipset-7.1-1.el7.x86_64
 </code></pre></div>
-
 <p>7.查询软件包的依赖性</p>
 <p>rpm -qR</p>
 <p>选项：</p>
@@ -1560,7 +1589,6 @@ rpmlib<span class="o">(</span>FileDigests<span class="o">)</span> &lt;<span clas
 rpmlib<span class="o">(</span>PayloadFilesHavePrefix<span class="o">)</span> &lt;<span class="o">=</span> <span class="m">4</span>.0-1
 rpmlib<span class="o">(</span>VersionedDependencies<span class="o">)</span> &lt;<span class="o">=</span> <span class="m">3</span>.0.3-1
 </code></pre></div>
-
 <p>8.RPM包校验</p>
 <p>rpm -V 已安装的包名</p>
 <p>选项：</p>
@@ -1569,7 +1597,6 @@ rpmlib<span class="o">(</span>VersionedDependencies<span class="o">)</span> &lt;
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 Packages<span class="o">]</span><span class="c1"># rpm -V ipset</span>
 <span class="o">[</span>root@centos7 Packages<span class="o">]</span><span class="c1">#</span>
 </code></pre></div>
-
 <p><strong>注意：</strong></p>
 <ul>
 <li>安装时需要使用包全名</li>
@@ -1582,7 +1609,6 @@ rpmlib<span class="o">(</span>VersionedDependencies<span class="o">)</span> &lt;
 <p>IP地址配置：</p>
 <div class="highlight"><pre><span></span><code>[root@centos7 ~]# vim /etc/sysconfig/network-scripts/ifcfg-ens33
 </code></pre></div>
-
 <p><img alt="image-20201028232402917" src="https://i.loli.net/2020/10/28/XVSqmxrLPkWuAG9.png" /><strong>网络yum源</strong></p>
 <p>查看默认的yum源</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># vim /etc/yum.repos.d/CentOS-Base.repo</span>
@@ -1609,7 +1635,6 @@ rpmlib<span class="o">(</span>VersionedDependencies<span class="o">)</span> &lt;
 <span class="nv">enabled</span><span class="o">=</span><span class="m">0</span>
 <span class="nv">gpgkey</span><span class="o">=</span>file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 </code></pre></div>
-
 <p>查看所有的yum源</p>
 <p>//默认第一个生效： CentOS-Base.repo</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># cd /etc/yum.repos.d/</span>
@@ -1624,7 +1649,6 @@ total <span class="m">36</span>
 -rw-r--r--. <span class="m">1</span> root root <span class="m">7577</span> Apr  <span class="m">8</span>  <span class="m">2020</span> CentOS-Vault.repo
 -rw-r--r--. <span class="m">1</span> root root  <span class="m">616</span> Apr  <span class="m">8</span>  <span class="m">2020</span> CentOS-x86_64-kernel.repo
 </code></pre></div>
-
 <p>[base] 容器名称</p>
 <p>name 容器说明，可以随便填写</p>
 <p>mirrorlist  镜像站点这个可以注释掉</p>
@@ -1662,7 +1686,6 @@ zziplib-devel.i686                                   <span class="m">0</span>.13
 zziplib-devel.x86_64                                 <span class="m">0</span>.13.62-12.el7                       base
 zziplib-utils.x86_64                                 <span class="m">0</span>.13.62-12.el7                       base
 </code></pre></div>
-
 <p>2.使用关键字搜搜服务器上所有和关键字相关的包//使用包名即可</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># yum search httpd</span>
 Loaded plugins: fastestmirror, langpacks
@@ -1687,7 +1710,6 @@ mod_dav_svn.x86_64 : Apache httpd module <span class="k">for</span> Subversion s
 
   Name and summary matches only, use <span class="s2">&quot;search all&quot;</span> <span class="k">for</span> everything.
 </code></pre></div>
-
 <p><strong>安装</strong></p>
 <p>yum -y install 包名</p>
 <p>选项：</p>
@@ -1768,7 +1790,6 @@ Dependency Installed:
 
 Complete!
 </code></pre></div>
-
 <p>尝试使用yum安装gcc</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># yum -y install gcc</span>
 Loaded plugins: fastestmirror, langpacks
@@ -1845,12 +1866,10 @@ Dependency Installed:
 
 Complete!
 </code></pre></div>
-
 <p>查看安装情况：</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># rpm -q gcc</span>
 gcc-4.8.5-39.el7.x86_64
 </code></pre></div>
-
 <p><strong>升级</strong></p>
 <p>1.升级所有的软件包，包括linux内核都会升级//<strong>慎用！！！</strong></p>
 <p>yum -y update </p>
@@ -1863,7 +1882,6 @@ Loading mirror speeds from cached hostfile
  * updates: mirrors.ustc.edu.cn
 No packages marked <span class="k">for</span> update
 </code></pre></div>
-
 <p><strong>卸载</strong></p>
 <p>yum -y rermove 包名</p>
 <p>选项：</p>
@@ -1902,7 +1920,6 @@ Removed:
 
 Complete!
 </code></pre></div>
-
 <h4 id="yum_1">yum软件组管理命令<a class="headerlink" href="#yum_1" title="Permanent link">&para;</a></h4>
 <p>yum grouplist //列出所有可用的软件组列表</p>
 <div class="highlight"><pre><span></span><code>[root@centos7 ~]# yum grouplsit
@@ -1940,7 +1957,6 @@ Available Groups:
    System Management
 Done
 </code></pre></div>
-
 <p>yum groupinstall 软件组名 //安装指定软件组，组名可以由grouplist查询出来；如果组名有空格要使用“”括起来</p>
 <p>yum groupremove 软件组名//卸载指定软件组</p>
 <h4 id="yum_2">光盘yum搭建！！！<a class="headerlink" href="#yum_2" title="Permanent link">&para;</a></h4>
@@ -1976,7 +1992,6 @@ total 36
 -rw-r--r--. 1 root root 7577 Apr  8  2020 CentOS-Vault.repo.bak
 -rw-r--r--. 1 root root  616 Apr  8  2020 CentOS-x86_64-kernel.repo.bak
 </code></pre></div>
-
 </li>
 <li>
 <p>配置光盘挂载</p>
@@ -2011,7 +2026,6 @@ total 36
 ~
                                                                                   <span class="m">14</span>,1          All
 </code></pre></div>
-
 <p>使用yum list 查看</p>
 <div class="highlight"><pre><span></span><code>yum-plugin-upgrade-helper.noarch <span class="m">1</span>.1.30-40.el6         c7-media
 yum-plugin-verify.noarch         <span class="m">1</span>.1.30-40.el6         c7-media
@@ -2027,7 +2041,6 @@ zsh.x86_64                       <span class="m">4</span>.3.11-4.el6.centos.2 c7
 zsh-html.x86_64                  <span class="m">4</span>.3.11-4.el6.centos.2 c7-media
 <span class="o">[</span>root@centos7 yum.repos.d<span class="o">]</span><span class="c1">#</span>
 </code></pre></div>
-
 <h3 id="4">4.源码包管理<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <h4 id="rpm">源码包和RPM包的区别<a class="headerlink" href="#rpm" title="Permanent link">&para;</a></h4>
 <p>安装之前区别：概念上的区别</p>
@@ -2076,7 +2089,6 @@ Starting httpd: httpd: apr_sockaddr_info_get<span class="o">()</span> failed <sp
 httpd: Could not reliably determine the server<span class="err">&#39;</span>s fully qualified domain name, using <span class="m">127</span>.0.0.1 <span class="k">for</span> ServerName
                                                            <span class="o">[</span>  OK  <span class="o">]</span>
 </code></pre></div>
-
 <p>源码包安装的服务则不能被服务管理命令管理，因为没有安装到默认路径中，所以**只能用绝对路径**进行服务的管理，如：</p>
 <p>/usr/local/apache2/bin/apachetcl start</p>
 <h4 id="_2">源码包的安装过程<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>

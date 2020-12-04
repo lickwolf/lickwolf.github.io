@@ -877,6 +877,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../06-cisco%E6%9E%B6%E8%B5%B7%E4%BA%92%E8%81%94%E7%BD%91%E9%80%9A%E4%BF%A1%E7%9A%84%E6%A1%A5%E6%A2%81/" title="06-cisco架起互联网通信的桥梁" class="md-nav__link">
+      06-cisco架起互联网通信的桥梁
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../07-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8B%82%E6%99%93/" title="07-计算机拂晓" class="md-nav__link">
+      07-计算机拂晓
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../08-%E7%BD%91%E4%BA%8B%E7%9F%A5%E5%A4%9A%E5%B0%91--%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/" title="08-网事知多少--浏览器的前世今生" class="md-nav__link">
+      08-网事知多少--浏览器的前世今生
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -940,7 +976,6 @@
 /usr/share/man/man5/inittab.5.gz
 /usr/share/vim/vim74/syntax/inittab.vim
 </code></pre></div>
-
 <p>2.在/root下创建文件miaomiao；紧接着使用locate命令无法查找；需要使用updatadb更新数据库之后进行查找</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos6 ~<span class="o">]</span><span class="c1"># touch /root/miaomiao</span>
 <span class="o">[</span>root@centos6 ~<span class="o">]</span><span class="c1"># locate miaomiao</span>
@@ -948,13 +983,11 @@
 <span class="o">[</span>root@centos6 ~<span class="o">]</span><span class="c1"># locate miaomiao</span>
 /root/miaomiao
 </code></pre></div>
-
 <p>3.临时文件夹tmp 不适合updatadb</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># touch /tmp/zhangbozhi</span>
 <span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># updatedb</span>
 <span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># locate zhangbozhi</span>
 </code></pre></div>
-
 <p>4.不严格区分大小写查找</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># locate -i miaomiao</span>
 /home/miaomiao
@@ -973,7 +1006,6 @@
 /root/Miaomiao
 /var/spool/mail/miaomiao
 </code></pre></div>
-
 <p><strong>which</strong></p>
 <p>命令所在路径：/usr/bin/which</p>
 <p>执行权限：所有用户</p>
@@ -988,14 +1020,12 @@
 <span class="nb">alias</span> <span class="nv">rm</span><span class="o">=</span><span class="s1">&#39;rm -i&#39;</span>
         /usr/bin/rm
 </code></pre></div>
-
 <p><strong>whereis</strong></p>
 <p>功能：搜索命令所在的目录及帮助文档路径</p>
 <p>eq：</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># whereis ls</span>
 ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz /usr/share/man/man1p/ls.1p.gz
 </code></pre></div>
-
 <p><strong>grep</strong></p>
 <p>命令所在路径：/bin/grep</p>
 <p>执行权限：所有用户</p>
@@ -1010,7 +1040,6 @@ ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz /usr/share/man/man1p/ls.1p.gz
 <span class="c1"># systemctl get-default</span>
 <span class="c1"># systemctl set-default TARGET.target</span>
 </code></pre></div>
-
 <p>2.查找target不区分大小写</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># grep -i target /etc/inittab</span>
 <span class="c1"># Ctrl-Alt-Delete is handled by /usr/lib/systemd/system/ctrl-alt-del.target</span>
@@ -1021,12 +1050,10 @@ ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz /usr/share/man/man1p/ls.1p.gz
 <span class="c1"># To set a default target, run:</span>
 <span class="c1"># systemctl set-default TARGET.target</span>
 </code></pre></div>
-
 <p>3.将开头为#的注释行省略//^符号在前</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># grep -v ^# /etc/inittab</span>
 www.hcieonlin.com
 </code></pre></div>
-
 <p>4.查找target在/etc/inittab中；要求，省略显示#开头，查找结果显示行号</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>root@centos7 ~<span class="o">]</span><span class="c1"># grep -nv ^#  target /etc/inittab</span>
 grep: target: No such file or directory

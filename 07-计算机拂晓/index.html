@@ -1,0 +1,1344 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="学习 沉淀 成长 分享">
+      
+      
+        <link rel="canonical" href="https://github.com/lickwolf/lickwolf.github.io/07-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8B%82%E6%99%93/">
+      
+      
+        <meta name="author" content="Han Lu">
+      
+      <link rel="shortcut icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>07-计算机拂晓 - Cloudcomputing</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.6a5ad368.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2094f3">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+      <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://github.com/lickwolf/lickwolf.github.io" title="Cloudcomputing" class="md-header-nav__button md-logo" aria-label="Cloudcomputing">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89"><path d="M3.136 17.387v42.932l42.932 21.467L3.136 17.387z"/><path d="M21.91 8l42.933 64.398-18.775 9.388L3.136 17.387 21.91 8z" fill-opacity=".5"/><path d="M67.535 17.387L40.273 35.543l21.878 32.818 5.384 2.691V17.387z"/><path d="M67.535 17.387v53.666l18.774-9.388V8l-18.774 9.387z" fill-opacity=".25"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Cloudcomputing
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              07-计算机拂晓
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/lickwolf/lickwolf.github.io" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HanLu/Cloudcomputing
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../00-FusionSphere%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%99%9A%E6%8B%9F%E5%8C%96%EF%BC%89%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="md-tabs__link">
+          HCIE-Cloudcomputing
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../00-Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-tabs__link">
+          Linux
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../00-Python%E6%A6%82%E8%BF%B0/" class="md-tabs__link">
+          Python
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../00-%E9%9A%8F%E4%BE%BF%E8%81%8A%E7%82%B9%E4%BB%80%E4%B9%88/" class="md-tabs__link md-tabs__link--active">
+          电台
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://github.com/lickwolf/lickwolf.github.io" title="Cloudcomputing" class="md-nav__button md-logo" aria-label="Cloudcomputing">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89"><path d="M3.136 17.387v42.932l42.932 21.467L3.136 17.387z"/><path d="M21.91 8l42.933 64.398-18.775 9.388L3.136 17.387 21.91 8z" fill-opacity=".5"/><path d="M67.535 17.387L40.273 35.543l21.878 32.818 5.384 2.691V17.387z"/><path d="M67.535 17.387v53.666l18.774-9.388V8l-18.774 9.387z" fill-opacity=".25"/></svg>
+
+    </a>
+    Cloudcomputing
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/lickwolf/lickwolf.github.io" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HanLu/Cloudcomputing
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      HCIE-Cloudcomputing
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="HCIE-Cloudcomputing" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        HCIE-Cloudcomputing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../00-FusionSphere%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%99%9A%E6%8B%9F%E5%8C%96%EF%BC%89%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="第1章 FusionSphere" class="md-nav__link">
+      第1章 FusionSphere
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../01-FusionAccess%E6%A1%8C%E9%9D%A2%E4%BA%91/" title="第2章 FusionAccess" class="md-nav__link">
+      第2章 FusionAccess
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../02-FusionStorage/" title="第3章 FusionStoarge" class="md-nav__link">
+      第3章 FusionStoarge
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+    
+    <label class="md-nav__link" for="nav-2-4">
+      第4章 OpenSatck
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="第4章 OpenSatck" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        <span class="md-nav__icon md-icon"></span>
+        第4章 OpenSatck
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenSatck%E7%BB%84%E4%BB%B6/" title="4.0-OpenStack-OverView" class="md-nav__link">
+      4.0-OpenStack-OverView
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%874-Nova/" title="4.1-OpenStck-Nova" class="md-nav__link">
+      4.1-OpenStck-Nova
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%875-Cinder/" title="4.2-OpenStack-Cinder" class="md-nav__link">
+      4.2-OpenStack-Cinder
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%876-Glance/" title="4.3-OpenStack-Glance" class="md-nav__link">
+      4.3-OpenStack-Glance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%877-Swift/" title="4.4-OpenStack-Swift" class="md-nav__link">
+      4.4-OpenStack-Swift
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%878-Keystone/" title="4.5-OpenSatck-Keystone" class="md-nav__link">
+      4.5-OpenSatck-Keystone
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%879-Ironic/" title="4.6-OpenStack-Ironic" class="md-nav__link">
+      4.6-OpenStack-Ironic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8710-Neutron-%E4%B8%8A/" title="4.7-OpenStack-Neutron-上" class="md-nav__link">
+      4.7-OpenStack-Neutron-上
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8711-Neutron-%E4%B8%8B/" title="4.7-OpenStack-Neutron-下" class="md-nav__link">
+      4.7-OpenStack-Neutron-下
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8712-Ceilometer/" title="4.8-OpenSatck-Ceilometer" class="md-nav__link">
+      4.8-OpenSatck-Ceilometer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%873-KVM/" title="4.9-OpenStack-KVM" class="md-nav__link">
+      4.9-OpenStack-KVM
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../03-%E5%A4%87%E4%BB%BD/" title="第5章 备份" class="md-nav__link">
+      第5章 备份
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../04-%E5%AE%B9%E7%81%BE/" title="第6章 容灾" class="md-nav__link">
+      第6章 容灾
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../05-%E8%BF%81%E7%A7%BB/" title="第7章 迁移" class="md-nav__link">
+      第7章 迁移
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../06-%E5%8D%8E%E4%B8%BA%E4%BA%91Stack/" title="第8章 私有云" class="md-nav__link">
+      第8章 私有云
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Linux
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Linux基础
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux基础" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        <span class="md-nav__icon md-icon"></span>
+        Linux基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../00-Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="00-linux常用命令" class="md-nav__link">
+      00-linux常用命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../01-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" title="01-权限管理" class="md-nav__link">
+      01-权限管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../02-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4find/" title="02-文件搜索命令find" class="md-nav__link">
+      02-文件搜索命令find
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../03-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/" title="03-用户管理命令（基础）" class="md-nav__link">
+      03-用户管理命令（基础）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../04-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4-%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E5%91%BD%E4%BB%A4/" title="04-文件搜索命令-压缩解压命令" class="md-nav__link">
+      04-文件搜索命令-压缩解压命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../05-%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4/" title="05-网络命令" class="md-nav__link">
+      05-网络命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../06-%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4/" title="06-帮助命令" class="md-nav__link">
+      06-帮助命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../07-%E5%85%B3%E6%9C%BA%E9%87%8D%E5%90%AF%E5%91%BD%E4%BB%A4/" title="07-关机重启命令" class="md-nav__link">
+      07-关机重启命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../08-VIM%E7%BC%96%E8%BE%91%E5%99%A8/" title="08-VIM编辑器" class="md-nav__link">
+      08-VIM编辑器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../09-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/" title="09-软件包管理" class="md-nav__link">
+      09-软件包管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../10-%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/" title="10-用户和用户组管理" class="md-nav__link">
+      10-用户和用户组管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../11-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86ACL/" title="11-权限管理ACL" class="md-nav__link">
+      11-权限管理ACL
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Python
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Python" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../00-Python%E6%A6%82%E8%BF%B0/" title="Python概述" class="md-nav__link">
+      Python概述
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      电台
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="电台" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        电台
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../00-%E9%9A%8F%E4%BE%BF%E8%81%8A%E7%82%B9%E4%BB%80%E4%B9%88/" title="00-随便聊点什么" class="md-nav__link">
+      00-随便聊点什么
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../02-%E8%B0%88%E8%B0%88%E6%88%91%E7%9A%84%E6%81%8B%E7%88%B1%E8%A7%82/" title="02-谈谈我的恋爱观" class="md-nav__link">
+      02-谈谈我的恋爱观
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../03-John%20Gage%E5%92%8C%E2%80%9CThe%20network%20is%20computer%E2%80%9D/" title="03-John Gage和“The network is computer”" class="md-nav__link">
+      03-John Gage和“The network is computer”
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../04-%E5%85%B3%E4%BA%8E%E8%BE%A3%E5%AD%90%E9%B8%A1%E7%9A%84%E5%9B%9E%E5%BF%86/" title="04-关于辣子鸡的回忆" class="md-nav__link">
+      04-关于辣子鸡的回忆
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../05-%E5%A5%A0%E5%9F%BA%E7%A1%85%E8%B0%B7%E2%80%94%E2%80%94%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%A4%A7%E5%AD%A6/" title="05-奠基硅谷——斯坦福大学" class="md-nav__link">
+      05-奠基硅谷——斯坦福大学
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../06-cisco%E6%9E%B6%E8%B5%B7%E4%BA%92%E8%81%94%E7%BD%91%E9%80%9A%E4%BF%A1%E7%9A%84%E6%A1%A5%E6%A2%81/" title="06-cisco架起互联网通信的桥梁" class="md-nav__link">
+      06-cisco架起互联网通信的桥梁
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        07-计算机拂晓
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="07-计算机拂晓" class="md-nav__link md-nav__link--active">
+      07-计算机拂晓
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    去哈佛
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    磁芯存储器的发明
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    王氏实验室的成立
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ibm" class="md-nav__link">
+    与IBM讨价还价
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    王实验室成长
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    字处理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    王实验室跌跌撞撞
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    会费
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    资质荣誉
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    报价单
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../08-%E7%BD%91%E4%BA%8B%E7%9F%A5%E5%A4%9A%E5%B0%91--%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/" title="08-网事知多少--浏览器的前世今生" class="md-nav__link">
+      08-网事知多少--浏览器的前世今生
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    去哈佛
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    磁芯存储器的发明
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    王氏实验室的成立
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ibm" class="md-nav__link">
+    与IBM讨价还价
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    王实验室成长
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    字处理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    王实验室跌跌撞撞
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    会费
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    资质荣誉
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    报价单
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                  <h1>07-计算机拂晓</h1>
+                
+                <p>王先生于1920年2月7日出生于中国上海，是英语老师，中医从业者尹露王的五个孩子的长子和长子。他的名字叫安王，意为“和平之王”。在他6岁之前，他住在母亲家庭的上海大院里。然后，他的家人搬到了父亲的祖传城市昆山（昆山），距上海以西约30英里。王在这里从父亲教书的私立小学开始正规教育。由于学校缺少前两个年级，因此他必须从第三个年级开始。结果，对于他在中国的其余学业，他总是比同学小两岁，这种情况使他处于极大的劣势，但从长远来看，</p>
+<p>他很早就发现自己擅长数学，但是在需要死记硬背的科目上却遇到了困难，而且他总是很难集中精力处理那些对他不感兴趣的科目，例如政治学。他的父亲从4岁起就开始在家教英语。他的祖母孜孜不倦地教他儒学，后来他称之为“深刻影响汉字的实用哲学”，体现了节制，耐心，平衡，他后来得出的结论和简单性对业务成功至关重要。王还把儒家的信仰归因于儒家，他认为满足感来自对一个人的服务。</p>
+<p>在这些学年中，他发现，尽管他在学期中对他不感兴趣的非科学学科表现不佳，但只要集中精力于学期末，他总是可以在期末考试中表现出色。这项成功使他更加自信，他可以在情况需要时升职。</p>
+<p>到王11岁时，与共产党人的血腥斗争使国民党政府几乎无法控制中国。1931年，日本占领了满洲，并多次轰炸了国民党控制的上海。国民党向其8至12岁的学童进行了无休止的宣传计划。王回忆起，他记得每年被迫参加至少五次政治群众集会。这种经历使他反对政治行动主义，这种态度使他终生坚持。</p>
+<p>13岁那年，他就读于上海市外高中，距市区约10英里，在那里上了寄宿生，他在那里完全被美国教科书所教。王先生两岁的劣势使他无法参加团体运动，但他发现自己有乒乓球的天赋。他16岁那年进入他父亲就读的大学-上海交通大学，然后是中国麻省理工学院。他是全班最高的入学考试成绩。在接下来的四年中，他在这里学习电气工程，重点是通信。再次从美国教科书上讲授的科目对他来说很容易。后来他说，他在乒乓球上（在大学队里）所花的时间比学习工程学上的时间要多。</p>
+<p>1936年末，在王先生在交东的第一年，他的母亲因多年的恐惧和冲突而破裂，在昆山去世。日本侵略中国后，该大学被迁入上海国际住区的法租界。这为这场灾难提供了保护，因为在战争的头几年中，入侵者尊重外国租界的领土完整。在这种混乱之中，王的家人从昆山进入了特许权的临时安全之路。</p>
+<p>1940年毕业后，王先生在交通大学呆了一年，担任助教。在1941年夏天，他加入了一个为国民党军队提供收音机的小项目。他的八人小组乘船从被占领的上海乘船前往仍然英国的香港，然后到达关州湾（Kuan Chou Wan），这是法国在南中国海与东京湾之间的吕宋半岛上的一个孤立的法租界。他们从这里滑过日本线，行进了三个晚上，到河边，他们乘船，然后乘火车到中国境内300英里的国民党控制的桂林（今桂林）。</p>
+<p>在桂林，现年21岁的王某被负责一个小组，搜查和清理零件，并即兴设计用于军事用途的收音机。1944年末，在日本人占领桂林之前，王和他的团队被疏散到重庆。直到很久以后，王才才得知，在此期间，他的父亲和妹妹徐由于战争而去世。他的妹妹于和他的两个兄弟平和葛幸免于难，尽管他已经40年没有见到他们了。</p>
+<h3 id="_1">去哈佛<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>1945年3月，随着日本退缩，王安进入竞争考试的第二名，进入国民党政府计划，该计划在美国为数百名年轻工程师进行了为期两年的高级培训。4月，他乘坐美国DC-3飞机“飞过驼峰”到达印度的Ledo，坐火车去了加尔各答，一个月的等待后，他花了一个月的时间前往弗吉尼亚的纽波特纽斯，到达了那里。在六月。他写道，到那时，“有些事情我无法或不应该尝试完成的想法对我来说是完全陌生的。”</p>
+<p>王说，因为他是在寻找文化的相似之处，而不是差异，所以他声称自己没有遭受文化冲击。美国令人兴奋，但并不奇怪，在他看来，美国很像中国。Wang的小组暂时被安置在华盛顿特区的乔治敦大学。虽然小组中的一些人立即接受了在西屋和RCA等公司担任技术观察员的两年学徒的要约，但Wang提出了申请哈佛入学的新想法。幸运的是，他是唯一一次哈佛大学考虑过像他这样的案件的人。在1945年的初夏，尽管德国投降了，但与日本的至少一年的进一步战争似乎可以肯定。大多数美国年轻人仍穿着制服，甚至哈佛也比潜在的学生有更多的空缺。事实证明，对交通大学毕业生而言，进入哈佛对于他们中的几位来说要容易得多。1945年9月，王先生进入哈佛大学，攻读应用物理专业。</p>
+<p>在这里，尽管他的英语口语很差，但他感到很舒服。他会英语读写很好。大学环境适合他，哈佛还有其他许多中国人，而实验室似乎是他的第二故乡。他发现这项工作相对容易，并且在两个学期中就满足了应用物理学硕士学位的要求，在他的第一个学期就获得了两个A +和两个A-Wang在任何学术成就上都怀着清晰而自豪的回忆。</p>
+<p>1946年夏天之后，由于国民党将所有资源用于与毛泽东的内战，王先生每月从中国政府获得的100美元津贴结束了。最初，王先生担任中国驻渥太华采购团的文书工作。这是一个错误。这项工作是例行且无聊的，秋天的天气非常寒冷，冬天更糟。Wang申请哈佛大学录取了应用物理学博士学位。他被录取并每年获得1,000美元的教学研究金，后来又获得Benrus时间研究金。到1947年2月，他回到剑桥，决心尽快获得学位。</p>
+<p>今年5月，他选择论文的主题并不是因为它的重要性，而是因为他知道自己可以很快做到，并且会让博士委员会满意。它属于非线性力学，涉及对质量的影响的确定，其中两个力同时以不同的频率振荡。后来他说，这是他有史以来为数不多的几个问题之一，尽管它的实际目的是使他能够获得博士学位，但他并不关心它的实际应用。他在夏天进行了一些实验，在9月开始撰写结果，在12月完成论文，在2月提交论文，在春季的口试中为其辩护，并于1948年6月在仪式上获得学位。</p>
+<p>在看到休斯飞机公司（Hughes Aircraft）答复他的工作询问后寄给他的安全表格之后，他走过哈佛校园看他是否可以在哈佛计算实验室找到工作，该实验室由<a href="https://history.computer.org/pioneers/aiken.html">霍华德·艾肯</a>（<a href="https://history.computer.org/pioneers/aiken.html">Howard Aiken）</a>组成，五到六个研究员和几个助手，他们住在一座新的但不起眼的两层砖砌建筑中，该建筑物仍将玻璃封闭的Mark I放在一楼。艾肯正在为美国空军设计Mark IV，这是他的第一台纯电子计算机，后来证明是他和哈佛大学制造的最后一台计算机。王之所以向计算实验室申请，并不是因为他渴望在计算机上工作，而是因为它就在附近。虽然他的研究生教育与计算机无关，但他参加了数字电子电路课程，并且他的最新博士学位和他的个性似乎也使他具备了资格，因为在接受艾肯（Aiken）采访后，他很快就开始了工作。研究员，尽管他的任命被推迟到7月1日。</p>
+<h3 id="_2">磁芯存储器的发明<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>1948年5月18日，在开始工作的一两天之内，艾肯给了他一个问题，即寻找一种无需机械运动即可记录和读取磁性存储信息的方法。王后来写道：“在苦苦思索了大约三个星期之后，解决方案向我展示了。” 他与当时的小型计算机社区中的许多其他人都在考虑相同的问题，他认为，磁性存储信息的最佳方法是磁化具有强剩余磁通量的磁性材料的环形或磁芯。问题在于如何在不通过消磁磁芯而破坏存储信息的情况下读出信息。一天，当他在哈佛大院里散步时，突然想到了一个主意，即销毁信息与阅读完信息后是否立即消失无关紧要，它被改写回磁环。他在1948年6月29日的笔记本上写道：“……信息很可能以特定的磁方向留在核中，并在信息丢失或混浊之前被转移了很多次。 ]...。” 正如王后来所说的那样：“我的想法是通过破坏信息，我知道这一点。”（Pugh 1984）</p>
+<p>这种简单，新颖和优雅的概念适用于随后的所有磁芯存储器，正如Pugh（1984）所说的那样，这些“塑造行业的记忆”是Wang的最大技术成就。尽管这些设备现在正迅速成为一种存储器，但它们在1950年至1970年期间对计算机发展的重要性仅次于晶体管。实际上，Pugh（1984）进一步说道：“开发可以低成本大量生产的可靠，高速铁氧体磁芯存储器，可能是使存储程序计算机成为实用的，商业现实的最重要的创新。” 王的概念推动了这一发展。</p>
+<p>这一概念上的突破使他面临着寻找合适材料和实施设计的实际问题。他找到了一份海军出版物，描述了德国人在战争中开发的一种合适的磁性材料Permanorm 5000-Z（这种材料在美国的副本称为Deltamax，由Allegheny-Ludlum的子公司Arnold Engineering制造）。为了将环形线圈放入存储系统，他将它们串联起来，使它们成为Mark IV中使用的磁芯延迟线，但几乎没有其他计算机使用过。</p>
+<p>1949年6月，Wang首次与未婚夫Chiu Lourraine Chiu讨论了为其设备申请专利的想法，Lourraine Chiu已经求婚一年，第二个月就与他结婚。王在1948年在波士顿地区为中国学生和学者举行的聚会上认识了洛林。她与永荣（Yong Wing）有很深的联系，永荣是第一个在耶鲁大学学习并毕业的中国人（1854年）。她的父母在被吞并之前曾在夏威夷出生，但后来又搬回了上海，洛林在那里出生，并在圣约翰学院接受了本科教育。她来美国是在韦尔斯利（Wellesley）学习莎士比亚的作品，中国的内战使她深陷其中。冲突还使这对夫妇无法遵循传统的程序，寻求父母同意结婚。</p>
+<p>Chiu基于这一概念看到了专利的价值，并鼓励Wang获得它。计算实验室中没有其他人获得任何专利，当时有些大学感觉专利是邪恶的，不应将其用于学者的发明 [目前，只有少数几所大学，主要是那些拥有强大工程系的大学，已经制定了有关其员工专利权的政策。就在几年前，宾夕法尼亚大学和ENIAC的发明者之间激烈的分歧是由对有价值的学术专利的观点分歧引起的。另一方面，麻省理工学院的政策是将此类专利移交给紧密联系的研究公司，该公司已做出安排以奖励发明人，利用专利并将所产生的资金转给麻省理工学院。哈佛和宾夕法尼亚两所大学很有趣贬低员工的专利，很快就丧失了他们的位置，再也没有夺回他们在计算机领域的原始地位，而麻省理工学院则采用相反的专利政策，一直处在计算机研究的最前沿。（编辑）]</p>
+<p>Wang希望避免Aiken的传奇愤怒，尽管他从未亲自遇到过，所以他首先与哈佛大学探讨了专利问题。当时，哈佛仅对那些适用于公共卫生的发明保留专利权。他咨询过的哈佛大学行政管理人员建议王先生自费申请，并推荐哈佛大学自己的专利律师事务所，菲什，理查森和纳夫。在1949年10月21日的一个月内，Wang提交了名为“ Pulse Transfer Controling Devices”的专利申请，其中有34项权利要求，其中大多数是针对“信息延迟线”的。该申请产生了1955年5月17日授权的专利2,708,722（Wang 1955）。最重要的要求是数字24，表示“王”</p>
+<p>这种垄断存在于专利的17年寿命中，即直到1972年，之后，王的发明进入了公共领域，任何人都可以自由使用。由于王在哈佛的工作是由空军资助的，因此美国政府一直拥有使用该专利要求的非专有许可。</p>
+<p>这是索赔：</p>
+<p>24.一种脉冲传输控制装置，包括：磁性材料的芯，其中剩余磁通密度是饱和磁通密度的很大一部分；所述芯上的绕组装置；电流，有效地连接到所述绕组的脉冲发生器装置；施加电流的装置。与所述绕组装置相反极性的脉冲，所述一种极性的脉冲用于使所述芯在一个方向上饱和以读取信息，而具有相反极性的脉冲通过在所述绕组装置中感应电压而读出所述信息，所述状态受状态控制磁芯的剩余磁通密度的变化并复位所述磁芯。</p>
+<p>王先生提出专利申请后，经历了难得的不眠之夜，因为他振作起来通知艾肯，令他惊讶的是，虽然没有大喜过望，却一点反应都没有。艾肯后来给王再大幅度的加薪，在王留在实验室的一年半中，他发现自己与艾肯的关系没有区别，这一直是正确的，但从未亲密无间。</p>
+<p>1949年9月29日，就在提交申请之前，王先生在哈佛计算机研讨会上描述了他的发明，后来在《应用物理杂志》和《无线电工程师学会学报》上撰写了有关该发明的技术论文，使他的概念广为人知。计算机内存字段中的那些。已经解决此问题的其他人员（特别是Ralph E. Meager，Munro K. Haynes，Jan Rajachman和<a href="https://history.computer.org/pioneers/forrester.html">Jay W. Forrester</a>）设计了并有时申请了专利改进，从而掀起了专利诉讼的风暴，Wang的专利实际上不受损害地控制了专利。由于其优先级和广度，该领域中所有后来的专利。</p>
+<p>麻省理工学院的Jay W. Forrester设计了一种不同的组织核心的方法。Wang称他的计划“光彩夺目”，他总是后悔没有想到自己，他的计划不是将芯线排列成一条线，而是将其排列成矩阵状，这样就可以单独选择每个芯线（Forrester 1951）。该系统结合了Wang和Forrester的概念，并被某些人归因于Haynes，它一直统治着计算机存储器，直到内核被固态设备取代。</p>
+<p>值得注意的是，虽然Pugh（1984）在他对这些时代的描述中完全归功于Wang，但有关Forrester的使用磁芯存储的Whirlwind（Redmond and Smith 1980）和MIT Institute Archives Staff（1990）的作家设法做到了。完全忽略了Wang及其控制专利，这完全归功于Forrester的核心记忆。</p>
+<p>在1950年对Wang来说很明显，哈佛大学很快将不重视基础计算机研究，以符合其不使用商业应用领域的政策。他后来写道，哈佛不明智地放弃其在计算机开发领域的杰出地位。</p>
+<p>由于哈佛不打算进行基础计算机研究，因此他很容易决定离开计算实验室。他珍惜独立，不想为别人的公司工作。他真正想做的就是自己尝试一些东西。</p>
+<h3 id="_3">王氏实验室的成立<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>他在存储核心方面的创新使他获得了数字电子学专家的地位，他认为，通过开办自己的企业来制造和销售存储核心，可以利用这一地位，而这项业务几乎不需要资金。他一年的收入是5400美元。他希望自己第一年就能赚8,000美元左右。他没有预料到巨大的财富。他与妻子讨论了该计划，但后来她说，她对第一个儿子弗雷德里克（Frederick）的分娩非常着迷，以至于她不理解王采取的这一步骤的重要性。1951年4月，他向计算实验室发出了通知； 6月，他以独资企业的身份成立了王氏实验室（Wang Laboratories），积，下来的六百美元储蓄用作资本，没有订单，没有合同，也没有办公家具。</p>
+<p>王安的一生与他的创作“王实验室”紧密相连，以至于他们的历史必须被视为一个历史。因此，关于王氏实验室的内容与关于王氏本人的内容一样多。很明显，在他看来，没有明显的区别。</p>
+<p>他的中国朋友对反亚洲歧视敏感，因此认为在高加索机构占主导的地区开展业务并不明智。他的成功鼓励学术界的其他华人效仿他的榜样。</p>
+<p>Wang开始有条不紊地打电话或写信给他认为可能对购买内存内核感兴趣的大学，政府和行业中的每个人。在三周之内，他开始对他提供的每个价格为4美元的内核提出回应。哈佛养老基金一次性付给他，使他有了一年的缓冲时间，但即便如此，他的财务状况仍然pre可危。为了增加收入，他在东北大学开设了电气工程晚间课程。在1951年的最后六个月中，他的收入为3,253.60美元，略高于他在哈佛大学时的2,700美元。1952年秋天，电子实验室授予他一份开发脉冲同步器和计数器的合同。他获得了越来越多的咨询合同，以设计专用的数字设备，并利用数字电子技术发展了自己的设施。合同还教会了他关于市场和经营企业的基本知识。他的方法仅在创新服务于市场的情况下才与之相关，他说，这种方法自成立以来就一直是他公司的特色。</p>
+<h3 id="ibm">与IBM讨价还价<a class="headerlink" href="#ibm" title="Permanent link">&para;</a></h3>
+<p>在创立Wang实验室之后，他采取的第一步措施是询问IBM是否有兴趣购买他正在申请的专利的许可证。在一年的时间里，IBM进行了通信，派遣了访客，并要求提供详细的信息，Wang在其律师的建议下拒绝提供未经同意的信息。然后，Wang建议为IBM做一些咨询工作，经过一年的苦苦挣扎，在1953年11月达成了一项协议，根据该协议，他同意为IBM进行咨询，并授予他们为期三年的购买非独占许可证的选择权。尚未发布的专利。由此产生的每月数千美元的收入使Wang Laboratories保持了财务稳定。</p>
+<p>Wang的印象是，IBM对他们给他的特定项目的兴趣远不如对他们的选择以及他们对磁芯应用的思考的兴趣。当时，他对IBM迟迟未能掌握磁芯存储的重要性感到惊讶，并且他发现巨人的这种缓慢特性可能使规模较小，速度更快的公司有可能与之抗衡。</p>
+<p>IBM在开发铁氧体磁芯存储器方面开展了广泛的活动，到1954年中期，IBM还在为商用计算机开发此类存储器（Pugh，1984年）。1955年5月，当Wang的专利被授予时，IBM开启了有关使用费的谈判。他们断然拒绝证实较早的口头建议每比特一美分的版税。Wang提出以250万美元的价格出售他们的专利，被告知“ 250万美元的一半都太高了”。1955年10月，IBM提供了500,000美元，外加许可使用费的70％（从许可权中获取）给第三方。Wang准备接受但反对有关专利有效性和任何专利干扰后果的条款。在Wang从各个可能的角度回答了攻击他的专利的58个问题的清单之后，IBM掀起了轰动。他们发现了一位发明家，洛杉矶公共工程检查员弗雷德里克·维耶（Frederick W. Viehe），该人过去曾与大公司进行过几次专利干扰之战，他们正在申请1947年的专利，IBM认为该专利“肯定会导致干扰”。 。” IBM不会透露专利局一如既往秘密的申请内容。现在，IBM想立即与Wang达成协议。他后来写道：“后来发生的事件表明，IBM比当时对Viehe先生的专利申请了解更多。”</p>
+<p>尽管有这些感觉，Wang于1956年3月根据10月份的条款将其专利转让给了IBM，但规定了某些条件，在该条件下，可能会扣留最后的100,000美元。其中一个条件是“宣布专利或其任何权利要求受到干扰”。1956年5月，在专利截止期限的两周前，专利局宣布对Viehe专利的干涉。1957年11月，在专利干扰听证会进行期间，IBM以一百万美元的价格购买了Viehe专利申请，并雇用了发明人作为顾问。尽管事实是干扰案件中的当事方现在是IBM诉IBM，但一年后作出了裁决。这一决定只给Viehe一份王权债权，一个是次要债权。由于IBM现在拥有两项专利，因此无法进一步争论或上诉该决定。Wang没收了这100,000美元，并将对IBM的终生怨恨存储在他的记忆中。</p>
+<p>Viehe于1960年去世时，他留下了$ 625,000的遗产。他的遗ow的律师说，他通过出售一项发明而发了大财，这项发明使他宣誓保密，但维耶的儿子确定了IBM为买方。Wang相信，IBM决定，如果一项专利成为主导，则购买两项专利可能比购买一项专利便宜。在购买之前，IBM使用了每项专利来压低另一项的价格，并迫使两位发明人尽早达成协议。</p>
+<p>1975年，关于矩阵磁芯存储器上各种专利的持续法律纠纷使研究公司已故的J. William Hinkley回顾了1962年的一次内部备忘录，该会议涉及IBM，MIT和Research Corporation，在此期间，James据说，IBM副总裁W. Birkenstock表示：“鉴于计算机行业规模的巨大增长，他们可能为Wang或Viehe的专利支付了低价的费用。Birkenstock显然提出了这一点。他是一位谈判员的好榜样，但沃森却把他严厉地交给了任务”（加德纳，1976年）。有趣的是，1949年向王推荐的波士顿律师事务所的Fish，Richardson和Neave在1962年的这些谈判中是IBM的专利顾问。</p>
+<p>Wang后来写道：“我敢肯定，我和我的律师都曾试图进行恐吓，IBM会认为这只是在尽力确定他们想要购买的财产的价值时进行的。尽管如此，时机和虚张声势仍然存在在我们的谈判中发挥了重要作用，在第11小时，它们受到我或我的律师完全无法预料的事件的影响，直到今天，我仍然确信这是IBM策动的。”</p>
+<p>达成和解后，王先生将精力投入到为公司开发新的想法和新的方向上，而不是沉迷于有关专利的任何不公正之处。尽管表面上看起来很宽容，但他为微小的Wang实验室后来直接与IBM的最大实力竞争而感到自豪，这表明他经常遇到IBM的无限制竞争风格，并且经常获胜。</p>
+<p>1955年4月18日，就在专利被授予前，洛林和王放弃了中国国籍，成为了美国公民。</p>
+<h3 id="_4">王实验室成长<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>在随后的几年中，Wang实验室逐渐从一家咨询公司转变为一家开发和销售自己的产品的公司。正是在这一时期，王的同事开始称呼他为“医生”，这是他自己的家人开始使用的头衔。 [领导人的非正式头衔在小型技术组织中并不罕见。霍华德·艾肯最初被称为“司令”，后来被称为“老板”。]</p>
+<p>1954年，王氏实验室移居剑桥。第二年，在与IBM进行谈判的过程中，Doctor成立了Wang实验室。它的资产是25,000美元，所有的股票都由Wang持有，其中一些是他赠送给了他的妻子和家人的。1958年，当他雇用10名员工时，他购买了128号公路沿线的土地进行扩张，英联邦不久就将其用于拓宽道路，从而使他扩展为纳蒂克。</p>
+<p>起初，王先生大力推行政府合同。其中一些导致了商业产品，例如称为Logiblocs的晶体管逻辑卡和称为Weditrol的机床控制单元。1959年，由于财务原因，他以50,000美元的价格将公司25％的股份卖给了更大的公司和Weditrol的客户之一的Warner和Swasey。他几乎立刻对这笔交易感到遗憾。联盟造成的管理和融资问题远远超过了任何收益。简而言之，王第一次没有完全不受质疑地控制他的创作。</p>
+<p>剑桥的一家小型公司Compugraphic建议Wang设计并制造一台照排机，然后由Compugraphic销售。在一年的时间里，Wang实验室便由20名强大，设计，获得专利并建造了半自动对正排字机，称为Linasec，Compugraphic为其每人支付了30,000美元。在1960年代初期，销售飙升，在1964年达到了百万美元大关。此时，Compugraphic充分利用了自己制造机器的权利，从而使Wang脱离了排版业务。</p>
+<p>通过这两个致命的错误，既不是致命的，又不是教育性的，也不是盈利的，Wang学会了不要将公司的控制权移交给任何人，也不设计和制造产品以供另一家公司推向市场。</p>
+<p>1970年代中期，Wang股票按成本计入了Warner和Swasey的账目，这是一项价值数百万美元的隐藏资产，吸引了积极进取的公司收购方William Bendix，当时的Bendix总裁。他看到自己可以购买华纳和斯瓦西，并通过出售王氏股票来支付收购费用。Wang拒绝扮演白人骑士，而著名的旧机床公司陷入了攻略并被遗忘。</p>
+<p>当Wang实验室与Linasec一起蓬勃发展时，Wang设计了一种因子组合方法，该方法使用需要少于300个晶体管的逻辑电路来查找对数。1964年，他申请了一项专利，并设计了一种台式计算器LOCI，使用该原理，底价为6,500美元。用户必须熟悉对数和编程，但是LOCI比计算机容易使用得多。可以从其控制台或打孔卡或电传打字机（可以是终端机和打印机）对其进行编程。它可以服务几个键盘。到1966年，Wang通过制造商的代表每月售出约10个产品，而LOCI成为他的主要收入来源。尽管Wang最终获得了40多项专利，但LOCI似乎是基于其中一项的最后一种商业产品。</p>
+<p>1964年，王先生在图克斯伯里（Tewksbury）购置了一个占地85英亩的场地，并将其35名总劳动力从纳蒂克（Natick）搬到那里。</p>
+<p>LOCI是过渡产品，导致了Wang 300计算器，这是第一个可以被所有人使用的Wang产品。它的价格与主要竞争对手Friden的价格为1,695美元，毛利率为65-70％。它有一个带有数字键盘和10位电子显示屏的小型台式机。它执行了袖珍计算器现在期望的算术功能。较大的电子单元坐在地板上，可以多路复用到几个键盘。在LOCI推出10个月后，Wang 300就进入了市场。销售额从1965年的250万美元增加到1966年的380万美元，到第二年又增加了690万美元，而那时实验室已发展到拥有400名员工。</p>
+<p>随着Wang 300的出现，实验室从服务科学世界转向开放市场，在市场中，营销，销售和服务比发明更重要。此时，该公司也走向国际化，在英国，比利时和台湾销售。制造业中一些劳动密集型方面已转移到台湾。</p>
+<p>Wang建立了一个销售人员网络来代替独立制造商的代表，到1967年中，他在80个城市销售了80个人。他建立了一个销售佣金曲线，该曲线根据销售额增长的平方根增长。后来，当他的公司不再像Wang 300一样没有竞争时，他的公司就不再拥有计算器市场时，曲线进行了修改。</p>
+<p>尽管王先生喜欢承担自己的风险并受到完全控制，但他还是决定将自己的公司上市，筹集资金以偿还短期债务，而又不会稀释股票至失去控制的程度。该公司盈利良好，并且增长迅速。此外，由于Wang 300在经纪行中的广泛使用，在华尔街也广为人知。当Wang 300被用来揭示所罗门兄弟的债券交易表中的一个错误时，该行已无可争议地使用了30年，Wang 300在这里赢得了传奇的声誉。此外，在1967年夏季，热门的新发行市场接受了价格相对较高的计算机库存。股票的发行使Wang Laboratories从一家拥有约一百万美元净值的公司变为一家市值约为七千万美元的公司。王先生拥有的股份升值至约五千万。Wang认为在正确的时间公开上市没有任何信誉。他说那只是运气。</p>
+<p>Wang很高兴证明那些警告他说中文名字会妨碍他的人是错误的。</p>
+<p>虽然Wang 300及其允许某些编程的改进很畅销，但很显然，Wang将不得不用不仅仅是改进的东西代替它。BASIC的出现是Wang认为对用户友好的第一种计算机语言，这使他相信他应该考虑制造通用计算机。</p>
+<p>1968年春天，当他看到第一个提出的设计王4000时，使用了他更先进的计算器的电子设备和基于磁带的大容量存储设备，他发现它无法与DEC的PDP-8竞争，因此拒绝了。现在，Wang离开了公司，以获取所需的计算机硬件和软件设计专业知识。1968年夏末，他同时进行了两项新的工作来开发通用计算机，即Wang 700和Wang 3300 BASIC。</p>
+<p>Wang 700最初是一台计算机，其架构类似于使用微编码的IBM 360。当惠普宣布推出带有CRT显示屏和独立磁卡的新型计算器HP 9100时，Wang出售了他的顶级计算器Wang 370和Wang 380。为了保护Wang在计算器市场上的份额，Wang 700的开发进行了更改，使其成为直接挑战HP 9100的计算器。那是“纸机”诞生之初，而不是诞生之初。Wang 700于1968年12月发布，承诺于1969年6月交付，并在几个月后进入市场。该计算器是王先生最后一个成功使用磁芯存储器的产品。</p>
+<p>尽管Wang 3300 BASIC作为计算机进入了市场，但这也是一个错误的开始。它应该是一台真正的小型计算机，具有PDP-8的功能，但专门用于BASIC。程序中装有纸带，每个程序通常要花费40分钟。此外，它使用电传打字机代替CRT作为终端。卖不多。</p>
+<p>到1971年，市场价格压力将Wang 300系列低端产品的底价推高至600美元。半导体芯片使用包含计算器的所有电路的大规模集成（LSI），从通过军事合同开发出来的实验室进入了商业市场。在圣诞节期间，Bowmar推出了首款基于LSI的袖珍计算器，售价250美元，此后不久，出现了许多其他类似产品。当时，王先生过于保守地估计它们的价格很快就会跌至100美元。尽管Wang收入的70％来自计算器，但他还是决定退出该市场，首先离开了价格最低的领域。Wang声称，退出计算器业务的决定是理性和果断的结果，而不是运气。</p>
+<p>他的第一台通用计算机是Wang 2200，尽管实际上它被称为“计算计算器”，以免吓到客户。它于1972年末首次发货。BASIC及其解释器存储在ROM中。Wang 2200继续发展，直到1986年仍在销售，当时的销售量比1973年多，尽管那时它仅占Wang销售额的一小部分。</p>
+<h3 id="_5">字处理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>1971年11月，Wang宣布Wang 1200进入了文字处理市场。他故意攻击IBM的MTST（磁带电动打字机）。Wang 1200基于Wang 700计算器，并重写了固件。</p>
+<p>在使用中，将在终端上键入字母并记录在盒式磁带上。编辑涉及的命令代码。打印速度为每分钟175个字。按照当今的标准，Wang 1200非常原始，但它大大优于电动打字机，从而使商务信函的成本降低了一半。尽管IBM控制着80％的市场，但MTST只是他们业务的一小部分。王在攻击他们的小手指，而不是他们的右臂。如他所料，IBM反应迟钝。Wang花了几年的时间开发出明显优于IBM的产品，在1972年至1975年的这段时间里，IBM可能彻底结束了威胁，但是由于不开发自己的文字处理技术，他们给了Wang时间来学习，发展，纠正他的错误，并获得一些市场份额。</p>
+<p>尽管Wang 1200从未真正实现过Doctor的期望，但其主要的局限性之一是缺少CRT显示器，但到1975年，Wang在字处理市场上的地位已经得到很好的定位。此时，施乐公司推出了800，使用起来并不比Wang 1200容易，但是使用了Diablo打印机，速度是Wang的两倍。为了应对这种威胁，医生下令设计一种文字处理器，该处理器不仅可以复制现有的自动打字机，而且还可以提供反映用户需求和局限性的功能。它的规格不是从电子产品可以完成的，而是从秘书（几乎是所有女性）想要的机器中得出的。它将基于CRT，而不是基于打字机，并且将由一系列用户指导菜单驱动。它被称为WCS（Wang计算机系统）。</p>
+<p>它是在1976年6月的纽约Syntopican贸易展览会上推出的，它展示了唯一的模型，其原型如此之多，甚至没有打印机。人们排成十列，这是第一次在商用产品上看到在屏幕上进行的文本编辑。标价为30,000美元，一位客户根据预先订购的价格订购了100万美元。Wang将文字处理的销售与销售部门的其他部门分开，为了表明他对新产品的重视程度，Wang任命了当时26岁的大儿子Frederick A. Wang来负责新部门。</p>
+<p>在这些事件中，石油危机在1975年停止了汽车销售，使王先生的收入下降了三分之一，而王先生的收入在很大程度上取决于他向汽车经销商销售的计算器。王不得不裁员40人，这是他有史以来的第一次裁员。到1976年，由于Wang 2200和WCS的销售刺激，Wang再次开始了具有特色的非常规增长，这两者代表了Wang及时进入办公市场。</p>
+<p>现在是美国第32大计算机公司的Wang承诺通过广告直接与IBM对抗。IBM是唯一在电视上做广告的计算机公司。为了使Wang成为一个众所周知的名字，谨慎的经理从该公司购买办公产品，Wang将其年度广告预算增加了一倍，以基于一个广告开展为期三个月的电视广告活动。广告是在公司董事会会议上设定的David vs. Goliath主题。在商人中，王的知名度从4.5％提高到16％。医生回忆说，以DEC为例，Data General，Prime和Apple后来转向具有类似反IBM主题的电视，但“并不总是那么成功”。</p>
+<p>1976年，王先生在图克斯伯里（Tewksbury）的空间不住了，于是在洛厄尔（Lowell）买了土地和一栋建筑物，并将总部搬到了那里，并把工厂留在了图克斯伯里（Tewksbury）。洛厄尔（Lowell）的增长和建设突飞猛进，王先生迅速成为这个以前严重萧条地区的最大雇主。在随后的几年中，据说此举引发了1980年代的“马萨诸塞州奇迹”，使洛厄尔焕发了活力。</p>
+<p>到1978年，Wang已成为全球最大的CRT文字处理系统供应商，拥有五万用户。几年之内，美国最大的2000家公司中有80％购买了Wang的设备。据说一次，美国的每位秘书都对王的产品发誓。</p>
+<p>1975年，公司的财务状况变得与上市时一样重要。它有很多债务，需要更多现金才能利用预计的WCS。其股票的市值已跌至接近发行价的水平。如果王要抓住他在文字处理中看到的机会，他将不得不回到资本市场，但他想保留自己的个人和专有投票控制权。为此，他进行了资本重组，发行了股息较高的B类普通股，但其表决权仅为A类普通股的十分之一。纽约证券交易所不会扩展其规则以允许这样做（他们已经更改了其规则），因此王先生将其公司从纽约证券交易所除牌，然后将其移至美国证券交易所，该规则将在此扩展。A类交易繁重，B类交易少，与医生想要的相反。他的结论是，清单上的第一个王正在执行向经纪人“购买王”的命令。通过将A类的名称更改为C类，并使其列在B类以下的报纸上，医生解决了这个问题。</p>
+<p>王还解决了个人控制的问题。拥有52％的选票，Wang Laboratories仍然是他的全部。目前，博士在1957年建立的王氏家族信托的价值为16亿美元。</p>
+<p>Wang研究生院于1979年在廷斯伯勒成立。Wang捐赠了600万美元。上课于1981年开始，当时有5名学生并寄予厚望。这是为了展示开明的行业如何促进教育。它的计划是授予软件工程硕士学位的。它吸引了一批优秀的员工，制定了一个很好的程序来满足软件开发行业的需求，并在短时间内在从业者和教育者中赢得了良好的声誉。它的计划解决了整个系统开发生命周期，并承认了系统分析和项目管理中人为方面的困难（Fairley 1989）。该研究所还通过研究生奖学金来支持中文研究。</p>
+<p>1982年底，王先生试图将自己从日常业务细节中删除，并于1983年任命王先生的销售资深人士约翰·坎宁安为总裁。这个举动是行不通的，因为医生从没有真正放手，1984年末，他收回了took绳，坎宁安离开了。Wang的股票在1984年达到最高价42.5美元，再也没有达到这个水平。大约在同一时间，意识到Wang实验室错过了个人计算机革命的开始，当时负责产品开发的Frederick Wang宣布了一系列14种令人眼花innovative乱的创新产品。他们大多数都不存在。当客户意识到这一点时，他们开始大批改用IBM。</p>
+<p>Wang看到公司的一个重要问题是沟通，主要是与他沟通，因此他制定了自己讨厌的旅行计划，该计划遍及整个公司，以听取员工和客户的谈话。他的讲话具有传奇色彩，但一些员工质疑他的聆听效果。</p>
+<p>在1983年之前的十年中，Wang实验室的年增长率为40％。到1986年，当王的自传结束时，他的公司在两周内完成的业务比1976年全年多。这是一家市值30亿美元的企业，拥有30,000名员工。医生认为王氏实验室不仅是一个巨大成功的例子，而且是未来的一个很好的例子。</p>
+<p>随着公司在1980年代的发展，它在某些领域既与IBM竞争，又在其他领域适应IBM。小心翼翼地远离通常在IBM口袋中的公司MIS部门与购买文字处理器和PC的部门决策者之间的战斗。王志刚在自传末尾指出，当他与IBM谈判出售其专利时，是他的一倍，但到1986年，它只有二十倍。</p>
+<p>Wang认识到比IBM（日本）还要强大的竞争对手。他在自传中说：“既观察到又经历了日本的经济侵略，我得出的结论是，他们从第二次世界大战的经验中学到的很少，他们并没有削弱他们的帝国野心，而只是追求自己的目标。经济领域而不是军事领域。”</p>
+<h3 id="_6">王实验室跌跌撞撞<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>就在1986年之前，尽管其收入有所攀升，在1988年达到了30.7亿美元的峰值，但收入却开始下降，但一直没有恢复。Wang在产品开发方面的步伐太慢，并因长期债务而逐渐陷入困境。Wang的文字处理程序围绕昂贵的微型计算机构建，随着更小，更便宜，功能更强大的个人计算机接管了办公功能，它们变成了恐龙。Wang自己的PC价格过高，与行业标准不兼容，尤其是IBM的主导产品。服务差，价格昂贵。王的订单中有将近一半是迟到的，超过一半的订单是错误的。该公司在与客户的生意往来中赢得了声誉。800 R＆</p>
+<p>现在，由于收入急剧下降，王先生不得不削减自己的供款。在不到10年的生命中，1987年，王氏研究生院因其经费突然中断而关闭（Fairley 1989）。</p>
+<p>1987年，王先生任命现年38岁的弗雷德里克（Frederick）为总裁兼首席运营官。弗雷德里克（Frederick）行动太慢，无法削减成本并改变产品策略。适度反弹后，销售停滞，亏损增加。他的父亲将他的总统表现评为75％。1989年秋天，在接受食管癌手术后的第一天工作结束后，在其公司报告上一财年亏损4.24亿美元后，王安（An Wang）竭尽全力挽救了他的公司，解雇了他的儿子。开枪是一种直言不讳的方式，就像一个真正的中国儿子一样，王福瑞（Fred Wang）像一个真正的中国儿子一样，接受了他垂死的父亲对他的公开羞辱，并带有优雅和尊严。</p>
+<p>经过忙碌的10天搜寻，王先生将其儿子换成48岁的理查德·米勒（Richard W. Miller），他是通用电气的哈佛MBA，没有计算机行业经验。米勒面临9亿美元的债务。他结束了现金分红，出售了一些业务，削减了27％的员工，但在他的第一年仍然亏损了7.159亿美元。第二年，他使公司稳定下来，但至今仍未恢复。该公司的股票在1990年曾跌破4美元，但到今天仍保持在这一水平。</p>
+<p>当这些令人头疼的变化第一次在Wang实验室进行时，其创始人，父亲和另一个人在波士顿大都会综合医院去世。</p>
+<p>王氏实验室的命运的减少，特别是裁员的减少，对洛厄尔造成了灾难性的影响，洛厄尔的失业率从1984年的4.3％上升到1991年的12.5％。</p>
+<p>为什么？正如必须为他的公司的惊人和史无前例的成功而获得充分的称赞一样，自然而然地，由于王实验室在其掌管期间，甚至在儿子去世期间，王室实验室衰落的原因，他和他的举止自然而然。曾任总统，父亲继续行使控制权。他不能放手。</p>
+<p>一位研究王的衰落的作家查尔斯·肯尼（1991）列出了他认为有以下主要原因的原因：</p>
+<ol>
+<li>王先生决心将自己对公司的控制权转给大儿子，以符合中国传统。为此，他从26岁起就为弗雷德里克（Frederick）进行了培训，并忽略了有关儿子与他所担任的任务不相等的证据。Wang实验室的严重问题始于Frederick晋升至最高职位。当董事们提出异议时，他指出自己在上一份产品开发工作中处于劣势，博士回答说：“他是我的儿子。”</li>
+<li>Wang确信他的产品非常好，以至于客户总是要等上几个月，而他只是拒绝听取员工早期开发个人计算机的要求。他这样做的时候，太贵了，为时已晚。</li>
+<li>如今，客户将造纸机视为软弱和无能的标志。产品公告必须由现有产品支持。弗雷德里克（Frederick）在1982年大肆宣布虚构的机器，这与他父亲类似的1968年作法不谋而合。</li>
+<li>安旺的性格已经改变。他在自传中描述了自己，而在1986年之前认识他的人确认这一点，总是避免一点点盛况，只有两套西装，都是灰色的，只接受司机的服务是因为他在开车时发现自己在思考，并且普遍避免盛况。和仪式。在他生命的最后几年，这些事情发生了变化。他周围有保安人员，购买了公务机，然后搬进了一个有大理石壁炉和漩涡浴缸的3000平方英尺的办公室。用被罢免的总统坎宁安的话说：“医生已经变成了谦卑的女狂。”</li>
+</ol>
+<h3 id="_7">会费<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>王安，他的家人，他的家人信任和王氏实验室慷慨地投入时间和金钱进行教育和慈善事业。王本人曾担任马萨诸塞州高等教育委员会和马萨诸塞州董事会的成员，东北大学和波士顿学院的受托人以及哈佛大学的监督，他为此捐款了400万美元。1983年，王氏夫妇捐款400万美元，以拯救波士顿大都会中心，更名为王氏表演艺术中心。王氏是马萨诸塞州总医院九层楼的非卧床护理中心的主要出资者，给了它400万美元。王是哈佛费尔班克斯亚洲研究中心的主要出资人。他支持麻省理工学院，哈佛大学和中国文化学院的中国学者和研究。</p>
+<h3 id="_8">资质荣誉<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>王获得23个荣誉学位。他最看重的人来自现在在台湾的哈佛大学和乔东大学。1986年，他获得了美国自由勋章；1987年，Datamation进入了他的名人堂。1988年，他进入了国家发明家名人堂。</p>
+<h2 id="_9">报价单<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>去世前的四年，王安以自己的尾声结束了自传：</p>
+<p>我的日子花在做我真正想做的事情上。将一个想法变成现实的满足感永远不会减少，而改变的巨大礼物就是它不断补充可能被实现的新想法。挑战的刺激感远远超过了挫折，即学习和成长的代价。仍有很多教训要学习。</p>
+<p>有些可以从医生的生活中学到。</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../06-cisco%E6%9E%B6%E8%B5%B7%E4%BA%92%E8%81%94%E7%BD%91%E9%80%9A%E4%BF%A1%E7%9A%84%E6%A1%A5%E6%A2%81/" title="06-cisco架起互联网通信的桥梁" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                06-cisco架起互联网通信的桥梁
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../08-%E7%BD%91%E4%BA%8B%E7%9F%A5%E5%A4%9A%E5%B0%91--%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/" title="08-网事知多少--浏览器的前世今生" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                08-网事知多少--浏览器的前世今生
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2016 - 2020 Han Lu
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.hcieonline.com/weixinme/" target="_blank" rel="noopener" title="www.hcieonline.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M385.2 167.6c6.4 0 12.6.3 18.8 1.1C387.4 90.3 303.3 32 207.7 32 100.5 32 13 104.8 13 197.4c0 53.4 29.3 97.5 77.9 131.6l-19.3 58.6 68-34.1c24.4 4.8 43.8 9.7 68.2 9.7 6.2 0 12.1-.3 18.3-.8-4-12.9-6.2-26.6-6.2-40.8-.1-84.9 72.9-154 165.3-154zm-104.5-52.9c14.5 0 24.2 9.7 24.2 24.4 0 14.5-9.7 24.2-24.2 24.2-14.8 0-29.3-9.7-29.3-24.2.1-14.7 14.6-24.4 29.3-24.4zm-136.4 48.6c-14.5 0-29.3-9.7-29.3-24.2 0-14.8 14.8-24.4 29.3-24.4 14.8 0 24.4 9.7 24.4 24.4 0 14.6-9.6 24.2-24.4 24.2zM563 319.4c0-77.9-77.9-141.3-165.4-141.3-92.7 0-165.4 63.4-165.4 141.3S305 460.7 397.6 460.7c19.3 0 38.9-5.1 58.6-9.9l53.4 29.3-14.8-48.6C534 402.1 563 363.2 563 319.4zm-219.1-24.5c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.8 0 24.4 9.7 24.4 19.3 0 10-9.7 19.6-24.4 19.6zm107.1 0c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.5 0 24.4 9.7 24.4 19.3.1 10-9.9 19.6-24.4 19.6z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.hcieonline.com/QQme/" target="_blank" rel="noopener" title="www.hcieonline.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://instagram.com/stefaniehanlulu" target="_blank" rel="noopener" title="instagram.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+      </a>
+    
+      
+      
+      <a href="mailto:<lickwolf@163.com>" target="_blank" rel="noopener" title="lickwolf on email" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.11f47dfd.min.js"></script>
+      <script src="../assets/javascripts/bundle.7e09dd84.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ['tabs'],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
