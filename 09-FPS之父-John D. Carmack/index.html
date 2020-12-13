@@ -1,0 +1,1105 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="学习 沉淀 成长 分享">
+      
+      
+        <link rel="canonical" href="https://github.com/lickwolf/lickwolf.github.io/09-FPS%E4%B9%8B%E7%88%B6-John%20D.%20Carmack/">
+      
+      
+        <meta name="author" content="Han Lu">
+      
+      <link rel="shortcut icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>09-FPS之父-John D. Carmack - Cloudcomputing</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.6a5ad368.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2094f3">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+      <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#09-fps-john-d-carmack" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://github.com/lickwolf/lickwolf.github.io" title="Cloudcomputing" class="md-header-nav__button md-logo" aria-label="Cloudcomputing">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89"><path d="M3.136 17.387v42.932l42.932 21.467L3.136 17.387z"/><path d="M21.91 8l42.933 64.398-18.775 9.388L3.136 17.387 21.91 8z" fill-opacity=".5"/><path d="M67.535 17.387L40.273 35.543l21.878 32.818 5.384 2.691V17.387z"/><path d="M67.535 17.387v53.666l18.774-9.388V8l-18.774 9.387z" fill-opacity=".25"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Cloudcomputing
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              09-FPS之父-John D. Carmack
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/lickwolf/lickwolf.github.io" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HanLu/Cloudcomputing
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../00-FusionSphere%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%99%9A%E6%8B%9F%E5%8C%96%EF%BC%89%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="md-tabs__link">
+          HCIE-Cloudcomputing
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../00-Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-tabs__link">
+          Linux
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../00-Python%E6%A6%82%E8%BF%B0/" class="md-tabs__link">
+          Python
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../00-%E9%9A%8F%E4%BE%BF%E8%81%8A%E7%82%B9%E4%BB%80%E4%B9%88/" class="md-tabs__link md-tabs__link--active">
+          电台
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://github.com/lickwolf/lickwolf.github.io" title="Cloudcomputing" class="md-nav__button md-logo" aria-label="Cloudcomputing">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89"><path d="M3.136 17.387v42.932l42.932 21.467L3.136 17.387z"/><path d="M21.91 8l42.933 64.398-18.775 9.388L3.136 17.387 21.91 8z" fill-opacity=".5"/><path d="M67.535 17.387L40.273 35.543l21.878 32.818 5.384 2.691V17.387z"/><path d="M67.535 17.387v53.666l18.774-9.388V8l-18.774 9.387z" fill-opacity=".25"/></svg>
+
+    </a>
+    Cloudcomputing
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/lickwolf/lickwolf.github.io" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HanLu/Cloudcomputing
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      HCIE-Cloudcomputing
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="HCIE-Cloudcomputing" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        HCIE-Cloudcomputing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../00-FusionSphere%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%99%9A%E6%8B%9F%E5%8C%96%EF%BC%89%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="第1章 FusionSphere" class="md-nav__link">
+      第1章 FusionSphere
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../01-FusionAccess%E6%A1%8C%E9%9D%A2%E4%BA%91/" title="第2章 FusionAccess" class="md-nav__link">
+      第2章 FusionAccess
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../02-FusionStorage/" title="第3章 FusionStoarge" class="md-nav__link">
+      第3章 FusionStoarge
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+    
+    <label class="md-nav__link" for="nav-2-4">
+      第4章 OpenSatck
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="第4章 OpenSatck" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        <span class="md-nav__icon md-icon"></span>
+        第4章 OpenSatck
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenSatck%E7%BB%84%E4%BB%B6/" title="4.0-OpenStack-OverView" class="md-nav__link">
+      4.0-OpenStack-OverView
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%874-Nova/" title="4.1-OpenStck-Nova" class="md-nav__link">
+      4.1-OpenStck-Nova
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%875-Cinder/" title="4.2-OpenStack-Cinder" class="md-nav__link">
+      4.2-OpenStack-Cinder
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%876-Glance/" title="4.3-OpenStack-Glance" class="md-nav__link">
+      4.3-OpenStack-Glance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%877-Swift/" title="4.4-OpenStack-Swift" class="md-nav__link">
+      4.4-OpenStack-Swift
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%878-Keystone/" title="4.5-OpenSatck-Keystone" class="md-nav__link">
+      4.5-OpenSatck-Keystone
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%879-Ironic/" title="4.6-OpenStack-Ironic" class="md-nav__link">
+      4.6-OpenStack-Ironic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8710-Neutron-%E4%B8%8A/" title="4.7-OpenStack-Neutron-上" class="md-nav__link">
+      4.7-OpenStack-Neutron-上
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8711-Neutron-%E4%B8%8B/" title="4.7-OpenStack-Neutron-下" class="md-nav__link">
+      4.7-OpenStack-Neutron-下
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%8712-Ceilometer/" title="4.8-OpenSatck-Ceilometer" class="md-nav__link">
+      4.8-OpenSatck-Ceilometer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenStack--%E5%88%86%E4%BA%AB%E7%AF%873-KVM/" title="4.9-OpenStack-KVM" class="md-nav__link">
+      4.9-OpenStack-KVM
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../03-%E5%A4%87%E4%BB%BD/" title="第5章 备份" class="md-nav__link">
+      第5章 备份
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../04-%E5%AE%B9%E7%81%BE/" title="第6章 容灾" class="md-nav__link">
+      第6章 容灾
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../05-%E8%BF%81%E7%A7%BB/" title="第7章 迁移" class="md-nav__link">
+      第7章 迁移
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../06-%E5%8D%8E%E4%B8%BA%E4%BA%91Stack/" title="第8章 私有云" class="md-nav__link">
+      第8章 私有云
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Linux
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Linux基础
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux基础" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        <span class="md-nav__icon md-icon"></span>
+        Linux基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../00-Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="00-linux常用命令" class="md-nav__link">
+      00-linux常用命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../01-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" title="01-权限管理" class="md-nav__link">
+      01-权限管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../02-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4find/" title="02-文件搜索命令find" class="md-nav__link">
+      02-文件搜索命令find
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../03-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/" title="03-用户管理命令（基础）" class="md-nav__link">
+      03-用户管理命令（基础）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../04-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4-%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E5%91%BD%E4%BB%A4/" title="04-文件搜索命令-压缩解压命令" class="md-nav__link">
+      04-文件搜索命令-压缩解压命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../05-%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4/" title="05-网络命令" class="md-nav__link">
+      05-网络命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../06-%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4/" title="06-帮助命令" class="md-nav__link">
+      06-帮助命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../07-%E5%85%B3%E6%9C%BA%E9%87%8D%E5%90%AF%E5%91%BD%E4%BB%A4/" title="07-关机重启命令" class="md-nav__link">
+      07-关机重启命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../08-VIM%E7%BC%96%E8%BE%91%E5%99%A8/" title="08-VIM编辑器" class="md-nav__link">
+      08-VIM编辑器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../09-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/" title="09-软件包管理" class="md-nav__link">
+      09-软件包管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../10-%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/" title="10-用户和用户组管理" class="md-nav__link">
+      10-用户和用户组管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../11-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86ACL/" title="11-权限管理ACL" class="md-nav__link">
+      11-权限管理ACL
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Python
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Python" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../00-Python%E6%A6%82%E8%BF%B0/" title="Python概述" class="md-nav__link">
+      Python概述
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      电台
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="电台" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        电台
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../00-%E9%9A%8F%E4%BE%BF%E8%81%8A%E7%82%B9%E4%BB%80%E4%B9%88/" title="00-随便聊点什么" class="md-nav__link">
+      00-随便聊点什么
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../02-%E8%B0%88%E8%B0%88%E6%88%91%E7%9A%84%E6%81%8B%E7%88%B1%E8%A7%82/" title="02-谈谈我的恋爱观" class="md-nav__link">
+      02-谈谈我的恋爱观
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../03-John%20Gage%E5%92%8C%E2%80%9CThe%20network%20is%20computer%E2%80%9D/" title="03-John Gage和“The network is computer”" class="md-nav__link">
+      03-John Gage和“The network is computer”
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../04-%E5%85%B3%E4%BA%8E%E8%BE%A3%E5%AD%90%E9%B8%A1%E7%9A%84%E5%9B%9E%E5%BF%86/" title="04-关于辣子鸡的回忆" class="md-nav__link">
+      04-关于辣子鸡的回忆
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../05-%E5%A5%A0%E5%9F%BA%E7%A1%85%E8%B0%B7%E2%80%94%E2%80%94%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%A4%A7%E5%AD%A6/" title="05-奠基硅谷——斯坦福大学" class="md-nav__link">
+      05-奠基硅谷——斯坦福大学
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../06-cisco%E6%9E%B6%E8%B5%B7%E4%BA%92%E8%81%94%E7%BD%91%E9%80%9A%E4%BF%A1%E7%9A%84%E6%A1%A5%E6%A2%81/" title="06-cisco架起互联网通信的桥梁" class="md-nav__link">
+      06-cisco架起互联网通信的桥梁
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../07-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A1%8C%E4%B8%9A%E7%9A%84%E5%A4%A9%E9%99%8D%E7%8C%9B%E7%94%B7-%E7%8E%8B%E5%AE%89/" title="07-计算机行业的天降猛男-王安" class="md-nav__link">
+      07-计算机行业的天降猛男-王安
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../08-%E7%BD%91%E4%BA%8B%E7%9F%A5%E5%A4%9A%E5%B0%91--%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/" title="08-网事知多少--浏览器的前世今生" class="md-nav__link">
+      08-网事知多少--浏览器的前世今生
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="09-FPS之父-John D. Carmack" class="md-nav__link md-nav__link--active">
+      09-FPS之父-John D. Carmack
+    </a>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="09-fps-john-d-carmack">09-FPS之父-John D. Carmack<a class="headerlink" href="#09-fps-john-d-carmack" title="Permanent link">&para;</a></h1>
+<p><a href="https://www.bilibili.com/audio/au1999133?type=1?type=6">FPS之父-John Carmack</a></p>
+<p>本周一直在出差，累的够呛；周末开始写稿子不知道能不能写完，如果能写完的就证明没有咕咕。哈哈</p>
+<p>这一期讲一的内容是跟游戏有关的，是FPS游戏之父John-Carmack。我玩游戏是从小学开始的，不过那时候我玩的游戏是小霸王游戏机，或者说在当时叫做学习机。主体就是一个键盘然后能在上面插卡带。那时候玩游戏比较多的就是暑假的时候，因为我家是农村的，当时暑假基本上没有什么东西可玩的，所以我们同龄的小伙伴主要是在玩游戏，我记得我们当时做喜欢玩的游戏有这么几个，一个是忍者神龟对打的游戏，当时我们所有的小小伙伴都能记住每一个角色所有的出招表；下前拳，下前腿。玩这种游戏玩的其实是微操因为大家都知道绝招是怎么放的，所以我们在玩游戏的时候主要的时间是花费在等待时机上，对打的时候两个人人分别把控制的角色放置在屏幕两侧，等待时机，实际上在当时只要是稍微有一点大意了那么基本上你控制的角色就被连续的大招一波带走了。还有一个关于忍者神鬼的游戏，这个游戏是横板闯关游戏，每一关都有一个Boss，这个玩的也是比较多的。还有就是双截龙了当时暑假的时候，我们最喜欢玩的游戏应该就是双截龙了，这个游戏可以两个人一起玩，相互配合一关一关的打到通关。一般来说如果天气好的话，我们一群人把双截龙打通关之后就去河里洗澡了。这是没有电脑的时候我和我的小伙伴的主要活动，我小时候非常非常喜欢打游戏，我可以一条命打完魂斗罗，还有双截龙，还有那个横板闯关的忍者神鬼。我玩游戏的时候也是非常非常的专注，也会非常的情绪化，常常因为一个不比较的失误就不开心整个下午。</p>
+<p>​   我开始接触电脑游戏的时候是在小学了，我上小学的时候应该是3年纪吧，那时候我家附近开了一所黑网吧，我跟我的小伙伴会用自己为数不多的零花钱去上上网。在那里我接触到的第一个游戏应该是从4399上玩的合金弹头，我和小伙伴一起玩的都是那种无敌版的合金弹头，合金弹头的画质给我带来了全新的感受，让我觉得画面真的好看，武器也厉害，我们从网吧出来的时候可以跟伙伴谈论一整天。后来我们就接触到的是网络游戏了，我最喜欢玩的是跑跑卡丁车。但是当时我技术很菜，常常因为跑了最后一名而感到非常非常的失落。那时候还可以在网吧玩那种联机版本的CF。那是我第一次接触到这种第一人称视角的枪战游戏，我就非常非常的感兴趣。因为可以在里面使用各种各样的枪，其中我当时最喜欢的应该是Steyr AUG和AK 47.但是我枪打了确实很烂，我当时只是觉得这两把枪非常非常的好看。</p>
+<p>​   后来在我上初中的时候家里给买了一台电脑并且拉上了网线，那时候的我对电脑已经算是熟悉电脑了，能上百度查资料，能看电影， 还能去游民星空，3DM去下载各种单机游戏玩了，当时我最喜欢玩的破解游戏是鬼泣和使命召唤系列。还有是国产的血战上海滩了，我可以玩一整天游戏甚至不吃饭。</p>
+<p>​   大学之后我最常玩的游戏还是使命召唤，我大一的时候几乎是通宵的玩使命召唤，家里老的台式机上还有使命召唤1，我在学校宿舍最喜欢玩的是，使命召唤13 那时候通宵打游戏基本上家常便饭。上课的时候我就经常看B站上的游戏视频，当时我最常看的应该是敖厂长后来是玩策论。我也是从玩策论才知道了约翰·卡马克。可是现在玩策论在B上基本上处于停更的状态了，我感觉这个频道是做游戏视频非常非常认证的一个博主，哎，觉得蛮可惜的。至少我觉得他做视频的时候肯定是看了很多很多的书才去做的。玩策论也让我知道，约翰·卡马克是现在FPS游戏之父，没有这位天才的工程师可能我们现在基本上玩不到这么好玩的FPS游戏。</p>
+<p>​   约翰·卡马克出生在1970年，家境非常好，他的父亲是当地一所大电视台的新闻主播，他从小住在富人区。并且约翰·卡马克从小就非常非常的聪明。七岁的时候上二年级的约翰·卡马克就在所有的标准换测试中得到了满分的成绩，这相当于是九年级的水品。</p>
+<p>​   约翰·卡马克小的时候就非常非常喜欢读书吧，这点可能遗传了家族传统，毕竟他的父亲和母亲按照中国的标准来看的话都是高级知识分子，老爹上大学的时候拿奖学金并且非常擅长数学和工程学，老妈上一辈；约翰卡马克的外公是药剂师，外婆是理疗师。老妈自己是研究核疗技术的并且是微生物学的博士。约翰·卡马克非常喜欢读托尔金的《魔戒》或者其他的奇幻小说，并且非常喜欢看各种漫画，还非常喜欢科幻电影。但是他最喜欢的应该还是《 龙与地下城》，《龙与地下城》实际上当时的一种桌游，基本过程是玩家扮演的冒险者在一个虚拟世界中进行冒险，有点类似于我们小时候玩的《大富翁》，但是这个游戏是有非常复杂的规则书的，</p>
+<p>有玩家手册，城主手册，怪物图鉴三本。约翰·小时候不光玩还能自行在游戏的基础上进行创作。</p>
+<p>​   约翰·卡马克小时候喜欢玩电子游戏，当时的普通人能够玩到的电子游戏基本上以街机的形式出现的。他喜欢玩《行星撞击》和《太空入侵者》 还有《战区》</p>
+<p>战区实际上是当时的雅达利（ Atari）开发的一种射击游戏，在游戏中玩家要做的就是控制坦克来击毁敌人。其实在现在看来游戏的画面非常非常简单，游戏显示出来的是一种线框样式的3D样式图像，我感觉现在的小朋友玩这种游戏需要非常强的空间思维能力，这种图像都是矢量图而不是位图，简单地说就是这些矢量图实际上是由数学公式来表示的无论怎么放大缩小都不会变形和失真，而位图来说它是由一个一个的像素点构成的放大缩小就会失真。</p>
+<p><img alt="kgnWZE3oau6hNYEWXzatz4-1200-80" src="https://gitee.com/hanstack/hanstack_image/raw/master/img/kgnWZE3oau6hNYEWXzatz4-1200-80.jpg" /></p>
+<p><img alt="查看源图像" src="https://gitee.com/hanstack/hanstack_image/raw/master/img/OIP.0W9IKzwWgZ6ydmvnFP-VhQHaEu" /></p>
+<p>《战区》这个游戏跟其它游戏不一样的地方在于，他并不是从侧面或者高出显示战斗情况，而是以第一人称视角来显示战斗画面，虽然只是简单的绿色线条但是却让人感觉到是在坦克驾驶室里亲自战斗。这个游戏在当时还引起了美国政府的注意，他们还为此特地像游戏开发公司（Artia）定制了一个版本用于军事训练。</p>
+<p>​   卡马克念五年级的时候，参加了一个计算机培训班，并且在哪里学到了一些基础的编程知识。后来卡马克转学进入到了一个公立学校的天才班，这个学校也是当时附近最早有计算机实验室的地方。</p>
+<p>​   在这里，卡马克遇到了一些和他一样对苹果机着迷的聪明孩子。他们自学 BASIC 编程，他们一起玩游戏，很快他们就不满足于这种简单的玩乐，他们开始研究并动手修改游戏。一次，卡马克找到了他在《创世纪》里角色所对应的代码，他修改了那一段，给自己增加了一些额外的能力，这是他第一次体会到凭空创造东西的乐趣。而且，作为一名程序员，他不需要依赖于其他人，只要他的代码逻辑正确表述了他定义的规则，它就会工作得很好，一切都那么合理。</p>
+<p>​   虽然卡马克对游戏的兴趣非常着迷，但是他老妈却认为那些计算机游戏没有任何意义，在他看来一个孩子如果要是对计算机感兴趣，也不能仅仅是玩玩电子游戏而是应该在学校里努力学习，然后考个好一点的成绩，最后进入到麻省理工那样牛逼的学校然后毕业进IBM。其实他老妈的想法和我们这一带人父母的想法基本上一致的，你首先应该好好学习，进入985学校然后毕业去BAT搬砖。太阳能地下没有新鲜事，国内国外看来是大同小异。 后来卡马克·父母离婚了，卡马克也随这父亲搬家了，新的学校是没有计算机的，也没有了志同道合的伙伴，他觉得自己非常非常的孤独。</p>
+<p>​   在这期间使他感觉并不孤单的是一本书《Hackers:Heroes of Computer Revolution》是卡马克的启示录。卡马克以前也听说过黑客，在1982年有一部电脑叫做《 电子世界争霸战》的电影，如果大家有兴趣的话也可以去看看，故事有点赛博朋克风格。还有就是1983年有一部电影叫做《战争游戏》（Wargames）。卡马克毕竟是一个不甘寂寞的人很快他就和当地的一些孩子混熟了。他们一起上BBS。这是一个网络社区，或者说在当时是一个承载大公化的计算机俱乐部。</p>
+<p>BBS 大约诞生于 1978 年。沃德·克里斯滕森（Ward Christensen）和兰迪·瑟斯（Randy Seuss）这两名黑客编写了第一个能在两台计算机之间通过电话线传输数据的软件，从而一台计算机可以“呼叫”另外一台并进行信息交换。在 20 世纪 80 年代，BBS 迅速传播开来，并形成了有史以来真正意义上的虚拟社区，在这里，人们可以对换或是交易软件，并通过在论坛里发布信息进行“交谈”。任何有微型计算机的人，加上一根电话线和一个调制解调器，就可以开一个 BBS。这种方便廉价的系统迅速传遍了世界，在宿舍的房间内，在大楼的公寓里，在计算机实验室中。其中一些，譬如旧金山的WELL 站（Whole Earth ‘Lectronic Link），成为了黑客和玩家们的温床。</p>
+<p>​   卡马克上 BBS 不光为了游戏方面的东西，在这里他还可以领略到最令人激动的黑客文化，这里面也有些违法的东西，譬如他学到了如何盗用电话线路，从而可以免费使用长途服务。他还见到了 MUD（Multi-User Dungeons），一种类似《龙与地下城》的文字冒险游戏。此外，他还见到了炸药。</p>
+<p>对于卡马克而言，炸药不光是能让人觉得刺激的玩艺，他更把它看做一种化学工程，一种纯粹的科学实验。如果搭配得好的话，可以让东西砰砰嘭嘭地炸开。很快他就和朋友们按照 BBS 上的配方着手演练了起来，他们把火柴头刮下，混合上硝酸铵，从而得到硝酸钾， 再加上食糖，就得到了烟雾弹。他们还通过学校里自然课上的原料制作了铝热剂，这是种强大的可塑炸药。他们曾在放学后跑到桥下把桥墩的混凝土砖头炸开过。</p>
+<p>​   卡马克和朋友们摸到附近的一所学校旁，他们知道那里面有苹果机。卡马克刚学到铝热剂可以用来融化玻璃，只要再加上一些粘性的物质譬如凡士林；他把这两样东西调配在一起，然后涂抹在玻璃上，玻璃随之融开一个个大洞，他们就从这里钻了进去。而他们中的一个小胖子则遇到了麻烦，洞对他来说小了一点，于是他直接从洞里伸手进去打开窗户，然后成功地触动了连接到附近警察局的警报器。他们很快就发现自己被包围了。</p>
+<p>​   此时卡马克只有十四岁，卡马克被送去做精神评估，以便于测定他的口供。他走进房间，肩膀上挂着彩。面谈进行的很不顺利，卡马克后来得知了那些人对他的评价：“这个男孩就像是一副会走动的躯体……完全不知道如何体会其他人的感受。”面谈中，一个男人玩弄着铅笔，向卡马克问道：“如果你这次没有被抓到，你觉得你还会不会再做类似的事情？</p>
+<p>​   “如果我这次没有被抓到，”卡马克诚实地回答道：“是的，我想我应该还会再做。”</p>
+<p>​   后来给卡马克做评估的精神医师告诉他：“你知道吧，像这样直白地告诉别人你还会明知故犯，并不是一个明智的做法。”</p>
+<p>卡马克觉得非常非常的崩溃。“我事先说了‘如果我这次没有被抓到’的呀！”</p>
+<p>他被处以一年的教养，进了城里的“少年之家”。那里大部分孩子都是因为毒品进去，而卡马克则是因为苹果机。</p>
+<p>​   卡马克从少年之间出来之后，他的父母给他买了一台苹果机，卡马克迷上了图像编程；后来他做出了第一个游戏《造影》（shadowforge），这个游戏基本上是脱 </p>
+<p><img alt="1428933234_9283" src="https://gitee.com/hanstack/hanstack_image/raw/master/img/1428933234_9283.jpg" /></p>
+<p>主营电池的“夜鹰”（Nite Owl Productions）公司花一千美元购买了它，这是卡马克平生第一笔收入，他用这笔钱把他的苹果机升级到了苹果 II GS。</p>
+<p>​       </p>
+<p>卡马克还发现了一个新的赚钱途径：把他那些苹果机上的游戏转换到一种名叫 IBM-PC 的机器上。他对这种新兴的系统几乎一无所知， 但这对他而言正好是一个编程上的挑战。他驱车到一家商店拉回一台 PC 机，一个月后，他不光给《软盘》寄去了苹果机上的《黑暗构思》， 还附了一份转换过的，或者说是“移植”过的 PC 版本。卡马克通宵达旦地工作，他已经可以很熟练地同时推出三个平台的版本：苹果、苹果II GS、PC，而《软盘》会买下所有这些版本。</p>
+<p>1988年18岁的卡马克在坎萨斯大学报了名，选修是清一色的计算机课程，但是那些课程全都是考察死记硬背的能力；没有什么挑战性，也没有什么创造性，在卡马克看来，这不是无趣，而是一种侮辱。然后在忍受了两个星期周卡马克退学了。然后全身心的投入到自己的第二个游戏的创作当中，卡马克把游戏寄给了他前一个游戏的出版商收获了2000美元。</p>
+<p>​   卡马克基本上是个自由职业者了，自由的支配自己的时间，写写程序，玩玩汽车，玩玩《龙与地下城》。卡马克还发现了一个新的赚钱途径：把他那些苹果机上的游戏转换到一种名叫 IBM-PC 的机器上。他对这种新兴的系统几乎一无所知， 但这对他而言正好是一个编程上的挑战。他驱车到一家商店拉回一台 PC 机，一个月后，他同时推出三个平台的版本：苹果、苹果II GS、PC，而《软盘》这家出版商会买下所有这些版本。</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../08-%E7%BD%91%E4%BA%8B%E7%9F%A5%E5%A4%9A%E5%B0%91--%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/" title="08-网事知多少--浏览器的前世今生" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                08-网事知多少--浏览器的前世今生
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2016 - 2020 Han Lu
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.hcieonline.com/weixinme/" target="_blank" rel="noopener" title="www.hcieonline.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M385.2 167.6c6.4 0 12.6.3 18.8 1.1C387.4 90.3 303.3 32 207.7 32 100.5 32 13 104.8 13 197.4c0 53.4 29.3 97.5 77.9 131.6l-19.3 58.6 68-34.1c24.4 4.8 43.8 9.7 68.2 9.7 6.2 0 12.1-.3 18.3-.8-4-12.9-6.2-26.6-6.2-40.8-.1-84.9 72.9-154 165.3-154zm-104.5-52.9c14.5 0 24.2 9.7 24.2 24.4 0 14.5-9.7 24.2-24.2 24.2-14.8 0-29.3-9.7-29.3-24.2.1-14.7 14.6-24.4 29.3-24.4zm-136.4 48.6c-14.5 0-29.3-9.7-29.3-24.2 0-14.8 14.8-24.4 29.3-24.4 14.8 0 24.4 9.7 24.4 24.4 0 14.6-9.6 24.2-24.4 24.2zM563 319.4c0-77.9-77.9-141.3-165.4-141.3-92.7 0-165.4 63.4-165.4 141.3S305 460.7 397.6 460.7c19.3 0 38.9-5.1 58.6-9.9l53.4 29.3-14.8-48.6C534 402.1 563 363.2 563 319.4zm-219.1-24.5c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.8 0 24.4 9.7 24.4 19.3 0 10-9.7 19.6-24.4 19.6zm107.1 0c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.5 0 24.4 9.7 24.4 19.3.1 10-9.9 19.6-24.4 19.6z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.hcieonline.com/QQme/" target="_blank" rel="noopener" title="www.hcieonline.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://instagram.com/stefaniehanlulu" target="_blank" rel="noopener" title="instagram.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+      </a>
+    
+      
+      
+      <a href="mailto:<lickwolf@163.com>" target="_blank" rel="noopener" title="lickwolf on email" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.11f47dfd.min.js"></script>
+      <script src="../assets/javascripts/bundle.7e09dd84.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ['tabs'],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
